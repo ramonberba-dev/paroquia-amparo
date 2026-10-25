@@ -114,7 +114,10 @@ textarea.campo{resize:vertical;min-height:96px}
 /* acesso restrito */
 .acesso{margin-top:34px;border-top:1px dashed var(--linha2);padding-top:18px}
 .acesso form{display:flex;gap:10px}
-.acesso .campo{max-width:240px;letter-spacing:.12em;text-align:center}
+.acesso .campo{width:100%;letter-spacing:.12em;text-align:center;padding-right:46px}
+.pin-caixa{position:relative;display:block;flex:1;max-width:260px}
+.olho{position:absolute;right:4px;top:50%;transform:translateY(-50%);border:0;background:none;color:var(--mudo);width:40px;height:40px;display:grid;place-items:center;border-radius:10px}
+.olho[aria-pressed="true"] .risco{display:none}
 
 /* data */
 .datas{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:14px}
@@ -427,12 +430,15 @@ async function telaInicio(){
     <div class="acesso">
       ${sessao.papel ? `<p class="mudo pequeno">Conectado como <b>${sessao.papel === 'padre' ? 'Padre' : 'Pastoral do Dízimo'}</b>. <button class="btn claro" id="sair" style="padding:8px 14px;margin-left:6px">Sair</button></p>`
       : `<p class="mudo pequeno" style="margin:0 0 8px"><b>Acesso restrito</b> — Padre e Pastoral do Dízimo</p>
-         <form id="formPin"><input class="campo" id="pin" type="password" autocomplete="off" autocapitalize="off" spellcheck="false" maxlength="40" placeholder="PIN" aria-label="PIN"><button class="btn">Entrar</button></form>
+         <form id="formPin"><span class="pin-caixa"><input class="campo" id="pin" type="password" autocomplete="off" autocapitalize="off" spellcheck="false" maxlength="40" placeholder="PIN" aria-label="PIN"><button type="button" class="olho" id="olho" aria-label="Mostrar PIN" aria-pressed="false"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/><path class="risco" d="M4 4l16 16"/></svg></button></span><button class="btn">Entrar</button></form>
          <p class="pequeno" id="pinMsg" style="color:var(--erro);margin:8px 0 0"></p>`}
     </div>
   </section>`;
   app.querySelectorAll('[data-ir]').forEach(b => b.onclick = () => ir(b.dataset.ir));
 
+  const olho = $('#olho');
+  if (olho) olho.onclick = () => { const ver = $('#pin').type === 'password'; $('#pin').type = ver ? 'text' : 'password';
+    olho.setAttribute('aria-pressed', ver); olho.setAttribute('aria-label', ver ? 'Esconder PIN' : 'Mostrar PIN'); $('#pin').focus(); };
   const f = $('#formPin');
   if (f) f.onsubmit = async ev => {
     ev.preventDefault(); const pin = $('#pin').value.trim(); if (!pin) return;
