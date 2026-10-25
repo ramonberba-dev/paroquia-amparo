@@ -831,7 +831,7 @@ function telaPagamento(tipo){
       <ol class="passos-pix"><li>Toque em <b>Copiar código Pix</b>.</li><li>Abra o app do seu banco, escolha <b>Pix › Pix copia e cola</b> e cole o código.</li><li>Confira o nome da paróquia e o valor, e confirme.</li></ol>
       <button class="btn claro grande-btn" id="feito" hidden>Já fiz o pagamento</button>
       <div id="informar" hidden>
-        <p class="mudo" style="margin:14px 0 8px"><b>1.</b> Toque no clipe 📎 e anexe o comprovante do Pix.<br><b>2.</b> Toque no botão verde para avisar a secretaria pelo WhatsApp.</p>
+        <p class="mudo" style="margin:14px 0 8px"><b>1.</b> Toque no clipe 📎 e anexe o comprovante do Pix.<br><b>2.</b> Toque no botão verde: abre a conversa da secretaria com a mensagem pronta.<br><b>3.</b> No WhatsApp, toque no clipe 📎, anexe o comprovante e envie.</p>
         <div class="zap-linha"><button class="btn zap" id="zap" disabled>${ICONE_ZAP} Informar pagamento à secretaria</button>
           <label class="clip" title="Anexar comprovante" aria-label="Anexar comprovante">${ICONE_CLIP}<input type="file" id="comp" accept="image/*,application/pdf" hidden></label></div>
         <p class="pequeno" id="anexo" style="margin:8px 0 0;color:var(--ok);font-weight:700"></p>
@@ -852,13 +852,9 @@ function telaPagamento(tipo){
       const msg = `Olá! A paz de Jesus e o amor de Maria! 🙏\n\nMeu nome é ${nome} e ${T.frase}.\n\n` +
         `• Valor: ${reais(valor)}\n• Referente a: ${meses}\n` + (envelope ? `• Número do envelope: ${envelope}\n` : '') + `• Telefone: ${telefone}\n\n` +
         `Segue o comprovante. ${T.fecho}`;
-      if (arquivo && navigator.canShare && navigator.canShare({files: [arquivo]})) {
-        try { await navigator.clipboard.writeText(msg); } catch(e){}
-        try { await navigator.share({files: [arquivo], text: msg}); return; } catch(e){ if (e.name === 'AbortError') return; }
-      }
       const numero = String(PIX.whatsapp || '').replace(/\D/g, '');
       window.open(`https://wa.me/${numero}?text=${encodeURIComponent(msg)}`, '_blank', 'noopener');
-      toast('Se o comprovante não aparecer na conversa, toque no 📎 do WhatsApp e anexe.');
+      toast('Na conversa da secretaria, toque no 📎 do WhatsApp, anexe o comprovante e envie.');
     };
   };
 }
