@@ -214,7 +214,7 @@ textarea.campo{resize:vertical;min-height:96px}
 .resultado b{color:var(--azul)}
 .resultado mark{background:#FFE7A3;border-radius:3px}
 
-.acoes-cartaz{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:8px}
+.acoes-cartaz{flex-basis:100%;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
 .acoes-cartaz .btn{padding:9px 16px;font-size:15px}
 .acoes-cartaz a{font-weight:800}
 .arte-fundo{position:fixed;inset:0;z-index:60;background:rgba(10,18,36,.82);display:grid;place-items:center;padding:16px}
@@ -242,12 +242,14 @@ textarea.campo{resize:vertical;min-height:96px}
 .cartaz .btn{width:100%;padding:18px;font-size:18px;display:flex;align-items:center;justify-content:center;gap:10px}
 .mes-sel{display:flex;gap:10px;margin:12px 0}
 .mes-sel select{flex:1}
-.pedido{display:flex;align-items:center;gap:12px;padding:12px 0;border-top:1px solid var(--linha)}
+.pedido{display:flex;flex-wrap:wrap;align-items:flex-start;gap:8px 12px;padding:14px 0;border-top:1px solid var(--linha)}
+.pedido>div:first-child{flex:1;min-width:0}
 .pedido:first-child{border-top:0}
 .pedido b{display:block}
 .status{margin-left:auto;font-size:13px;font-weight:800;padding:5px 10px;border-radius:999px;background:var(--esperabg);color:var(--espera);white-space:nowrap}
 .status.pronto{background:var(--okbg);color:var(--ok)}
 .status.erro{background:var(--errobg);color:var(--erro)}
+.status.aguarda{background:var(--azulbg);color:var(--azul)}
 
 .toast{position:fixed;left:50%;bottom:calc(92px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--tinta);color:#fff;padding:12px 18px;border-radius:14px;font-weight:700;z-index:50;max-width:calc(100% - 32px);box-shadow:var(--sombra)}
 @media (min-width:700px){.grade{grid-template-columns:1fr 1fr 1fr}.grande.largo{grid-column:span 3}}
@@ -769,7 +771,7 @@ async function telaPastoral(){
         <div class="linha"><input class="campo" id="na" maxlength="40" placeholder="Seu nome" value="${esc(ler('meuNome',''))}"><button class="btn">Publicar no mural</button></div></form></div>
     <div class="cartao cartaz">
       <h2 style="font-family:var(--disp);color:var(--azul);font-size:28px;margin:0">Cartaz dos aniversariantes</h2>
-      <p class="mudo" style="margin:4px 0 0">O cartaz sai da planilha de dizimistas, com os nomes em ordem de dia, e fica salvo no Canva junto com os anteriores.</p>
+      <p class="mudo" style="margin:4px 0 0">O cartaz sai da planilha de dizimistas, com os nomes em ordem de dia. A arte aparece aqui para vocês aprovarem ou pedirem para refazer; depois de aprovada, vai para o Canva junto com as anteriores.</p>
       <div class="mes-sel"><select class="campo" id="cm">${MESES.map((m,i)=>`<option value="${i+1}" ${i===padrao.getMonth()?'selected':''}>${m}</option>`).join('')}</select>
         <select class="campo" id="ca" style="max-width:130px">${[agora.getFullYear(), agora.getFullYear()+1].map(a=>`<option ${a===padrao.getFullYear()?'selected':''}>${a}</option>`).join('')}</select></div>
       <button class="btn ouro" id="pedir"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 15l5-5 4 4 3-3 6 6"/><circle cx="15.5" cy="8.5" r="1.5"/></svg>Confeccionar cartaz dos aniversariantes do mês</button>
@@ -784,11 +786,26 @@ async function telaPastoral(){
     $('#notas').querySelectorAll('.x').forEach(b => b.onclick = async () => { if (!confirm('Apagar este recado do mural?')) return; try { desenhaNotas((await servidor('apagarRecado',{id:b.dataset.id})).recados); } catch(e){ toast(e.message); } });
   };
   const desenhaPedidos = pedidos => {
-    $('#pedidos').innerHTML = pedidos.length ? pedidos.map(p => { const st = p.status||'Na fila'; const cls = st==='Pronto'?'pronto':(st==='Erro'?'erro':'');
+    $('#pedidos').innerHTML = pedidos.length ? pedidos.map(p => { const st = p.status||'Na fila'; const aguarda = st === 'Aguardando aprovação';
+      const cls = st==='Pronto'?'pronto':(st==='Erro'?'erro':(aguarda?'aguarda':''));
       return `<div class="pedido"><div><b>${esc(p.nomeMes)} de ${p.ano}</b><span class="pequeno mudo">${p.pedidoPor ? 'por '+esc(p.pedidoPor)+' · ' : ''}${p.pedidoEm ? new Date(p.pedidoEm).toLocaleDateString('pt-BR') : ''}${p.obs ? ' · '+esc(p.obs) : ''}</span>
-        <div class="acoes-cartaz">${p.temArte ? `<button class="btn ouro ver-arte" data-id="${esc(p.id)}">Ver e baixar</button>` : ''}${p.link ? `<a href="${esc(p.link)}" target="_blank" rel="noopener">Abrir no Canva ›</a>` : ''}</div></div><span class="status ${cls}">${esc(st)}</span></div>`; }).join('')
+</div><span class="status ${cls}">${esc(st)}</span>
+        <div class="acoes-cartaz">${p.temArte ? `<button class="btn ${aguarda ? 'claro' : 'ouro'} ver-arte" data-id="${esc(p.id)}">${st === 'Pronto' ? 'Ver e baixar' : 'Ver arte'}</button>` : ''}${aguarda ? `<button class="btn aprovar" data-id="${esc(p.id)}">Aprovar arte</button><button class="btn claro refazer" data-id="${esc(p.id)}">Refazer arte</button>` : ''}${p.link ? `<a href="${esc(p.link)}" target="_blank" rel="noopener">Abrir no Canva ›</a>` : ''}</div></div>`; }).join('')
       : '<p class="pequeno">Nenhum pedido ainda.</p>';
     $('#pedidos').querySelectorAll('.ver-arte').forEach(b => b.onclick = () => verArte(b));
+    $('#pedidos').querySelectorAll('.aprovar').forEach(b => b.onclick = async () => {
+      if (!confirm('Aprovar esta arte? Ela será colocada no arquivo de cartazes do Canva.')) return;
+      b.disabled = true;
+      try { desenhaPedidos((await servidor('aprovarCartaz', {id: b.dataset.id, autor: ler('meuNome','') || (sessao.papel === 'padre' ? 'Padre' : '')})).pedidos); toast('Arte aprovada! Em breve ela estará no Canva.'); }
+      catch(e){ toast(e.message); b.disabled = false; }
+    });
+    $('#pedidos').querySelectorAll('.refazer').forEach(b => b.onclick = async () => {
+      const motivo = prompt('O que você quer mudar na arte? (ex.: outra imagem, outra cor, corrigir um nome)');
+      if (motivo === null) return;
+      b.disabled = true;
+      try { desenhaPedidos((await servidor('refazerCartaz', {id: b.dataset.id, motivo: motivo.trim() || 'fazer outra versão'})).pedidos); toast('Pedido para refazer enviado.'); }
+      catch(e){ toast(e.message); b.disabled = false; }
+    });
   };
   servidor('mural').then(j => desenhaNotas(j.recados)).catch(e => $('#notas').innerHTML = `<div class="vazio">${esc(e.message)}</div>`);
   servidor('cartazes').then(j => desenhaPedidos(j.pedidos)).catch(e => $('#pedidos').textContent = e.message);
