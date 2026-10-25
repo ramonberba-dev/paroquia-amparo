@@ -1,0 +1,783 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0B2F6B">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Amparo">
+<meta name="description" content="App da Paróquia Nossa Senhora do Amparo: Evangelho do dia, Santo do dia, novenas, Bíblia e Pastoral do Dízimo.">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+</head>
+<body>
+<title>Amparo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700;6..12,800&display=swap">
+<style>
+/* App da Paróquia Nossa Senhora do Amparo. Claro, letras grandes (muitos leitores são idosos),
+   azul-mariano dos cartazes da pastoral com detalhes dourados. Telas por hash: #inicio, #evangelho,
+   #santo, #novenas, #novena/<id>, #biblia, #biblia/<livro>/<cap>, #pastoral. */
+:root{
+  --azul:#0B2F6B; --azul2:#1C4A93; --azulbg:#E9EFF9; --ouro:#B98A2E; --ouro2:#E3C27A; --creme:#FAF6EE; --papel:#FFFFFF;
+  --tinta:#1B2233; --mudo:#5C6475; --fraco:#8D93A0; --linha:#E6E0D3; --linha2:#D3CBB9;
+  --ok:#2F7A4F; --okbg:#E5F2EA; --espera:#9A6A12; --esperabg:#F7EDD6; --erro:#A3342B; --errobg:#F7E4E1;
+  --disp:"Cormorant Garamond", Georgia, serif; --corpo:"Nunito Sans", "Segoe UI", system-ui, sans-serif;
+  --r:18px; --sombra:0 1px 2px rgba(20,30,60,.06), 0 6px 20px rgba(20,30,60,.07);
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{background:var(--creme);color:var(--tinta)}
+body{margin:0;font-family:var(--corpo);font-size:17px;line-height:1.5;-webkit-font-smoothing:antialiased;
+  padding-bottom:calc(76px + env(safe-area-inset-bottom,0px))}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:3px solid var(--ouro2);outline-offset:2px}
+a{color:var(--azul2)}
+.wrap{max-width:760px;margin:0 auto;padding:0 16px}
+
+/* topo */
+.topo{background:var(--azul);color:#fff;padding-top:env(safe-area-inset-top,0px);position:sticky;top:0;z-index:20}
+.topo .wrap{display:flex;align-items:center;gap:12px;min-height:58px}
+.topo .voltar{border:0;background:rgba(255,255,255,.12);color:#fff;width:40px;height:40px;border-radius:12px;font-size:22px;line-height:1;display:grid;place-items:center}
+.topo h1{font-family:var(--disp);font-weight:700;font-size:23px;margin:0;line-height:1.1;flex:1;min-width:0}
+.topo h1 small{display:block;font-family:var(--corpo);font-weight:600;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ouro2)}
+.selo{width:40px;height:40px;flex:none}
+
+/* navegação de baixo */
+.nav{position:fixed;inset:auto 0 0 0;z-index:30;background:var(--papel);border-top:1px solid var(--linha);padding-bottom:env(safe-area-inset-bottom,0px)}
+.nav .wrap{display:flex;justify-content:space-around}
+.nav button{flex:1;min-width:0;border:0;background:none;padding:8px 2px 9px;display:flex;flex-direction:column;align-items:center;gap:2px;font-size:11.5px;font-weight:700;color:var(--fraco)}
+.nav button svg{width:26px;height:26px}
+.nav button[aria-current="page"]{color:var(--azul)}
+
+/* telas */
+.tela{padding:18px 0 28px}
+.cartao{background:var(--papel);border-radius:var(--r);box-shadow:var(--sombra);padding:18px}
+.titulo-sec{font-family:var(--disp);font-size:26px;font-weight:700;color:var(--azul);margin:26px 0 10px}
+.mudo{color:var(--mudo)}
+.pequeno{font-size:14px}
+.btn{border:0;border-radius:14px;padding:13px 18px;font-weight:800;background:var(--azul);color:#fff;font-size:16px}
+.btn.claro{background:var(--azulbg);color:var(--azul)}
+.btn.ouro{background:var(--ouro);color:#fff}
+.btn:disabled{opacity:.55}
+.campo{width:100%;border:1.5px solid var(--linha2);border-radius:14px;padding:12px 14px;background:#fff;font-size:17px}
+.campo:focus{border-color:var(--azul2);outline:none}
+textarea.campo{resize:vertical;min-height:96px}
+.aviso{padding:12px 14px;border-radius:14px;background:var(--esperabg);color:var(--espera);font-size:15px}
+.aviso.erro{background:var(--errobg);color:var(--erro)}
+.carregando{color:var(--mudo);padding:24px 0;text-align:center}
+
+/* Inspiração do Padre */
+.inspira{position:relative;background:linear-gradient(160deg,var(--azul) 0%,#123E86 70%,#1A4C9C 100%);color:#fff;border-radius:24px;padding:26px 22px 22px;overflow:hidden;box-shadow:0 10px 30px rgba(11,47,107,.25)}
+.inspira::after{content:"";position:absolute;right:-60px;top:-60px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(227,194,122,.35),transparent 70%)}
+.inspira .rot{font-size:13px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--ouro2);display:flex;align-items:center;gap:8px}
+.inspira blockquote{margin:12px 0 14px;font-family:var(--disp);font-style:italic;font-weight:600;font-size:clamp(27px,7.2vw,38px);line-height:1.18;position:relative;z-index:1;text-wrap:balance}
+.inspira .assin{font-weight:700;font-size:15px;color:#DCE5F5}
+.editor{margin-top:14px;display:grid;gap:10px}
+.editor .linha{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+
+/* botões grandes do início */
+.grade{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px}
+.grande{border:0;text-align:left;background:var(--papel);border-radius:20px;box-shadow:var(--sombra);padding:16px;min-height:150px;display:flex;flex-direction:column;justify-content:space-between;gap:10px;position:relative;overflow:hidden}
+.grande .ic{width:46px;height:46px;border-radius:14px;display:grid;place-items:center;background:var(--azulbg);color:var(--azul)}
+.grande .ic svg{width:28px;height:28px}
+.grande b{font-size:19px;line-height:1.15;display:block}
+.grande span{font-size:14px;color:var(--mudo);display:block;margin-top:3px;line-height:1.3}
+.grande.largo{grid-column:1/-1;min-height:0;flex-direction:row;align-items:center;justify-content:flex-start;gap:16px}
+.grande.evang{background:linear-gradient(135deg,#FFF8E8,#FFFFFF 70%);border:1.5px solid #F0DFB4}
+.grande.evang .ic{background:var(--ouro);color:#fff}
+.grande.santo .foto{width:76px;height:76px;border-radius:50%;object-fit:cover;object-position:top;flex:none;border:3px solid var(--ouro2);background:var(--azulbg)}
+.grande.pastoral{background:var(--azul);color:#fff}
+.grande.pastoral span{color:#C9D6EE}
+.grande.pastoral .ic{background:rgba(255,255,255,.14);color:var(--ouro2)}
+
+/* aniversariantes do mês */
+.aniv{margin-top:16px;background:var(--papel);border-radius:22px;box-shadow:var(--sombra);padding:20px 18px;position:relative;overflow:hidden}
+.aniv::before{content:"";position:absolute;inset:0 0 auto;height:6px;background:linear-gradient(90deg,var(--ouro),var(--ouro2),var(--azul2))}
+.aniv h2{font-family:var(--disp);font-size:28px;color:var(--azul);margin:2px 0 4px;line-height:1.1}
+.aniv .parab{margin:0 0 12px;color:var(--mudo);font-size:15.5px}
+.aniv ul{list-style:none;margin:0;padding:0;display:grid;gap:2px}
+.aniv li{display:flex;align-items:baseline;gap:12px;padding:7px 4px;border-bottom:1px solid var(--linha)}
+.aniv li:last-child{border-bottom:0}
+.aniv li b{font-family:var(--disp);font-size:22px;color:var(--ouro);min-width:28px;text-align:right}
+.aniv li.hoje{background:#FFF6DC;border-radius:12px;border-bottom-color:transparent;padding-inline:10px}
+.aniv li.hoje span::after{content:" 🎉 hoje!";font-weight:800;color:var(--ouro);font-size:14px}
+.aniv li.passou{opacity:.55}
+.aniv .mais{border:0;background:none;color:var(--azul2);font-weight:800;padding:10px 0 0}
+
+/* acesso restrito */
+.acesso{margin-top:34px;border-top:1px dashed var(--linha2);padding-top:18px}
+.acesso form{display:flex;gap:10px}
+.acesso .campo{max-width:200px;letter-spacing:.3em;text-align:center}
+
+/* data */
+.datas{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:14px}
+.datas button{border:0;background:var(--papel);box-shadow:var(--sombra);width:44px;height:44px;border-radius:14px;font-size:22px;color:var(--azul)}
+.datas .d{text-align:center;font-weight:800}
+.datas .d small{display:block;font-weight:600;color:var(--mudo);font-size:14px}
+.cor{display:inline-block;width:12px;height:12px;border-radius:50%;margin-right:6px;vertical-align:baseline;border:1px solid rgba(0,0,0,.15)}
+
+/* leituras */
+.abas{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;margin-bottom:12px;scrollbar-width:none}
+.abas button{flex:none;border:1.5px solid var(--linha2);background:#fff;border-radius:999px;padding:8px 14px;font-weight:700;font-size:15px;color:var(--mudo)}
+.abas button[aria-selected="true"]{background:var(--azul);border-color:var(--azul);color:#fff}
+.leitura h2{font-family:var(--disp);font-size:28px;color:var(--azul);margin:0 0 2px;line-height:1.15}
+.leitura .ref{font-weight:800;color:var(--ouro)}
+.leitura .texto{font-size:19px;line-height:1.65;margin-top:12px;white-space:pre-line}
+.leitura sup{font-size:.62em;color:var(--ouro);font-weight:800;margin-right:2px}
+.refrao{background:var(--azulbg);border-radius:12px;padding:10px 14px;font-weight:700;color:var(--azul);margin-top:10px}
+.fonte{font-size:13px;color:var(--fraco);margin-top:16px}
+.tamanho{display:flex;gap:8px;justify-content:flex-end;margin-bottom:8px}
+.tamanho button{border:1.5px solid var(--linha2);background:#fff;border-radius:10px;width:44px;height:36px;font-weight:800;color:var(--azul)}
+
+/* santo */
+.santo-top{text-align:center}
+.santo-top .foto{width:min(260px,70vw);aspect-ratio:3/4;object-fit:cover;object-position:top;border-radius:22px;box-shadow:var(--sombra);border:4px solid #fff;background:var(--azulbg)}
+.santo-top h2{font-family:var(--disp);font-size:34px;color:var(--azul);margin:14px 0 2px;line-height:1.1}
+.santo-top .tit{color:var(--ouro);font-weight:800;text-transform:uppercase;letter-spacing:.08em;font-size:13px}
+.historia{font-size:18px;line-height:1.65}
+.historia p{margin:0 0 12px}
+
+/* novenas */
+.busca{position:relative}
+.busca svg{position:absolute;left:14px;top:50%;transform:translateY(-50%);width:22px;height:22px;color:var(--fraco)}
+.busca .campo{padding-left:46px}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
+.chips button{border:1.5px solid var(--linha2);background:#fff;border-radius:999px;padding:7px 14px;font-weight:700;font-size:15px;color:var(--mudo)}
+.chips button[aria-pressed="true"]{background:var(--azul);border-color:var(--azul);color:#fff}
+.lista{display:grid;gap:10px}
+.item{border:0;text-align:left;background:var(--papel);border-radius:16px;box-shadow:var(--sombra);padding:14px 16px;display:flex;align-items:center;gap:14px;width:100%}
+.item .ini{width:44px;height:44px;border-radius:50%;background:var(--azulbg);color:var(--azul);display:grid;place-items:center;font-family:var(--disp);font-weight:700;font-size:22px;flex:none}
+.item b{display:block;font-size:17px;line-height:1.25}
+.item span{display:block;font-size:14px;color:var(--mudo)}
+.item .prog{margin-left:auto;font-size:13px;font-weight:800;color:var(--ok);flex:none}
+.dias{display:flex;gap:6px;flex-wrap:wrap;margin:14px 0}
+.dias button{width:44px;height:44px;border-radius:12px;border:1.5px solid var(--linha2);background:#fff;font-weight:800;color:var(--mudo);position:relative}
+.dias button.feito{border-color:var(--ok);color:var(--ok)}
+.dias button.feito::after{content:"✓";position:absolute;right:3px;top:0;font-size:11px}
+.dias button[aria-current="true"]{background:var(--azul);border-color:var(--azul);color:#fff}
+.oracao{margin-top:14px}
+.oracao h3{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--ouro);margin:0 0 6px}
+.oracao p{margin:0;font-size:18px;line-height:1.65}
+.oracao .medit{font-family:var(--disp);font-size:22px;line-height:1.4;color:var(--tinta)}
+
+/* orações */
+.temas{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+.temas button{border:0;background:var(--papel);box-shadow:var(--sombra);border-radius:16px;padding:14px;text-align:left;display:flex;flex-direction:column;gap:2px;min-height:108px}
+.temas .emo{font-size:28px;line-height:1;margin-bottom:6px}
+.temas b{font-size:16.5px;line-height:1.2}
+.temas small{color:var(--mudo);font-size:13px}
+.oracao-txt h2{font-family:var(--disp);font-size:30px;color:var(--azul);margin:0 0 4px;line-height:1.1}
+.oracao-txt #txt{font-family:var(--disp);line-height:1.55;margin-top:14px}
+.oracao-txt #txt p{margin:0 0 14px}
+
+/* devocionários */
+.devs{display:grid;gap:12px}
+.devs button{border:0;text-align:left;border-radius:20px;padding:18px 18px 16px;color:#fff;background:linear-gradient(135deg,var(--cor),color-mix(in srgb,var(--cor) 70%,#000));box-shadow:var(--sombra);display:flex;flex-direction:column;gap:4px}
+.devs b{font-family:var(--disp);font-size:27px;line-height:1.1}
+.devs span{opacity:.88;font-size:15px}
+.devs small{margin-top:6px;font-weight:800;color:var(--ouro2);font-size:13px;letter-spacing:.04em}
+.dev-topo{border-radius:22px;padding:22px 20px;color:#fff;background:linear-gradient(150deg,var(--cor),color-mix(in srgb,var(--cor) 65%,#000))}
+.dev-topo h2{font-family:var(--disp);font-size:32px;margin:0;line-height:1.1}
+.dev-topo .sub{color:var(--ouro2);font-weight:800;margin-top:4px}
+.dev-topo p{margin:12px 0 0;opacity:.92}
+.indice{display:flex;gap:8px;overflow-x:auto;padding:14px 0 6px;scrollbar-width:none}
+.indice button{flex:none;border:1.5px solid var(--linha2);background:#fff;border-radius:999px;padding:7px 13px;font-weight:700;font-size:14px;color:var(--azul)}
+.dev-sec{margin-top:14px}
+.dev-sec h3{font-family:var(--disp);font-size:1.4em;color:var(--azul);margin:0 0 8px;line-height:1.15}
+.dev-sec p{margin:0 0 12px;line-height:1.6}
+.dev-sec .reza{font-family:var(--disp);font-size:1.12em}
+.ladainha div{display:flex;justify-content:space-between;gap:12px;padding:6px 0;border-bottom:1px solid var(--linha)}
+.ladainha em{color:var(--ouro);font-weight:700;font-style:italic;text-align:right;flex:none;max-width:45%}
+.passo{border-top:1px solid var(--linha);padding:4px 0}
+.passo summary{cursor:pointer;font-weight:800;padding:10px 0;color:var(--tinta)}
+.passo[open] summary{color:var(--azul)}
+
+/* bíblia */
+.livros{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
+.livros button{border:0;background:var(--papel);box-shadow:var(--sombra);border-radius:12px;padding:11px 12px;text-align:left;font-weight:700;font-size:15.5px;display:flex;gap:8px;align-items:baseline}
+.livros button small{color:var(--fraco);font-weight:700;font-size:12px;min-width:32px}
+.caps{display:grid;grid-template-columns:repeat(auto-fill,minmax(52px,1fr));gap:8px}
+.caps button{border:0;background:var(--papel);box-shadow:var(--sombra);border-radius:12px;height:50px;font-weight:800;font-size:17px;color:var(--azul)}
+.versos{font-family:Georgia,"Times New Roman",serif;line-height:1.75}
+.versos p{margin:0 0 6px}
+.versos sup{font-family:var(--corpo);font-weight:800;color:var(--ouro);font-size:.62em;margin-right:4px}
+.versos .alvo{background:#FFF1C7;border-radius:6px;box-shadow:0 0 0 4px #FFF1C7}
+.passa{display:flex;justify-content:space-between;gap:10px;margin-top:18px}
+.resultado{border:0;width:100%;text-align:left;background:var(--papel);border-radius:14px;box-shadow:var(--sombra);padding:12px 14px;font-size:16px}
+.resultado b{color:var(--azul)}
+.resultado mark{background:#FFE7A3;border-radius:3px}
+
+/* Pastoral do Dízimo: mural */
+.mural{background:#B88A5A url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.9' numOctaves='3'/%3E%3CfeColorMatrix values='0 0 0 0 .45 0 0 0 0 .3 0 0 0 0 .16 0 0 0 .35 0'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E");
+  border-radius:22px;padding:16px;border:10px solid #6B4A2B;box-shadow:inset 0 2px 10px rgba(0,0,0,.25),var(--sombra)}
+.mural h2{margin:0 0 12px;color:#fff;font-family:var(--disp);font-size:30px;text-shadow:0 1px 2px rgba(0,0,0,.35);display:flex;align-items:center;gap:10px}
+.notas{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px}
+.nota{position:relative;padding:22px 14px 12px;border-radius:4px;box-shadow:0 4px 10px rgba(0,0,0,.22);font-size:16.5px;line-height:1.45;color:#2B2516;transform:rotate(var(--rot,0deg))}
+.nota::before{content:"";position:absolute;top:6px;left:50%;width:14px;height:14px;margin-left:-7px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#ff8f8f,#b4232b);box-shadow:0 2px 3px rgba(0,0,0,.35)}
+.nota .de{font-weight:800;font-size:14px;margin-top:8px;display:flex;justify-content:space-between;gap:8px;align-items:center}
+.nota .de time{font-weight:600;opacity:.7}
+.nota .x{border:0;background:rgba(0,0,0,.08);border-radius:8px;width:28px;height:28px;font-size:15px;line-height:1;color:#5b4a2a}
+.nota-nova{background:#FFFDF4;border-radius:14px;padding:12px;margin-top:14px;display:grid;gap:8px}
+.nota-nova .linha{display:flex;gap:8px;flex-wrap:wrap}
+.nota-nova .linha .campo{flex:1;min-width:160px}
+.vazio{color:#fff;opacity:.9;padding:10px 4px}
+
+.cartaz{margin-top:22px}
+.cartaz .btn{width:100%;padding:18px;font-size:18px;display:flex;align-items:center;justify-content:center;gap:10px}
+.mes-sel{display:flex;gap:10px;margin:12px 0}
+.mes-sel select{flex:1}
+.pedido{display:flex;align-items:center;gap:12px;padding:12px 0;border-top:1px solid var(--linha)}
+.pedido:first-child{border-top:0}
+.pedido b{display:block}
+.status{margin-left:auto;font-size:13px;font-weight:800;padding:5px 10px;border-radius:999px;background:var(--esperabg);color:var(--espera);white-space:nowrap}
+.status.pronto{background:var(--okbg);color:var(--ok)}
+.status.erro{background:var(--errobg);color:var(--erro)}
+
+.toast{position:fixed;left:50%;bottom:calc(92px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--tinta);color:#fff;padding:12px 18px;border-radius:14px;font-weight:700;z-index:50;max-width:calc(100% - 32px);box-shadow:var(--sombra)}
+@media (min-width:700px){.grade{grid-template-columns:1fr 1fr 1fr}.grande.largo{grid-column:span 3}}
+</style>
+
+<header class="topo">
+  <div class="wrap">
+    <button class="voltar" id="voltar" aria-label="Voltar" hidden>‹</button>
+    <svg class="selo" id="selo" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="19" fill="#fff" fill-opacity=".1" stroke="#E3C27A" stroke-width="1.5"/><path d="M20 8v24M13 15h14" stroke="#E3C27A" stroke-width="2.6" stroke-linecap="round"/><path d="M12 27c3 3 13 3 16 0" stroke="#fff" stroke-opacity=".7" stroke-width="1.6" fill="none" stroke-linecap="round"/></svg>
+    <h1 id="tituloTopo"><small>Paróquia</small>Nossa Senhora do Amparo</h1>
+  </div>
+</header>
+
+<main class="wrap" id="app"></main>
+
+<nav class="nav" aria-label="Seções">
+  <div class="wrap">
+    <button data-ir="inicio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11 12 4l9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-5h4v5"/></svg>Início</button>
+    <button data-ir="biblia"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h11a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3z"/><path d="M5 17a3 3 0 0 1 3-3h11"/><path d="M12 7v5M9.5 9h5"/></svg>Bíblia</button>
+    <button data-ir="oracoes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v4M10 5h4"/><path d="M8 21v-6.5a4 4 0 0 1 1.2-2.8L12 9l2.8 2.7a4 4 0 0 1 1.2 2.8V21"/><path d="M6 21h12"/></svg>Orações</button>
+    <button data-ir="novenas"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="1.6"/><circle cx="17.5" cy="7.5" r="1.6"/><circle cx="19" cy="13" r="1.6"/><circle cx="6.5" cy="7.5" r="1.6"/><circle cx="5" cy="13" r="1.6"/><path d="M12 15v6M9.5 17.5h5"/></svg>Novenas</button>
+    <button data-ir="devocionarios"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5a2 2 0 0 1 2-2h12v16H6a2 2 0 0 0-2 2z"/><path d="M4 21V5"/><path d="M12 7v6M9.5 9.5h5"/><path d="M8 19h10"/></svg>Devoções</button>
+    <button data-ir="pastoral" id="navPastoral" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.5-7 10-7 10z"/></svg>Pastoral</button>
+  </div>
+</nav>
+
+<script>
+const API_URL = 'https://script.google.com/macros/s/AKfycbx8geB_A5kyUHsSYoqIcAZkzYzKfhTOQXHCcO3Irjho7aJX6OEwvWTLAFZKjqjX4hDMEg/exec';
+const ASSINATURA = 'Pe. Allan Soriano';
+const MESES = ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
+const DIAS_SEM = ['domingo','segunda-feira','terça-feira','quarta-feira','quinta-feira','sexta-feira','sábado'];
+const CORES = {verde:'#2E8B57',roxo:'#6A3D9A',branco:'#FFFFFF',vermelho:'#C0392B',rosa:'#E89AB8',preto:'#222'};
+const SANTO_PADRAO = "data:image/svg+xml,"+encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 400"><rect width="300" height="400" fill="#E9EFF9"/><circle cx="150" cy="120" r="70" fill="none" stroke="#E3C27A" stroke-width="10"/><circle cx="150" cy="140" r="46" fill="#0B2F6B" opacity=".85"/><path d="M60 400c0-90 40-170 90-170s90 80 90 170z" fill="#0B2F6B" opacity=".85"/><path d="M150 270v80M125 295h50" stroke="#E3C27A" stroke-width="8" stroke-linecap="round"/></svg>');
+
+const $ = (s, el=document) => el.querySelector(s);
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const norm = s => String(s||'').normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase();
+const guardar = (k, v) => { try { localStorage.setItem('amparo_'+k, JSON.stringify(v)); } catch(e){} };
+const ler = (k, d) => { try { const v = localStorage.getItem('amparo_'+k); return v == null ? d : JSON.parse(v); } catch(e){ return d; } };
+const app = $('#app');
+
+function toast(msg){ const t=document.createElement('div'); t.className='toast'; t.textContent=msg; document.body.appendChild(t); setTimeout(()=>t.remove(), 2600); }
+
+// ---------- servidor (Apps Script) ----------
+const temServidor = () => /^https:\/\//.test(API_URL);
+async function servidorGet(acao){
+  if (!temServidor()) throw new Error('Servidor ainda não configurado');
+  const r = await fetch(API_URL+'?acao='+acao); return r.json();
+}
+async function servidor(acao, dados={}){
+  if (!temServidor()) throw new Error('Servidor ainda não configurado');
+  const r = await fetch(API_URL, {method:'POST', headers:{'Content-Type':'text/plain;charset=utf-8'}, body: JSON.stringify({acao, pin: sessao.pin, ...dados})});
+  const j = await r.json();
+  if (!j.ok) throw new Error(j.erro || 'Erro');
+  return j;
+}
+
+// ---------- sessão (PIN) ----------
+let sessao = ler('sessao', {pin:'', papel:''});
+function atualizarNav(){ $('#navPastoral').hidden = !sessao.papel; }
+
+// ---------- dados locais ----------
+const cache = {};
+async function carregar(nome){
+  if (!cache[nome]) cache[nome] = fetch('dados/'+nome+'.json').then(r => { if(!r.ok) throw new Error('Arquivo '+nome); return r.json(); });
+  try { return await cache[nome]; } catch(e){ delete cache[nome]; throw e; }
+}
+
+// ---------- rotas ----------
+const rotas = {inicio:telaInicio, devocionarios:telaDevocionarios, oracoes:telaOracoes, oracao:telaOracao, evangelho:telaEvangelho, santo:telaSanto, novenas:telaNovenas, novena:telaNovena, biblia:telaBiblia, pastoral:telaPastoral};
+function ir(h){ location.hash = h; }
+function rota(){
+  const [nome, ...args] = (location.hash.slice(1) || 'inicio').split('/').map(decodeURIComponent);
+  const fn = rotas[nome] || telaInicio;
+  const raiz = ['inicio','biblia','novenas','oracoes','devocionarios','pastoral'].includes(nome) && !args.length;
+  $('#voltar').hidden = raiz; $('#selo').hidden = !raiz;
+  document.querySelectorAll('.nav button').forEach(b => b.setAttribute('aria-current', b.dataset.ir === nome ? 'page' : 'false'));
+  if (nome === 'pastoral' && !sessao.papel) { ir('inicio'); return; }
+  window.scrollTo(0,0);
+  fn(...args);
+}
+function topo(sub, titulo){ $('#tituloTopo').innerHTML = `<small>${esc(sub)}</small>${esc(titulo)}`; }
+window.addEventListener('hashchange', rota);
+$('#voltar').onclick = () => history.length > 1 ? history.back() : ir('inicio');
+document.querySelectorAll('.nav button').forEach(b => b.onclick = () => ir(b.dataset.ir));
+
+// ---------- datas ----------
+const hoje = () => { const d = new Date(); d.setHours(12,0,0,0); return d; };
+const somaDias = (d, n) => { const x = new Date(d); x.setDate(x.getDate()+n); return x; };
+const chaveData = d => String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+const dataLonga = d => `${d.getDate()} de ${MESES[d.getMonth()].toLowerCase()}`;
+const ehHoje = d => d.toDateString() === hoje().toDateString();
+function seletorData(d, mudar){
+  const div = document.createElement('div'); div.className = 'datas';
+  div.innerHTML = `<button aria-label="Dia anterior">‹</button><div class="d">${ehHoje(d)?'Hoje':esc(DIAS_SEM[d.getDay()])}<small>${esc(dataLonga(d))} de ${d.getFullYear()}</small></div><button aria-label="Próximo dia">›</button>`;
+  const [a,,p] = div.children; a.onclick = () => mudar(somaDias(d,-1)); p.onclick = () => mudar(somaDias(d,1));
+  return div;
+}
+
+// ================= INÍCIO =================
+async function telaInicio(){
+  topo('Paróquia','Nossa Senhora do Amparo');
+  const insp = ler('inspiracao', '');
+  app.innerHTML = `<section class="tela">
+    <div class="inspira">
+      <div class="rot"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.6 6.4L21 9l-5 4.4L17.5 20 12 16.6 6.5 20 8 13.4 3 9l6.4-.6z"/></svg>Inspiração do Padre</div>
+      <blockquote id="inspTexto">${esc(insp || 'Vinde a mim, todos vós que estais cansados e sobrecarregados, e eu vos aliviarei.')}</blockquote>
+      <div class="assin">— ${insp ? esc(ASSINATURA) : 'Mt 11,28'}</div>
+    </div>
+    ${sessao.papel === 'padre' ? `<div class="cartao editor" style="margin-top:12px">
+      <label for="inspNova"><b>Nova inspiração</b> <span class="mudo pequeno">(aparece para todos no topo do app)</span></label>
+      <textarea id="inspNova" class="campo" maxlength="600" placeholder="Escreva a frase de hoje, Padre…">${esc(insp)}</textarea>
+      <div class="linha"><button class="btn ouro" id="inspSalvar">Publicar inspiração</button><span class="mudo pequeno" id="inspMsg"></span></div>
+    </div>` : ''}
+    <div class="grade">
+      <button class="grande largo evang" data-ir="evangelho"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 5h7a3 3 0 0 1 3 3v12a2 2 0 0 0-2-2H2z"/><path d="M22 5h-7a3 3 0 0 0-3 3v12a2 2 0 0 1 2-2h8z"/></svg></div>
+        <div><b>Evangelho do dia</b><span id="evPrev">${esc(dataLonga(hoje()))}</span></div></button>
+      <button class="grande largo santo" data-ir="santo"><img class="foto" id="santoFoto" alt="" src="${SANTO_PADRAO}">
+        <div><b>Santo do dia</b><span id="santoNome">Carregando…</span><span class="pequeno" style="color:var(--azul2);font-weight:700">Conhecer a história ›</span></div></button>
+      <button class="grande" data-ir="oracoes"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v4M10 5h4"/><path d="M8 21v-6.5a4 4 0 0 1 1.2-2.8L12 9l2.8 2.7a4 4 0 0 1 1.2 2.8V21"/><path d="M6 21h12"/></svg></div><div><b>Orações</b><span>Por tema e por santo</span></div></button>
+      <button class="grande" data-ir="novenas"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="4.5" r="1.5"/><circle cx="17.5" cy="7" r="1.5"/><circle cx="19" cy="12.5" r="1.5"/><circle cx="6.5" cy="7" r="1.5"/><circle cx="5" cy="12.5" r="1.5"/><path d="M12 15v6M9.5 17.5h5"/></svg></div><div><b>Novenas</b><span>Santos e devoções</span></div></button>
+      <button class="grande" data-ir="devocionarios"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5a2 2 0 0 1 2-2h12v16H6a2 2 0 0 0-2 2z"/><path d="M4 21V5"/><path d="M12 7v6M9.5 9.5h5"/><path d="M8 19h10"/></svg></div><div><b>Devocionários</b><span>Nossa Senhora, São José, Padre Pio…</span></div></button>
+      <button class="grande" data-ir="biblia"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h11a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3z"/><path d="M5 17a3 3 0 0 1 3-3h11"/><path d="M12 7v5M9.5 9h5"/></svg></div><div><b>Bíblia</b><span>Ave-Maria</span></div></button>
+      ${sessao.papel ? `<button class="grande largo pastoral" data-ir="pastoral"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.5-7 10-7 10z"/></svg></div><div><b>Pastoral do Dízimo</b><span>Mural e cartaz dos aniversariantes</span></div></button>` : ''}
+    </div>
+    <section class="aniv" id="aniv" hidden></section>
+    <div class="acesso">
+      ${sessao.papel ? `<p class="mudo pequeno">Conectado como <b>${sessao.papel === 'padre' ? 'Padre' : 'Pastoral do Dízimo'}</b>. <button class="btn claro" id="sair" style="padding:8px 14px;margin-left:6px">Sair</button></p>`
+      : `<p class="mudo pequeno" style="margin:0 0 8px"><b>Acesso restrito</b> — Padre e Pastoral do Dízimo</p>
+         <form id="formPin"><input class="campo" id="pin" type="password" inputmode="numeric" autocomplete="off" maxlength="12" placeholder="PIN" aria-label="PIN"><button class="btn">Entrar</button></form>
+         <p class="pequeno" id="pinMsg" style="color:var(--erro);margin:8px 0 0"></p>`}
+    </div>
+  </section>`;
+  app.querySelectorAll('[data-ir]').forEach(b => b.onclick = () => ir(b.dataset.ir));
+
+  const f = $('#formPin');
+  if (f) f.onsubmit = async ev => {
+    ev.preventDefault(); const pin = $('#pin').value.trim(); if (!pin) return;
+    $('#pinMsg').textContent = 'Conferindo…';
+    try { sessao = {pin}; const j = await servidor('entrar'); sessao = {pin, papel:j.papel}; guardar('sessao', sessao); atualizarNav(); toast(j.papel === 'padre' ? 'Bem-vindo, Padre!' : 'Bem-vindo à Pastoral do Dízimo!'); telaInicio(); }
+    catch(e){ sessao = {pin:'',papel:''}; $('#pinMsg').textContent = e.message; }
+  };
+  const s = $('#sair'); if (s) s.onclick = () => { sessao = {pin:'',papel:''}; guardar('sessao', sessao); atualizarNav(); telaInicio(); };
+  const salvar = $('#inspSalvar');
+  if (salvar) salvar.onclick = async () => {
+    const texto = $('#inspNova').value.trim(); salvar.disabled = true; $('#inspMsg').textContent = 'Publicando…';
+    try { const j = await servidor('inspiracao', {texto}); guardar('inspiracao', j.inspiracao); $('#inspTexto').textContent = j.inspiracao; $('#inspMsg').textContent = 'Publicada!'; toast('Inspiração publicada'); }
+    catch(e){ $('#inspMsg').textContent = e.message; }
+    salvar.disabled = false;
+  };
+
+  // aniversariantes do mês (guardados no aparelho para abrir rápido)
+  desenhaAniv(ler('aniversariantes', null));
+  // inspiração atual do servidor
+  servidorGet('inicio').then(j => {
+    if (!j.ok) return; guardar('inspiracao', j.inspiracao || '');
+    if (j.aniversariantes) { guardar('aniversariantes', j.aniversariantes); desenhaAniv(j.aniversariantes); }
+    if (location.hash && location.hash !== '#inicio') return;
+    const bq = $('#inspTexto'); if (bq && j.inspiracao) { bq.textContent = j.inspiracao; bq.nextElementSibling.textContent = '— '+ASSINATURA; }
+  }).catch(()=>{});
+  // santo de hoje
+  carregar('santos').then(s => { const x = s[chaveData(hoje())]; if (!x) return; const n=$('#santoNome'); if(n) n.textContent = x.nome; const im=$('#santoFoto'); if(im && x.img) { im.onerror=()=>{im.src=SANTO_PADRAO}; im.src = x.img; } }).catch(()=>{ const n=$('#santoNome'); if(n) n.textContent=''; });
+  // evangelho de hoje (prévia)
+  liturgia(hoje()).then(l => { const ev = lista(l.leituras?.evangelho)[0]; const p=$('#evPrev'); if (ev && p) p.textContent = `${ev.referencia} · ${l.liturgia}`; }).catch(()=>{});
+}
+
+function desenhaAniv(a){
+  const el = $('#aniv'); if (!el) return;
+  const h = hoje();
+  if (!a || !a.lista || !a.lista.length || a.mes !== h.getMonth()+1) { el.hidden = true; return; }
+  const dHoje = h.getDate(), todos = a.lista;
+  const desenha = (abrir) => {
+    // mostra a partir de quem faz aniversário hoje ou nos próximos dias; "ver todos" abre a lista inteira
+    const prox = todos.filter(x => x.dia >= dHoje);
+    const mostrar = abrir || todos.length <= 8 ? todos : (prox.length ? prox : todos).slice(0, 8);
+    const aniversHoje = todos.filter(x => x.dia === dHoje);
+    el.hidden = false;
+    el.innerHTML = `<div class="rot" style="font-size:13px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--ouro)">🎂 Dizimistas aniversariantes</div>
+      <h2>Parabéns, aniversariantes de ${esc(MESES[a.mes-1].toLowerCase())}!</h2>
+      <p class="parab">${aniversHoje.length ? `Hoje é dia de festa para ${esc(aniversHoje.map(x=>x.nome.split(' ')[0]).join(', ').replace(/, ([^,]*)$/,' e $1'))}! ` : ''}A Paróquia Nossa Senhora do Amparo agradece a Deus pela vida e pela fidelidade de cada um. Que Nossa Senhora os ampare sempre!</p>
+      <ul>${mostrar.map(x => `<li class="${x.dia===dHoje?'hoje':(x.dia<dHoje?'passou':'')}"><b>${x.dia}</b><span>${esc(x.nome)}</span></li>`).join('')}</ul>
+      ${mostrar.length < todos.length ? `<button class="mais" id="anivTodos">Ver todos os ${todos.length} aniversariantes ›</button>` : ''}`;
+    const b = $('#anivTodos'); if (b) b.onclick = () => desenha(true);
+  };
+  desenha(false);
+}
+
+// ================= EVANGELHO =================
+const litCache = {};
+function liturgia(d){
+  const k = d.toDateString();
+  if (!litCache[k]) litCache[k] = fetch(`https://liturgia.up.railway.app/v2/?dia=${String(d.getDate()).padStart(2,'0')}&mes=${String(d.getMonth()+1).padStart(2,'0')}&ano=${d.getFullYear()}`)
+    .then(r => { if(!r.ok) throw new Error(); return r.json(); }).catch(e => { delete litCache[k]; throw e; });
+  return litCache[k];
+}
+const lista = x => Array.isArray(x) ? x : (x ? [x] : []);
+const versiculos = t => esc(t).replace(/(^|[\s“"(])(\d{1,3})(?=[A-ZÁÉÍÓÚÂÊÔÃÕÀÇa-záéíóúâêôãõç“"«—–-])/g, '$1<sup>$2</sup>');
+let tamTexto = ler('tamTexto', 19);
+
+async function telaEvangelho(dataStr){
+  topo('Liturgia diária','Evangelho do dia');
+  const d = dataStr ? new Date(dataStr+'T12:00:00') : hoje();
+  app.innerHTML = `<section class="tela"><div id="sel"></div><div id="corpo" class="carregando">Carregando a liturgia…</div></section>`;
+  $('#sel').appendChild(seletorData(d, nd => ir('evangelho/'+nd.toISOString().slice(0,10))));
+  let l;
+  try { l = await liturgia(d); } catch(e){ $('#corpo').innerHTML = `<div class="aviso erro">Não consegui carregar a liturgia. Confira a internet e tente de novo.</div>`; return; }
+  const L = l.leituras || {};
+  const partes = [['Evangelho', lista(L.evangelho)], ['1ª Leitura', lista(L.primeiraLeitura)], ['Salmo', lista(L.salmo)], ['2ª Leitura', lista(L.segundaLeitura)]].filter(p => p[1].length);
+  const cor = CORES[norm(l.cor)] || '#999';
+  $('#corpo').className = '';
+  $('#corpo').innerHTML = `<p style="margin:0 0 12px;font-weight:700"><span class="cor" style="background:${cor}"></span>${esc(l.liturgia)} <span class="mudo pequeno">· cor ${esc(String(l.cor||'').toLowerCase())}</span></p>
+    <div class="abas" role="tablist">${partes.map((p,i)=>`<button role="tab" aria-selected="${i===0}" data-i="${i}">${p[0]}</button>`).join('')}</div>
+    <div class="tamanho"><button id="menos" aria-label="Diminuir letra">A−</button><button id="mais" aria-label="Aumentar letra">A+</button></div>
+    <article class="cartao leitura" id="leitura"></article>
+    <p class="fonte">Textos da liturgia diária da Igreja no Brasil, via API Liturgia Diária.</p>`;
+  const mostrar = i => {
+    app.querySelectorAll('.abas button').forEach(b => b.setAttribute('aria-selected', b.dataset.i == i));
+    const [nome, itens] = partes[i];
+    $('#leitura').innerHTML = itens.map(x => `
+      <h2>${esc(x.titulo || nome)}</h2><div class="ref">${esc(x.referencia||'')}</div>
+      ${x.refrao ? `<div class="refrao">℟. ${esc(x.refrao)}</div>` : ''}
+      <div class="texto" style="font-size:${tamTexto}px">${versiculos(x.texto||'')}</div>
+      ${nome==='Evangelho' ? '<p class="texto" style="font-size:'+tamTexto+'px;font-weight:700;color:var(--azul)">— Palavra da Salvação.<br>— Glória a vós, Senhor.</p>' : ''}`).join('<hr style="border:0;border-top:1px solid var(--linha);margin:20px 0">');
+  };
+  app.querySelectorAll('.abas button').forEach(b => b.onclick = () => mostrar(+b.dataset.i));
+  const ajusta = n => { tamTexto = Math.max(15, Math.min(28, tamTexto+n)); guardar('tamTexto', tamTexto); app.querySelectorAll('.leitura .texto').forEach(t => t.style.fontSize = tamTexto+'px'); };
+  $('#menos').onclick = () => ajusta(-2); $('#mais').onclick = () => ajusta(2);
+  mostrar(0);
+}
+
+// ================= SANTO DO DIA =================
+async function telaSanto(dataStr){
+  topo('Santo do dia', 'Santos e beatos');
+  const d = dataStr ? new Date(dataStr+'T12:00:00') : hoje();
+  app.innerHTML = `<section class="tela"><div id="sel"></div><div id="corpo" class="carregando">Carregando…</div></section>`;
+  $('#sel').appendChild(seletorData(d, nd => ir('santo/'+nd.toISOString().slice(0,10))));
+  let s; try { s = (await carregar('santos'))[chaveData(d)]; } catch(e){}
+  if (!s) { $('#corpo').innerHTML = '<div class="aviso">Santo deste dia ainda não cadastrado.</div>'; return; }
+  $('#corpo').className = '';
+  $('#corpo').innerHTML = `<div class="santo-top"><img class="foto" alt="${esc(s.nome)}" src="${esc(s.img || SANTO_PADRAO)}">
+      <h2>${esc(s.nome)}</h2><div class="tit">${esc(s.titulo||'')}</div></div>
+    <div class="cartao" style="margin-top:18px"><p class="historia" style="margin:0">${esc(s.resumo||'')}</p></div>
+    <div style="text-align:center;margin-top:16px"><button class="btn" id="hist">Conhecer a história</button></div>
+    <div id="histTxt"></div>`;
+  const im = app.querySelector('.santo-top .foto'); im.onerror = () => { im.src = SANTO_PADRAO; };
+  $('#hist').onclick = async () => {
+    const b = $('#hist'); b.disabled = true; b.textContent = 'Carregando…';
+    try {
+      const u = `https://pt.wikipedia.org/w/api.php?action=query&format=json&origin=*&prop=extracts&explaintext=1&exsectionformat=plain&redirects=1&titles=${encodeURIComponent(s.wiki)}`;
+      const j = await (await fetch(u)).json(); const pg = Object.values(j.query.pages)[0];
+      let txt = (pg.extract||'').split(/\n+/).map(p=>p.trim()).filter(p => p.length > 40);
+      let total = 0; txt = txt.filter(p => (total += p.length) < 4500);
+      $('#histTxt').innerHTML = `<div class="cartao historia" style="margin-top:16px">${txt.map(p=>`<p>${esc(p)}</p>`).join('')}
+        <p class="fonte">Texto: Wikipédia, a enciclopédia livre (CC BY-SA). <a href="https://pt.wikipedia.org/wiki/${encodeURIComponent(s.wiki)}" target="_blank" rel="noopener">Ler o artigo completo</a></p></div>`;
+      b.hidden = true;
+    } catch(e){ b.disabled = false; b.textContent = 'Tentar de novo'; toast('Sem conexão para carregar a história'); }
+  };
+}
+
+// ================= NOVENAS =================
+let filtroNov = ler('filtroNov', 'Todas');
+async function telaNovenas(){
+  topo('Orações','Novenas');
+  app.innerHTML = `<section class="tela">
+    <div class="busca"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input class="campo" id="q" type="search" placeholder="Buscar santo, devoção ou intenção" aria-label="Buscar novena"></div>
+    <div class="chips" id="chips"></div><div class="lista" id="lista"><div class="carregando">Carregando…</div></div></section>`;
+  let nov; try { nov = await carregar('novenas'); } catch(e){ $('#lista').innerHTML = '<div class="aviso erro">Não consegui abrir as novenas.</div>'; return; }
+  const grupos = ['Todas', ...new Set(nov.map(n => n.grupo))];
+  const desenha = () => {
+    $('#chips').innerHTML = grupos.map(g => `<button aria-pressed="${g===filtroNov}">${esc(g)}</button>`).join('');
+    $('#chips').querySelectorAll('button').forEach(b => b.onclick = () => { filtroNov = b.textContent; guardar('filtroNov', filtroNov); desenha(); });
+    const q = norm($('#q').value).trim();
+    const res = nov.filter(n => (filtroNov === 'Todas' || n.grupo === filtroNov) && (!q || norm([n.nome, n.sobre, ...(n.tags||[])].join(' ')).includes(q)));
+    const prog = ler('progNov', {});
+    $('#lista').innerHTML = res.length ? res.map(n => { const f = (prog[n.id]||[]).length;
+      return `<button class="item" data-id="${esc(n.id)}"><div class="ini">${esc(n.nome.replace(/^Novena (a|ao|à|de|do|da|em honra de)\s+/i,'').replace(/^(Nossa Senhora|São|Santa|Santo|Sagrado|Divino|Divina|Menino|Santíssima)\s+(d[aeo]s?\s+)?/i,'').charAt(0))}</div>
+        <div><b>${esc(n.nome)}</b><span>${esc(n.festa||'')}</span></div>${f ? `<span class="prog">${f}/9</span>` : ''}</button>`; }).join('')
+      : '<p class="mudo">Nenhuma novena encontrada.</p>';
+    $('#lista').querySelectorAll('.item').forEach(b => b.onclick = () => ir('novena/'+b.dataset.id));
+  };
+  $('#q').oninput = desenha; desenha();
+}
+
+async function telaNovena(id, diaStr){
+  const nov = await carregar('novenas'); const n = nov.find(x => x.id === id);
+  if (!n) { ir('novenas'); return; }
+  topo('Novena', n.nome.replace(/^Novena (a|ao|à|de|do|da)\s+/i,''));
+  const prog = ler('progNov', {}); const feitos = prog[id] || [];
+  const dia = Math.min(9, Math.max(1, +diaStr || (feitos.length ? Math.min(9, Math.max(...feitos)+1) : 1)));
+  const D = n.dias[dia-1];
+  app.innerHTML = `<section class="tela">
+    <div class="cartao"><h2 style="font-family:var(--disp);color:var(--azul);font-size:30px;margin:0;line-height:1.1">${esc(n.nome)}</h2>
+      <p class="mudo pequeno" style="margin:4px 0 10px;font-weight:700">${esc(n.festa||'')}</p><p style="margin:0">${esc(n.sobre||'')}</p></div>
+    <div class="dias">${n.dias.map((_,i)=>`<button class="${feitos.includes(i+1)?'feito':''}" aria-current="${i+1===dia}" data-d="${i+1}">${i+1}º</button>`).join('')}</div>
+    <div class="cartao">
+      <div class="oracao" style="margin-top:0"><h3>Oração inicial</h3><p>${esc(n.inicial)}</p></div>
+      <div class="oracao"><h3>${dia}º dia · ${esc(D.tema)}</h3><p class="medit">${esc(D.reflexao)}</p></div>
+      <div class="oracao"><h3>Oração do dia</h3><p>${esc(D.oracao)}</p></div>
+      <div class="oracao"><h3>Oração final</h3><p>${esc(n.final)}</p></div>
+      ${n.rezar ? `<div class="oracao"><h3>Rezar</h3><p>${esc(n.rezar)}</p></div>` : ''}
+    </div>
+    <div class="passa"><button class="btn claro" id="ant" ${dia===1?'disabled':''}>‹ ${dia-1||1}º dia</button>
+      <button class="btn" id="feito">${feitos.includes(dia) ? (dia<9?'Ir para o '+(dia+1)+'º dia':'Novena concluída ✓') : 'Rezei o '+dia+'º dia ✓'}</button></div>
+    ${feitos.length ? '<p style="text-align:center"><button class="btn claro pequeno" id="zerar" style="padding:8px 14px">Recomeçar novena</button></p>' : ''}
+  </section>`;
+  app.querySelectorAll('.dias button').forEach(b => b.onclick = () => ir(`novena/${id}/${b.dataset.d}`));
+  $('#ant').onclick = () => ir(`novena/${id}/${dia-1}`);
+  $('#feito').onclick = () => {
+    if (!feitos.includes(dia)) { prog[id] = [...feitos, dia]; guardar('progNov', prog); }
+    if (dia < 9) ir(`novena/${id}/${dia+1}`); else { toast('Novena concluída. Deus abençoe!'); telaNovena(id, 9); }
+  };
+  const z = $('#zerar'); if (z) z.onclick = () => { delete prog[id]; guardar('progNov', prog); ir(`novena/${id}/1`); };
+}
+
+// ================= ORAÇÕES =================
+// dados/oracoes.json: {temas:[{id,nome,descricao,icone}], oracoes:[{id,titulo,tipo:"tema"|"santo"|"tradicional",temas,santo,grupo,texto,fonte}]}
+let abaOr = ler('abaOr', 'tema');
+async function telaOracoes(modo, arg){
+  topo('Orações', 'Orações');
+  app.innerHTML = `<section class="tela"><div class="carregando">Carregando…</div></section>`;
+  let D; try { D = await carregar('oracoes'); } catch(e){ app.innerHTML = '<section class="tela"><div class="aviso erro">Não consegui abrir as orações.</div></section>'; return; }
+  if (modo === 'tema' && arg) return listaOracoes(D.oracoes.filter(o => (o.temas||[]).includes(arg)), (D.temas.find(t => t.id === arg) || {}).nome || 'Tema');
+  if (modo === 'santo' && arg) return listaOracoes(D.oracoes.filter(o => o.santo === arg), arg);
+  const favs = ler('favOr', []);
+  if (abaOr === 'fav' && !favs.length) abaOr = 'tema';
+  const abas = [['tema','Por tema'],['santo','Por santo ou devoção'],['tradicional','Tradicionais']].concat(favs.length ? [['fav','♥ Minhas']] : []);
+  app.innerHTML = `<section class="tela">
+    <div class="busca"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input class="campo" id="qo" type="search" placeholder="Buscar oração, santo ou palavra" aria-label="Buscar oração"></div>
+    <div class="abas" role="tablist" style="margin-top:12px">${abas.map(([k,n]) => `<button role="tab" aria-selected="${k===abaOr}" data-k="${k}">${n}</button>`).join('')}</div>
+    <div id="corpoOr"></div></section>`;
+  const desenha = () => {
+    const q = norm($('#qo').value).trim(), c = $('#corpoOr');
+    if (q) {
+      const r = D.oracoes.filter(o => norm([o.titulo, o.santo, o.texto].join(' ')).includes(q)).slice(0, 80);
+      c.innerHTML = r.length ? `<div class="lista">${r.map(itemOr).join('')}</div>` : '<p class="mudo">Nada encontrado.</p>';
+      ligaItens(c); return;
+    }
+    if (abaOr === 'tema') {
+      c.innerHTML = `<div class="temas">${D.temas.map(t => { const n = D.oracoes.filter(o => (o.temas||[]).includes(t.id)).length;
+        return `<button data-t="${esc(t.id)}"><span class="emo">${esc(t.icone||'🙏')}</span><b>${esc(t.nome)}</b><small>${n} oraç${n===1?'ão':'ões'}</small></button>`; }).join('')}</div>`;
+      c.querySelectorAll('[data-t]').forEach(b => b.onclick = () => ir('oracoes/tema/'+b.dataset.t));
+    } else if (abaOr === 'santo') {
+      const santos = [...new Map(D.oracoes.filter(o => o.tipo === 'santo').map(o => [o.santo, o.grupo || 'Santos'])).entries()];
+      const grupos = [...new Set(santos.map(s => s[1]))];
+      c.innerHTML = grupos.map(g => `<h2 class="titulo-sec">${esc(g)}</h2><div class="lista">${santos.filter(s => s[1] === g).sort((a,b) => a[0].localeCompare(b[0],'pt-BR')).map(([s]) =>
+        `<button class="item" data-s="${esc(s)}"><div class="ini">${esc(s.replace(/^(Nossa Senhora|São|Santa|Santo|Sagrado|Divino|Divina|Menino|Santíssima|Anjo|Padre|Frei|Beato)\s+(d[aeo]s?\s+)?/i,'').charAt(0))}</div><div><b>${esc(s)}</b></div></button>`).join('')}</div>`).join('');
+      c.querySelectorAll('[data-s]').forEach(b => b.onclick = () => ir('oracoes/santo/'+encodeURIComponent(b.dataset.s)));
+    } else {
+      const r = abaOr === 'fav' ? D.oracoes.filter(o => favs.includes(o.id)) : D.oracoes.filter(o => o.tipo === 'tradicional');
+      c.innerHTML = `<div class="lista">${r.map(itemOr).join('')}</div>`; ligaItens(c);
+    }
+  };
+  app.querySelectorAll('.abas button').forEach(b => b.onclick = () => { abaOr = b.dataset.k; guardar('abaOr', abaOr); app.querySelectorAll('.abas button').forEach(x => x.setAttribute('aria-selected', x === b)); desenha(); });
+  $('#qo').oninput = desenha; desenha();
+}
+const itemOr = o => `<button class="item" data-o="${esc(o.id)}"><div class="ini">${o.tipo === 'tradicional' ? '✝' : '🙏'}</div><div><b>${esc(o.titulo)}</b><span>${esc(o.santo || o.fonte || '')}</span></div></button>`;
+function ligaItens(c){ c.querySelectorAll('[data-o]').forEach(b => b.onclick = () => ir('oracao/'+b.dataset.o)); }
+function listaOracoes(lista, titulo){
+  topo('Orações', titulo);
+  app.innerHTML = `<section class="tela"><h2 class="titulo-sec" style="margin-top:0">${esc(titulo)}</h2><div class="lista">${lista.map(itemOr).join('')}</div></section>`;
+  ligaItens(app);
+}
+let tamOr = ler('tamOr', 20);
+async function telaOracao(id){
+  const D = await carregar('oracoes'); const o = D.oracoes.find(x => x.id === id);
+  if (!o) { ir('oracoes'); return; }
+  topo(o.santo || 'Oração', o.titulo);
+  const fav = ler('favOr', []).includes(id);
+  const temas = (o.temas||[]).map(t => D.temas.find(x => x.id === t)).filter(Boolean);
+  const temAmem = /am[eé]m\.?\s*$/i.test(o.texto || '');
+  app.innerHTML = `<section class="tela">
+    <div class="tamanho"><button id="menos" aria-label="Diminuir letra">A−</button><button id="mais" aria-label="Aumentar letra">A+</button></div>
+    <article class="cartao oracao-txt">
+      <h2>${esc(o.titulo)}</h2>${o.santo ? `<div style="color:var(--ouro);font-weight:800">${esc(o.santo)}</div>` : ''}
+      <div id="txt" style="font-size:${tamOr}px">${String(o.texto||'').split(/\n\s*\n/).map(p => `<p>${esc(p).replace(/\n/g,'<br>')}</p>`).join('')}${temAmem ? '' : '<p style="font-weight:700">Amém.</p>'}</div>
+    </article>
+    ${temas.length ? `<div class="chips">${temas.map(t => `<button data-t="${esc(t.id)}">${esc(t.icone||'')} ${esc(t.nome)}</button>`).join('')}</div>` : ''}
+    <div class="passa"><button class="btn claro" id="fav">${fav ? '♥ Salva' : '♡ Salvar'}</button><button class="btn" id="comp">Compartilhar</button></div>
+    <p class="fonte">${esc(o.fonte||'')}</p></section>`;
+  app.querySelectorAll('.chips [data-t]').forEach(b => b.onclick = () => ir('oracoes/tema/'+b.dataset.t));
+  const ajusta = n => { tamOr = Math.max(15, Math.min(30, tamOr+n)); guardar('tamOr', tamOr); $('#txt').style.fontSize = tamOr+'px'; };
+  $('#menos').onclick = () => ajusta(-2); $('#mais').onclick = () => ajusta(2);
+  $('#fav').onclick = () => { const f = ler('favOr', []); const i = f.indexOf(id); if (i < 0) f.push(id); else f.splice(i,1); guardar('favOr', f);
+    $('#fav').textContent = i < 0 ? '♥ Salva' : '♡ Salvar'; toast(i < 0 ? 'Salva em "Minhas"' : 'Removida de "Minhas"'); };
+  $('#comp').onclick = async () => { const t = `${o.titulo}\n\n${o.texto}\n\n— App Paróquia Nossa Senhora do Amparo`;
+    try { if (navigator.share) await navigator.share({title:o.titulo, text:t}); else { await navigator.clipboard.writeText(t); toast('Oração copiada'); } } catch(e){} };
+}
+
+// ================= DEVOCIONÁRIOS =================
+// dados/devocionarios.json: [{id,nome,sub,sobre,cor,secoes:[{titulo,tipo:"texto"|"oracao"|"ladainha"|"passos",intro,texto,itens}],fonte}]
+const paragrafos = t => String(t || '').split(/\n\s*\n/).map(p => `<p>${esc(p).replace(/\n/g, '<br>')}</p>`).join('');
+async function telaDevocionarios(id){
+  topo('Devoção', 'Devocionários');
+  let D; try { D = await carregar('devocionarios'); } catch(e){ app.innerHTML = '<section class="tela"><div class="aviso erro">Não consegui abrir os devocionários.</div></section>'; return; }
+  const d = id && D.find(x => x.id === id);
+  if (d) return devocionario(d);
+  app.innerHTML = `<section class="tela"><div class="devs">${D.map(x => `<button data-id="${esc(x.id)}" style="--cor:${esc(x.cor || '#0B2F6B')}">
+      <b>${esc(x.nome.replace(/^Devocionário (de|do|da|dos|das|ao|à)\s+/i, ''))}</b><span>${esc(x.sub || '')}</span><small>${x.secoes.length} partes ›</small></button>`).join('')}</div></section>`;
+  app.querySelectorAll('.devs button').forEach(b => b.onclick = () => ir('devocionarios/' + b.dataset.id));
+}
+let tamDev = ler('tamDev', 19);
+function devocionario(d){
+  topo('Devocionário', d.nome.replace(/^Devocionário (de|do|da|dos|das|ao|à)\s+/i, ''));
+  const secao = (s, i) => {
+    let corpo = '';
+    if (s.tipo === 'ladainha') corpo = `<div class="ladainha">${(s.itens || []).map(x => `<div><span>${esc(x.v)}</span>${x.r ? `<em>${esc(x.r)}</em>` : ''}</div>`).join('')}</div>`;
+    else if (s.tipo === 'passos') corpo = (s.itens || []).map(x => `<details class="passo"><summary>${esc(x.titulo)}</summary>${paragrafos(x.texto)}</details>`).join('');
+    else corpo = `<div class="${s.tipo === 'oracao' ? 'reza' : ''}">${paragrafos(s.texto)}</div>`;
+    return `<section class="cartao dev-sec" id="s${i}"><h3>${esc(s.titulo)}</h3>${s.intro ? `<p class="mudo">${esc(s.intro)}</p>` : ''}${corpo}</section>`;
+  };
+  app.innerHTML = `<section class="tela">
+    <div class="dev-topo" style="--cor:${esc(d.cor || '#0B2F6B')}"><h2>${esc(d.nome)}</h2>${d.sub ? `<div class="sub">${esc(d.sub)}</div>` : ''}<p>${esc(d.sobre || '')}</p></div>
+    <div class="indice">${d.secoes.map((s, i) => `<button data-i="${i}">${esc(s.titulo)}</button>`).join('')}</div>
+    <div class="tamanho"><button id="menos" aria-label="Diminuir letra">A−</button><button id="mais" aria-label="Aumentar letra">A+</button></div>
+    <div id="secs" style="font-size:${tamDev}px">${d.secoes.map(secao).join('')}</div>
+    <p class="fonte">${esc(d.fonte || '')}</p></section>`;
+  app.querySelectorAll('.indice button').forEach(b => b.onclick = () => { const el = $('#s' + b.dataset.i); window.scrollTo({top: el.getBoundingClientRect().top + scrollY - 70, behavior: 'smooth'}); });
+  const ajusta = n => { tamDev = Math.max(15, Math.min(28, tamDev + n)); guardar('tamDev', tamDev); $('#secs').style.fontSize = tamDev + 'px'; };
+  $('#menos').onclick = () => ajusta(-2); $('#mais').onclick = () => ajusta(2);
+}
+
+// ================= BÍBLIA =================
+// Índice dos 73 livros (dados/biblia.json). O texto é o da Bíblia Ave-Maria, que tem direitos autorais:
+// a leitura abre no site Bíblia Católica Online, direto no capítulo ou versículo.
+let biblia = null;
+async function abrirBiblia(){
+  if (biblia) return biblia;
+  const b = await carregar('biblia');
+  b.livros.forEach(l => { l.k = norm(l.nome).replace(/\s/g,''); l.ka = norm(l.abrev).replace(/\s/g,''); });
+  return biblia = b;
+}
+function acharLivro(txt){
+  let t = norm(txt).replace(/[\s.]/g,'');
+  if (/^salmos?$/.test(t)) t = 'sl';
+  return biblia.livros.find(l => l.ka === t || l.k === t) || (t.length >= 3 && biblia.livros.find(l => l.k.startsWith(t) || l.k.replace(/^\d/,'').startsWith(t)));
+}
+const linkAveMaria = (l, c, v) => `${biblia.link}${l.id}/${c}/${v ? v+'/' : ''}`;
+function lerNaAveMaria(l, c, v){
+  guardar('ultimaLeitura', {livro:l.id, cap:c});
+  window.open(linkAveMaria(l, c, v), '_blank', 'noopener');
+}
+
+async function telaBiblia(livroId){
+  topo('Sagrada Escritura','Bíblia');
+  app.innerHTML = `<section class="tela"><div class="carregando">Abrindo a Bíblia…</div></section>`;
+  try { await abrirBiblia(); } catch(e){ app.innerHTML = `<section class="tela"><div class="aviso erro">Não consegui abrir a Bíblia. Confira a internet.</div></section>`; return; }
+  const livro = livroId && biblia.livros.find(l => l.id === livroId);
+  if (livro) return capitulos(livro);
+  const ult = ler('ultimaLeitura', null); const lu = ult && biblia.livros.find(l => l.id === ult.livro);
+  const grupo = t => biblia.livros.filter(l => l.t === t).map(l => `<button data-id="${l.id}"><small>${esc(l.abrev)}</small>${esc(l.nome)}</button>`).join('');
+  app.innerHTML = `<section class="tela">
+    <form class="busca" id="fb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input class="campo" id="qb" type="search" placeholder="Ir para: Jo 3,16 · Salmo 23 · 1Cor 13" aria-label="Ir para passagem"></form>
+    <p class="pequeno" id="qmsg" style="color:var(--erro);margin:6px 0 0"></p>
+    ${lu ? `<button class="item" id="cont" style="margin-top:12px"><div class="ini">↺</div><div><b>Continuar leitura</b><span>${esc(lu.nome)} ${ult.cap}${ult.cap < lu.caps ? ' · próximo: '+(ult.cap+1) : ''}</span></div></button>` : ''}
+    <h2 class="titulo-sec">Antigo Testamento</h2><div class="livros">${grupo('AT')}</div>
+    <h2 class="titulo-sec">Novo Testamento</h2><div class="livros">${grupo('NT')}</div>
+    <p class="fonte">Leitura na Bíblia Ave-Maria, pelo site Bíblia Católica Online (abre fora do app; precisa de internet).</p>
+  </section>`;
+  app.querySelectorAll('.livros button').forEach(b => b.onclick = () => ir('biblia/'+b.dataset.id));
+  const c = $('#cont'); if (c) c.onclick = () => ir('biblia/'+ult.livro);
+  $('#fb').onsubmit = ev => {
+    ev.preventDefault(); const q = $('#qb').value.trim();
+    const m = q.match(/^\s*([1-3]?\s*[A-Za-zÀ-ú.]+(?:\s+(?:dos\s+)?[A-Za-zÀ-ú]+)?)\s*(\d+)?(?:\s*[,:.]\s*(\d+))?\s*$/);
+    const l = m && acharLivro(m[1]);
+    if (!l) { $('#qmsg').textContent = 'Não reconheci o livro. Ex.: Jo 3,16 ou Salmo 23'; return; }
+    $('#qmsg').textContent = '';
+    if (!m[2]) return ir('biblia/'+l.id);
+    const cap = Math.min(+m[2], l.caps); lerNaAveMaria(l, cap, +m[3] || 0);
+  };
+}
+
+function capitulos(l){
+  topo('Bíblia', l.nome);
+  const ult = ler('ultimaLeitura', null);
+  app.innerHTML = `<section class="tela"><h2 class="titulo-sec" style="margin-top:0">${esc(l.nome)}</h2>
+    <p class="mudo" style="margin-top:-4px">${l.caps} capítulo${l.caps>1?'s':''} · toque para ler na Bíblia Ave-Maria</p>
+    <div class="caps">${Array.from({length:l.caps},(_,i)=>`<button${ult && ult.livro===l.id && ult.cap===i+1 ? ' style="background:var(--azul);color:#fff"' : ''}>${i+1}</button>`).join('')}</div></section>`;
+  app.querySelectorAll('.caps button').forEach(b => b.onclick = () => { lerNaAveMaria(l, +b.textContent); capitulos(l); });
+}
+
+// ================= PASTORAL DO DÍZIMO =================
+const cores = ['#FFF3A6','#FFD9E1','#D7F0FF','#DDF5D3','#FFE3C2','#EADCFF'];
+async function telaPastoral(){
+  topo('Acesso restrito','Pastoral do Dízimo');
+  const agora = hoje(); const padrao = agora.getDate() >= 15 ? somaDias(new Date(agora.getFullYear(), agora.getMonth()+1, 1), 0) : agora;
+  app.innerHTML = `<section class="tela">
+    <div class="mural"><h2>📌 Mural</h2><div class="notas" id="notas"><div class="vazio">Carregando recados…</div></div>
+      <form class="nota-nova" id="fn"><b>Deixar um recado</b>
+        <textarea class="campo" id="nt" maxlength="500" placeholder="Escreva sua mensagem para a pastoral…" required style="min-height:80px"></textarea>
+        <div class="linha"><input class="campo" id="na" maxlength="40" placeholder="Seu nome" value="${esc(ler('meuNome',''))}"><button class="btn">Publicar no mural</button></div></form></div>
+    <div class="cartao cartaz">
+      <h2 style="font-family:var(--disp);color:var(--azul);font-size:28px;margin:0">Cartaz dos aniversariantes</h2>
+      <p class="mudo" style="margin:4px 0 0">O cartaz sai da planilha de dizimistas, com os nomes em ordem de dia, e fica salvo no Canva junto com os anteriores.</p>
+      <div class="mes-sel"><select class="campo" id="cm">${MESES.map((m,i)=>`<option value="${i+1}" ${i===padrao.getMonth()?'selected':''}>${m}</option>`).join('')}</select>
+        <select class="campo" id="ca" style="max-width:130px">${[agora.getFullYear(), agora.getFullYear()+1].map(a=>`<option ${a===padrao.getFullYear()?'selected':''}>${a}</option>`).join('')}</select></div>
+      <button class="btn ouro" id="pedir"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 15l5-5 4 4 3-3 6 6"/><circle cx="15.5" cy="8.5" r="1.5"/></svg>Confeccionar cartaz dos aniversariantes do mês</button>
+      <h3 style="margin:22px 0 6px;font-size:15px;color:var(--mudo);text-transform:uppercase;letter-spacing:.08em">Pedidos</h3>
+      <div id="pedidos" class="mudo">Carregando…</div>
+    </div></section>`;
+
+  const desenhaNotas = recados => {
+    $('#notas').innerHTML = recados.length ? recados.map((r,i) => `<div class="nota" style="background:${cores[i%cores.length]};--rot:${((i*37)%5-2)*.7}deg">${esc(r.texto)}
+      <div class="de"><span>${esc(r.autor)} · <time>${r.data ? new Date(r.data).toLocaleDateString('pt-BR',{day:'2-digit',month:'2-digit'}) : ''}</time></span><button class="x" data-id="${esc(r.id)}" aria-label="Apagar recado">✕</button></div></div>`).join('')
+      : '<div class="vazio">Nenhum recado ainda. Seja o primeiro!</div>';
+    $('#notas').querySelectorAll('.x').forEach(b => b.onclick = async () => { if (!confirm('Apagar este recado do mural?')) return; try { desenhaNotas((await servidor('apagarRecado',{id:b.dataset.id})).recados); } catch(e){ toast(e.message); } });
+  };
+  const desenhaPedidos = pedidos => {
+    $('#pedidos').innerHTML = pedidos.length ? pedidos.map(p => { const st = p.status||'Na fila'; const cls = st==='Pronto'?'pronto':(st==='Erro'?'erro':'');
+      return `<div class="pedido"><div><b>${esc(p.nomeMes)} de ${p.ano}</b><span class="pequeno mudo">${p.pedidoPor ? 'por '+esc(p.pedidoPor)+' · ' : ''}${p.pedidoEm ? new Date(p.pedidoEm).toLocaleDateString('pt-BR') : ''}${p.obs ? ' · '+esc(p.obs) : ''}</span>
+        ${p.link ? `<div><a href="${esc(p.link)}" target="_blank" rel="noopener" style="font-weight:800">Abrir no Canva ›</a></div>` : ''}</div><span class="status ${cls}">${esc(st)}</span></div>`; }).join('')
+      : '<p class="pequeno">Nenhum pedido ainda.</p>';
+  };
+  servidor('mural').then(j => desenhaNotas(j.recados)).catch(e => $('#notas').innerHTML = `<div class="vazio">${esc(e.message)}</div>`);
+  servidor('cartazes').then(j => desenhaPedidos(j.pedidos)).catch(e => $('#pedidos').textContent = e.message);
+
+  $('#fn').onsubmit = async ev => {
+    ev.preventDefault(); const texto = $('#nt').value.trim(), autor = $('#na').value.trim(); if (!texto) return;
+    guardar('meuNome', autor); const b = ev.submitter || $('#fn button'); b.disabled = true;
+    try { desenhaNotas((await servidor('recado', {texto, autor})).recados); $('#nt').value = ''; toast('Recado publicado'); } catch(e){ toast(e.message); }
+    b.disabled = false;
+  };
+  $('#pedir').onclick = async () => {
+    const mes = +$('#cm').value, ano = +$('#ca').value, b = $('#pedir'); b.disabled = true;
+    try { const j = await servidor('pedirCartaz', {mes, ano, autor: ler('meuNome','') || (sessao.papel==='padre'?'Padre':'')}); desenhaPedidos(j.pedidos);
+      toast(j.jaExiste ? `O cartaz de ${MESES[mes-1]} já está sendo feito` : `Pedido do cartaz de ${MESES[mes-1]} enviado!`); }
+    catch(e){ toast(e.message); }
+    b.disabled = false;
+  };
+}
+
+atualizarNav();
+rota();
+</script>
+
+<script>
+if ('serviceWorker' in navigator && location.protocol === 'https:') navigator.serviceWorker.register('sw.js').catch(function(){});
+</script>
+</body>
+</html>

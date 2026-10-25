@@ -1,0 +1,1550 @@
+{
+ "temas": [
+  {
+   "id": "aflicao",
+   "nome": "Aflição",
+   "descricao": "Para os momentos de angústia, medo e causas que parecem sem saída.",
+   "icone": "🕯️"
+  },
+  {
+   "id": "agradecimento",
+   "nome": "Agradecimento",
+   "descricao": "Para dar graças a Deus pelos dons recebidos e pelas graças alcançadas.",
+   "icone": "🙏"
+  },
+  {
+   "id": "contemplacao",
+   "nome": "Contemplação",
+   "descricao": "Para silenciar o coração e permanecer na presença de Deus.",
+   "icone": "✨"
+  },
+  {
+   "id": "perdao",
+   "nome": "Perdão",
+   "descricao": "Para pedir perdão a Deus, perdoar o próximo e reconciliar-se.",
+   "icone": "🤍"
+  },
+  {
+   "id": "cura-saude",
+   "nome": "Cura e saúde",
+   "descricao": "Pelos doentes, pelos que cuidam deles e pela cura do corpo e da alma.",
+   "icone": "🩺"
+  },
+  {
+   "id": "familia",
+   "nome": "Família",
+   "descricao": "Para abençoar o lar, a união e a paz entre os seus.",
+   "icone": "🏠"
+  },
+  {
+   "id": "filhos",
+   "nome": "Filhos",
+   "descricao": "Para entregar os filhos a Deus em cada fase da vida.",
+   "icone": "👶"
+  },
+  {
+   "id": "casamento",
+   "nome": "Casamento",
+   "descricao": "Pelos esposos, pelos noivos e pela fidelidade no amor.",
+   "icone": "💍"
+  },
+  {
+   "id": "trabalho",
+   "nome": "Trabalho e emprego",
+   "descricao": "Pelo trabalho de cada dia, por um emprego e pelo sustento da casa.",
+   "icone": "💼"
+  },
+  {
+   "id": "protecao",
+   "nome": "Proteção",
+   "descricao": "Para pedir a proteção de Deus em casa, nos caminhos e contra todo mal.",
+   "icone": "🛡️"
+  },
+  {
+   "id": "paz-interior",
+   "nome": "Paz interior e ansiedade",
+   "descricao": "Para acalmar a mente inquieta e descansar o coração em Deus.",
+   "icone": "🕊️"
+  },
+  {
+   "id": "luto",
+   "nome": "Luto e falecidos",
+   "descricao": "Pelas almas dos que partiram e pelo consolo de quem ficou.",
+   "icone": "🌹"
+  },
+  {
+   "id": "decisoes",
+   "nome": "Decisões difíceis",
+   "descricao": "Para pedir luz e discernimento diante das escolhas da vida.",
+   "icone": "🧭"
+  },
+  {
+   "id": "estudos",
+   "nome": "Estudos e provas",
+   "descricao": "Para estudantes, provas, concursos e para quem ensina.",
+   "icone": "📚"
+  },
+  {
+   "id": "dizimo",
+   "nome": "Dízimo e generosidade",
+   "descricao": "Para viver a partilha com alegria e confiar na Providência.",
+   "icone": "💛"
+  },
+  {
+   "id": "manha-noite",
+   "nome": "Manhã e noite",
+   "descricao": "Para começar e terminar o dia nas mãos de Deus.",
+   "icone": "🌅"
+  }
+ ],
+ "oracoes": [
+  {
+   "id": "aflicao-socorro",
+   "titulo": "Oração na hora da aflição",
+   "tipo": "tema",
+   "temas": [
+    "aflicao"
+   ],
+   "texto": "Senhor meu Deus, venho a vós com o coração apertado e sem as palavras certas. Vós conheceis o peso que carrego e a angústia que me tira o sono. Não vos peço que afasteis de mim toda cruz, mas que não me deixeis carregá-la sozinho.\n\nJesus, que no Horto das Oliveiras sentistes a tristeza até a morte, ficai ao meu lado nesta hora. Ensinai-me a dizer, como vós: seja feita a vontade do Pai. Quando eu não enxergar saída, sede vós o meu caminho.\n\nDai-me a força para viver um dia de cada vez e a paz de saber que estou em vossas mãos. Nossa Senhora do Amparo, intercedei por mim junto ao vosso Filho. Amém.",
+   "fonte": "Original"
+  },
+  {
+   "id": "aflicao-escuridao",
+   "titulo": "Quando tudo parece escuro",
+   "tipo": "tema",
+   "temas": [
+    "aflicao",
+    "paz-interior"
+   ],
+   "texto": "Senhor, hoje é difícil rezar. Parece que as luzes se apagaram e que a minha voz não chega até vós. Mesmo assim, eu me ajoelho, porque sei que vós não vos afastais de quem vos procura.\n\nVós que separastes a luz das trevas no primeiro dia da criação, acendei uma pequena luz dentro de mim. Não preciso ver todo o caminho; basta-me o próximo passo. Lembrai-me de que a noite mais longa termina sempre com o amanhecer.\n\nSegurai a minha mão quando eu tropeçar e levantai-me quando eu cair. Que o vosso Espírito sopre esperança onde hoje só há cansaço. Eu creio, Senhor, mas aumentai a minha fé. Amém.",
+   "fonte": "Original"
+  },
+  {
+   "id": "aflicao-financeira",
+   "titulo": "Nas dificuldades financeiras",
+   "tipo": "tema",
+   "temas": [
+    "aflicao",
+    "trabalho"
+   ],
+   "texto": "Pai do céu, que alimentais as aves e vestis os lírios do campo, olhai para a minha casa neste tempo de aperto. As contas se acumulam e o medo do amanhã quer tomar conta do meu coração.\n\nDai-me serenidade para organizar o que está em minhas mãos e humildade para pedir ajuda quando for preciso. Abri portas de trabalho honesto e fechai as portas das soluções fáceis que me afastariam de vós. Livrai-me do desespero e da tentação de culpar os outros.\n\nQue em nossa mesa não falte o pão e que em nosso lar não falte a paz. Ensinai-nos a viver com simplicidade e a partilhar mesmo o pouco que temos. São José, provedor da Sagrada Família, rogai por nós. Amém.",
+   "fonte": "Original"
+  },
+  {
+   "id": "aflicao-causa-dificil",
+   "titulo": "Por uma causa difícil",
+   "tipo": "tema",
+   "temas": [
+    "aflicao"
+   ],
+   "texto": "Deus de bondade, para quem nada é impossível, coloco diante de vós esta causa que me parece grande demais. Já tentei de muitas formas e sinto que as minhas forças chegaram ao fim.\n\nVós conheceis cada detalhe desta situação melhor do que eu. Se for para o meu bem e para a vossa glória, concedei-me a graça que vos peço. Se a resposta for outra, dai-me a paz de aceitar a vossa vontade, que é sempre amor.\n\nEnsinai-me a esperar sem desanimar e a confiar sem exigir. Maria Santíssima e todos os santos do céu, intercedei por mim. Em nome de Jesus, eu entrego e descanso. Amém.",
+   "fonte": "Original"
+  },
+  {
+   "id": "aflicao-confianca",
+   "titulo": "Ato de confiança na tribulação",
+   "tipo": "tema",
+   "temas": [
+    "aflicao"
+   ],
+   "texto": "Jesus, eu confio em vós. Confio quando entendo e confio quando não entendo nada. Confio quando a resposta demora e quando o silêncio parece longo demais.\n\nVós acalmastes a tempestade com uma palavra; dizei também agora uma palavra ao mar agitado do meu coração. Tirai de mim o medo que paralisa e a pressa que atropela. Que eu durma no barco, como vós dormistes, sabendo que o Pai está no comando.\n\nEu vos entrego o que me aflige, o que não posso mudar e as pessoas que amo. Fazei de mim uma testemunha da vossa fidelidade. Jesus, eu confio em vós. Amém.",
+   "fonte": "Original"
+  },
+  {
+   "id": "agradecimento-dia",
+   "titulo": "Obrigado, Senhor, por este dia",
+   "tipo": "tema",
+   "temas": [
+    "agradecimento",
+    "manha-noite"
+   ],
+   "texto": "Senhor, antes de qualquer pedido, eu quero simplesmente agradecer. Obrigado pela vida que pulsa em mim, pelo ar que respiro e pela luz de mais um dia.\n\nObrigado pelas pessoas que cruzaram o meu caminho, pelas pequenas alegrias e até pelas dificuldades que me fizeram crescer. Obrigado pelo pão, pela casa, pelo trabalho e pelo descanso. Muitas vezes recebo tanto e nem percebo.\n\nDai-me olhos atentos para reconhecer os vossos sinais em cada hora. Que a gratidão seja o primeiro e o último pensamento do meu dia. Bendito sejais, Pai, Filho e Espírito Santo, agora e sempre. Amém.",
+   "fonte": "Original"
+  },
+  {
+   "id": "agradecimento-graca-alcancada",
+   "titulo": "Ação de graças por uma graça alcançada",
+   "tipo": "tema",
+   "temas": [
+    "agradecimento"
+   ],
+   "texto": "Meu Deus, o meu coração transborda de alegria. Pedi com lágrimas e vós me ouvistes. Hoje venho, como o leproso curado, voltar para dizer obrigado.\n\nReconheço que tudo é dom do vosso amor e que nada mereci por mim mesmo. Agradeço também a Nossa Senhora e aos santos que intercederam por mim nesta caminhada. Que esta graça não seja esquecida quando vierem os dias comuns.\n\nAjudai-me a retribuir com uma vida mais fiel, mais generosa e mais atenta aos que sofrem. Que eu saiba contar aos outros o bem que fizestes por mim. A vós, Senhor, toda honra e toda glória. Amém.",
+   "fonte": "Original"
+  },
+  {
+   "id": "agradecimento-pessoas",
+   "titulo": "Gratidão pelas pessoas da minha vida",
+   "tipo": "tema",
+   "temas": [
+    "agradecimento",
+    "familia"
+   ],
+   "texto": "Senhor, eu vos agradeço pelas pessoas que colocastes no meu caminho. Pela minha família, pelos amigos verdadeiros, por quem me ensinou a rezar e por quem me estendeu a mão quando eu caí.\n\nAgradeço também pelos que me corrigiram com amor e pelos que me desafiaram a ser melhor. Cada um deles foi um sinal da vossa presença na minha história. Abençoai-os onde estiverem, com saúde, paz e fé.\n\nPelos que já partiram, dai-lhes o descanso eterno. Pelos que ainda caminham comigo, fazei-me digno da sua amizade. E que eu também seja, para alguém, um presente vosso. Amém.",
+   "fonte": "Original"
+  },
+  {
+   "id": "agradecimento-fe",
+   "titulo": "Gratidão pelo dom da fé",
+   "tipo": "tema",
+   "temas": [
+    "agradecimento",
+    "contemplacao"
+   ],
+   "texto": "Pai santo, eu vos agradeço pelo dom da fé que recebi no Batismo. Foi um presente que eu não pedi e que mudou toda a minha vida.\n\nObrigado pela Igreja, que me acolhe como mãe, pelos sacramentos que me alimentam e pela vossa Palavra que me orienta. Obrigado pelos sacerdotes, catequistas e por todos que me transmitiram a fé com o próprio exemplo. Obrigado por esta comunidade paroquial, onde aprendo a viver como irmão.\n\nGuardai em mim esta chama, para que não se apague nas provações. E fazei que eu a passe adiante, com alegria, aos que vêm depois de mim. Amém.",
+   "fonte": "Original"
+  },
+  {
+   "id": "apos-comunhao",
+   "titulo": "Ação de graças depois da comunhão",
+   "tipo": "tema",
+   "temas": [
+    "contemplacao",
+    "agradecimento"
+   ],
+   "texto": "Senhor Jesus, vós viestes morar em mim. Fico em silêncio diante deste mistério tão grande: o Criador do universo cabe no coração de uma criatura.\n\nObrigado por vos dardes como alimento a quem é tão pequeno e tão frágil. Purificai os meus pensamentos, as minhas palavras e as minhas obras. Fazei que eu leve vossa presença para casa, para o trabalho e para cada pessoa que encontrar hoje.\n\nQue esta comunhão me una mais a vós e aos irmãos. Não permitais que eu me separe de vós. Permanecei comigo, Senhor, porque sem vós eu nada posso. Amém.",
+   "fonte": "Original"
+  },
+  {
+   "id": "contemplacao-santissimo",
+   "titulo": "Diante do Santíssimo Sacramento",
+   "tipo": "tema",
+   "temas": [
+    "contemplacao"
+   ],
+   "texto": "Jesus, aqui estou diante de vós, presente na Hóstia Santa. Não trago grandes discursos; trago apenas o desejo de estar convosco.\n\nVós me olhais com amor, e eu quero aprender a olhar para vós. Deixo do lado de fora as pressas, as preocupações e o barulho do mundo. Neste silêncio, falai ao meu coração, e se não disserdes nada, basta-me estar aqui.\n\nEu vos adoro, Deus escondido e tão próximo. Eu vos amo, mesmo sendo pobre o meu amor. Fazei de mim um adorador em espírito e verdade, dentro e fora desta igreja. Amém.",
+   "fonte": "Original"
+  },
+  {
+   "id": "contemplacao-criacao",
+   "titulo": "Na beleza da criação",
+   "tipo": "tema",
+   "temas": [
+    "contemplacao",
+    "agradecimento"
+   ],
+   "texto": "Senhor, como é bela a obra das vossas mãos. O céu que muda de cor ao entardecer, o canto dos pássaros, o mar que não se cansa e a árvore que cresce em silêncio falam de vós.\n\nTudo o que existe vem do vosso amor e para ele retorna. Abri os meus olhos para que eu veja a vossa assinatura em cada criatura. Ensinai-me a cuidar desta casa comum que confiastes a nós.\n\nCom todas as criaturas, eu vos louvo e bendigo. Que eu também seja, com a minha vida, um pequeno hino à vossa glória. Amém.",
+   "fonte": "Original"
+  },
+  {
+   "id": "contemplacao-silencio",
+   "titulo": "No silêncio diante de Deus",
+   "tipo": "tema",
+   "temas": [
+    "contemplacao"
+   ],
+   "texto": "Senhor, quero apenas ficar um pouco convosco. Desligo as vozes de fora e tento acalmar as vozes de dentro. Respiro devagar e lembro que vós estais aqui.\n\nNão preciso fazer nada para merecer o vosso amor. Como uma criança no colo da mãe, descanso em vós. Que este silêncio seja oração e que esta pausa seja encontro.\n\nFalai, Senhor, que o vosso servo escuta. E se for tempo de silêncio, ensinai-me a permanecer. Amém.",
+   "fonte": "Original"
+  },
+  {
+   "id": "contemplacao-palavra",
+   "titulo": "Antes de ler a Palavra de Deus",
+   "tipo": "tema",
+   "temas": [
+    "contemplacao"
+   ],
+   "texto": "Espírito Santo, que inspirastes as Sagradas Escrituras, vinde iluminar o meu coração. Vou abrir a Palavra de Deus e quero recebê-la não como letra morta, mas como voz viva.\n\nAbri os meus ouvidos para escutar, a minha mente para compreender e a minha vontade para praticar. Que eu não procure nela apenas o que me agrada, mas o que o Senhor deseja me dizer hoje. Que cada versículo seja semente em terra boa.\n\nMaria, que guardáveis todas as coisas no coração, ensinai-me a meditar como vós. E que a Palavra lida se torne vida vivida. Amém.",
+   "fonte": "Original"
+  },
+  {
+   "id": "perdao-pedir",
+   "titulo": "Pedindo perdão a Deus",
+   "tipo": "tema",
+   "temas": [
+    "perdao"
+   ],
+   "texto": "Pai de misericórdia, eu volto para casa como o filho pródigo. Gastei mal os dons que me destes e me afastei do vosso amor.\n\nNão venho com desculpas, mas com o coração arrependido. Reconheço as minhas faltas em pensamentos, palavras, ações e omissões. Sei que o vosso perdão é maior que o meu pecado e que vós correis ao meu encontro antes mesmo que eu chegue.\n\nLavai-me, Senhor, e serei mais branco que a neve. Dai-me a graça de uma boa confissão e a força para recomeçar. Que eu nunca duvide da vossa misericórdia. Amém.",
+   "fonte": "Original"
+  },
+  {
+   "id": "perdao-perdoar",
+   "titulo": "Para conseguir perdoar",
+   "tipo": "tema",
+   "temas": [
+    "perdao"
+   ],
+   "texto": "Senhor Jesus, vós me pedistes para perdoar setenta vezes sete, e eu não consigo perdoar nem uma vez. A ferida ainda dói e a lembrança ainda queima.\n\nVós que na cruz perdoastes a quem vos crucificava, emprestai-me o vosso coração. Eu não quero carregar para sempre este peso de mágoa. Hoje faço a escolha de perdoar, mesmo que os meus sentimentos ainda não acompanhem a minha decisão.\n\nAbençoai a pessoa que me feriu e curai o que ficou quebrado em mim. Libertai-me do desejo de vingança e da amargura. Perdoai-me como eu procuro perdoar. Amém.",
+   "fonte": "Original"
+  },
+  {
+   "id": "perdao-antes-confissao",
+   "titulo": "Antes da confissão",
+   "tipo": "tema",
+   "temas": [
+    "perdao"
+   ],
+   "texto": "Espírito Santo, iluminai a minha consciência para que eu veja com verdade os meus pecados. Não permitais que eu os esconda por vergonha nem que os diminua por orgulho.\n\nDai-me um arrependimento sincero, nascido do amor a Deus e não apenas do medo. Que eu me lembre de que, no confessionário, quem me espera é o próprio Cristo, através do sacerdote. Tirai de mim a ansiedade e enchei-me de confiança.\n\nMaria, refúgio dos pecadores, acompanhai-me neste encontro com a misericórdia. Que eu saia dele renovado, livre e decidido a recomeçar. Amém.",
+   "fonte": "Original"
+  },
+  {
+   "id": "perdao-reconciliacao-familia",
+   "titulo": "Pela reconciliação na família",
+   "tipo": "tema",
+   "temas": [
+    "perdao",
+    "familia"
+   ],
+   "texto": "Senhor, a minha família está ferida. Palavras duras, silêncios longos e mágoas antigas nos separaram de quem deveríamos amar.\n\nVós que derrubastes o muro da inimizade, derrubai também os muros que levantamos entre nós. Dai-me a humildade de dar o primeiro passo, se for preciso. Ensinai-nos a escutar sem acusar e a falar sem ferir.\n\nCurai as memórias que ainda doem e devolvei-nos a alegria de estar juntos. Sagrada Família de Nazaré, intercedei pela nossa casa. Que o amor seja mais forte que o orgulho. Amém.",
+   "fonte": "Original"
+  },
+  {
+   "id": "perdao-a-mim-mesmo",
+   "titulo": "Para perdoar a mim mesmo",
+   "tipo": "tema",
+   "temas": [
+    "perdao",
+    "paz-interior"
+   ],
+   "texto": "Senhor, vós já me perdoastes, mas eu continuo me acusando. Revivo os meus erros e não consigo deixar o passado para trás.\n\nSe vós, que sois santo, não me condenais, quem sou eu para me condenar? Ensinai-me a olhar para mim com os vossos olhos, que veem a falta, mas também a possibilidade de recomeço. Transformai a culpa que paralisa em arrependimento que faz crescer.\n\nDai-me paz com a minha história. Que eu aprenda com o que errei e siga em frente, confiando mais na vossa graça do que nas minhas forças. Amém.",
+   "fonte": "Original"
+  },
+  {
+   "id": "cura-doente",
+   "titulo": "Por um doente",
+   "tipo": "tema",
+   "temas": [
+    "cura-saude"
+   ],
+   "texto": "Senhor Jesus, que percorríeis as estradas da Galileia curando os enfermos, eu vos apresento esta pessoa querida que está doente.\n\nTocai o seu corpo com a vossa mão que cura e o seu coração com a vossa paz. Dai sabedoria aos médicos e às equipes que cuidam dela. Fortalecei a sua família, para que não desanime nas noites longas e nas notícias difíceis.\n\nSe for da vossa vontade, devolvei-lhe a saúde. Em qualquer caso, não a deixeis sentir-se sozinha, e fazei-a experimentar o vosso amor. Nossa Senhora, saúde dos enfermos, rogai por ela. Amém.",
+   "fonte": "Original"
+  },
+  {
+   "id": "cura-cirurgia",
+   "titulo": "Antes de uma cirurgia",
+   "tipo": "tema",
+   "temas": [
+    "cura-saude"
+   ],
+   "texto": "Pai do céu, entrego em vossas mãos esta cirurgia. Vós conheceis cada parte do corpo que formastes com tanto amor.\n\nGuiai as mãos dos cirurgiões, dos anestesistas e de toda a equipe. Que não haja complicações e que tudo corra bem. Afastai o medo de quem vai ser operado e dai-lhe um coração tranquilo.\n\nQue o seu anjo da guarda esteja ao seu lado durante todo o tempo. Concedei uma recuperação rápida e serena. E que, ao acordar, a primeira palavra seja de gratidão a vós. Amém.",
+   "fonte": "Original"
+  },
+  {
+   "id": "cura-propria-doenca",
+   "titulo": "Na minha doença",
+   "tipo": "tema",
+   "temas": [
+    "cura-saude"
+   ],
+   "texto": "Senhor, o meu corpo está fraco e a minha alma se cansa. Há dias em que a dor fala mais alto que a oração.\n\nVós conheceis o sofrimento por dentro, porque o carregastes na cruz. Uno as minhas dores às vossas, para que não sejam inúteis, mas se tornem oferta pela salvação do mundo. Dai-me paciência com o tratamento, com as limitações e comigo mesmo.\n\nPeço a cura, se for da vossa vontade. Mas peço ainda mais a graça de não perder a fé nem a esperança. Que eu seja grato a quem cuida de mim e que eu sinta vossa presença em cada dia. Amém.",
+   "fonte": "Original"
+  },
+  {
+   "id": "cura-profissionais-saude",
+   "titulo": "Pelos profissionais de saúde",
+   "tipo": "tema",
+   "temas": [
+    "cura-saude",
+    "trabalho"
+   ],
+   "texto": "Senhor, abençoai os médicos, enfermeiros, técnicos, cuidadores e todos os que trabalham para aliviar a dor dos outros.\n\nDai-lhes competência, atenção e mãos firmes. Renovai as suas forças nos plantões cansativos e protegei-os dos perigos da profissão. Que nunca percam a compaixão diante de quem sofre.\n\nRecompensai cada gesto de cuidado que fazem, mesmo os que ninguém vê. São Cosme e São Damião, médicos que serviam por amor, intercedei por eles. Amém.",
+   "fonte": "Original"
+  },
+  {
+   "id": "cura-interior",
+   "titulo": "Pela cura interior",
+   "tipo": "tema",
+   "temas": [
+    "cura-saude",
+    "paz-interior"
+   ],
+   "texto": "Jesus, há feridas em mim que ninguém vê. Lembranças que ainda doem, palavras que me marcaram e ausências que deixaram um vazio.\n\nEu vos convido a entrar em cada canto da minha história, mesmo nos que eu prefiro esquecer. Passai por ali com o vosso amor e trazei luz onde há sombra. Curai a criança que fui, o jovem que sofri e o adulto que hoje sou.\n\nNão vos peço que eu esqueça, mas que as lembranças não me aprisionem mais. Fazei novas todas as coisas também em mim. Amém.",
+   "fonte": "Original"
+  },
+  {
+   "id": "familia-consagracao",
+   "titulo": "Consagração da família",
+   "tipo": "tema",
+   "temas": [
+    "familia",
+    "protecao"
+   ],
+   "texto": "Senhor Jesus, nós vos consagramos a nossa família. Queremos que sejais o centro da nossa casa, o primeiro convidado da nossa mesa e o dono do nosso coração.\n\nAbençoai cada membro desta família, os que estão perto e os que estão longe. Guardai-nos da divisão, da mentira e de tudo o que destrói o amor. Ensinai-nos a rezar juntos, a perdoar depressa e a servir uns aos outros.\n\nMaria e José, que cuidastes de Jesus em Nazaré, cuidai também do nosso lar. Que a nossa casa seja uma pequena igreja, onde vós sois amado. Amém.",
+   "fonte": "Original"
+  },
+  {
+   "id": "familia-paz-no-lar",
+   "titulo": "Pela paz no lar",
+   "tipo": "tema",
+   "temas": [
+    "familia"
+   ],
+   "texto": "Senhor, que a vossa paz habite nesta casa. Que ela entre pela porta, sente-se à nossa mesa e permaneça nos nossos quartos.\n\nAcalmai os ânimos quando as discussões quiserem crescer. Dai-nos paciência com as diferenças e alegria nas coisas simples. Que cada um aqui se sinta amado, ouvido e respeitado.\n\nAfastai do nosso lar a inveja, a desconfiança e as palavras que ferem. Que quem entrar aqui sinta o perfume do vosso amor. A paz esteja nesta casa e em todos os que nela moram. Amém.",
+   "fonte": "Original"
+  },
+  {
+   "id": "familia-pais-avos",
+   "titulo": "Pelos pais e avós",
+   "tipo": "tema",
+   "temas": [
+    "familia"
+   ],
+   "texto": "Pai do céu, eu vos agradeço pelos meus pais e avós. Por meio deles recebi a vida, o nome e muitas vezes a fé.\n\nAbençoai-os com saúde, serenidade e alegria. Nos anos que avançam, dai-lhes força para as limitações e companhia para os dias de solidão. Que eles se sintam valorizados e nunca esquecidos.\n\nEnsinai-me a honrá-los com paciência, gratidão e cuidado. Perdoai o que houve de falta entre nós. São Joaquim e Santa Ana, avós de Jesus, intercedei por eles. Amém.",
+   "fonte": "Original"
+  },
+  {
+   "id": "filhos-bencao",
+   "titulo": "Pelos meus filhos",
+   "tipo": "tema",
+   "temas": [
+    "filhos"
+   ],
+   "texto": "Senhor, meus filhos são vossos antes de serem meus. Eu os recebi como presente e hoje os entrego de volta às vossas mãos.\n\nAbençoai-os no corpo, na mente e no espírito. Guardai os seus passos, as suas amizades e as suas escolhas. Que cresçam em sabedoria, em estatura e em graça, como Jesus em Nazaré.\n\nDai-me sabedoria para educá-los com firmeza e ternura. Perdoai os meus erros como pai ou mãe e supri com a vossa graça o que me faltar. Nossa Senhora, cobri-os com o vosso manto. Amém.",
+   "fonte": "Original"
+  },
+  {
+   "id": "filhos-afastado-fe",
+   "titulo": "Por um filho afastado da fé",
+   "tipo": "tema",
+   "temas": [
+    "filhos"
+   ],
+   "texto": "Senhor, meu coração de pai e de mãe sofre ao ver meu filho longe de vós. Fiz o que pude, mas sei que a fé é um encontro que só vós podeis provocar.\n\nNão permitais que eu o afaste ainda mais com cobranças ou palavras duras. Fazei de mim um sinal do vosso amor, paciente e acolhedor. Colocai no caminho dele pessoas que o aproximem de vós.\n\nSanta Mônica rezou anos pelo filho e vós a ouvistes. Ouvi também a minha súplica. Que um dia possamos estar juntos diante do vosso altar. Amém.",
+   "fonte": "Original"
+  },
+  {
+   "id": "filhos-gestacao",
+   "titulo": "Pela criança que vai nascer",
+   "tipo": "tema",
+   "temas": [
+    "filhos",
+    "casamento"
+   ],
+   "texto": "Deus da vida, eu vos agradeço por esta criança que está sendo formada no ventre materno. Vós a conheceis e a amais antes mesmo que possamos ver o seu rosto.\n\nProtegei a mãe e o bebê durante toda a gestação. Dai saúde, desenvolvimento perfeito e um parto tranquilo. Afastai os medos e enchei-nos de esperança e alegria.\n\nPreparai o nosso coração para acolher esta nova vida com amor. Nossa Senhora do Bom Parto e São Frei Galvão, intercedei por nós. Amém.",
+   "fonte": "Original"
+  },
+  {
+   "id": "filhos-jovens",
+   "titulo": "Pelos filhos adolescentes e jovens",
+   "tipo": "tema",
+   "temas": [
+    "filhos",
+    "decisoes"
+   ],
+   "texto": "Senhor, meus filhos estão crescendo e o mundo lhes oferece muitos caminhos. Nem sempre consigo acompanhá-los e nem sempre eles me escutam.\n\nIde aonde eu não posso ir. Protegei-os das más companhias, dos vícios e das mentiras que prometem felicidade fácil. Dai-lhes discernimento nas escolhas de estudo, de amizade e de amor.\n\nQue descubram que vós sois o melhor amigo e que a vossa vontade é o caminho da verdadeira alegria. E dai-me sabedoria para conversar com eles com respeito e confiança. Amém.",
+   "fonte": "Original"
+  },
+  {
+   "id": "casamento-esposos",
+   "titulo": "Oração dos esposos",
+   "tipo": "tema",
+   "temas": [
+    "casamento",
+    "familia"
+   ],
+   "texto": "Senhor, vós nos unistes no sacramento do Matrimônio e prometemos amar-nos na alegria e na tristeza. Hoje renovamos diante de vós esse compromisso.\n\nAjudai-nos a ver um no outro o presente que vós nos destes. Dai-nos paciência com os defeitos, generosidade no serviço e criatividade no amor. Que não deixemos o sol se pôr sobre a nossa raiva.\n\nSede o terceiro fio que torna forte o nosso laço. Abençoai o nosso lar e fazei-nos sinal do vosso amor fiel para os nossos filhos e para o mundo. Amém.",
+   "fonte": "Original"
+  },
+  {
+   "id": "casamento-em-crise",
+   "titulo": "Pelo casamento em crise",
+   "tipo": "tema",
+   "temas": [
+    "casamento"
+   ],
+   "texto": "Senhor, o nosso casamento está passando por um tempo difícil. A distância cresceu entre nós e as palavras de carinho ficaram raras.\n\nVós que transformastes água em vinho nas bodas de Caná, renovai o nosso amor que parece ter acabado. Dai-nos humildade para reconhecer os nossos erros e coragem para buscar ajuda. Curai as feridas e reacendei o que esfriou.\n\nMaria, que percebestes a falta de vinho e intercedestes junto ao vosso Filho, olhai para nós. Que nunca desistamos de lutar pelo que vós unistes. Amém.",
+   "fonte": "Original"
+  },
+  {
+   "id": "casamento-namoro-noivado",
+   "titulo": "Pelo namoro e pelo futuro casamento",
+   "tipo": "tema",
+   "temas": [
+    "casamento",
+    "decisoes"
+   ],
+   "texto": "Senhor, eu vos entrego a minha vida afetiva. Vós conheceis o desejo do meu coração de amar e ser amado.\n\nSe for da vossa vontade que eu me case, preparai-me para ser um bom esposo ou uma boa esposa. Ensinai-me a viver o namoro com respeito, pureza e verdade. Dai-me discernimento para reconhecer a pessoa que tendes preparado para mim.\n\nQue o nosso amor seja construído sobre a rocha da fé e não sobre a areia das aparências. Santo Antônio, intercedei por mim. Amém.",
+   "fonte": "Original"
+  },
+  {
+   "id": "casamento-renovacao",
+   "titulo": "Para renovar o amor",
+   "tipo": "tema",
+   "temas": [
+    "casamento"
+   ],
+   "texto": "Senhor, os anos passaram e a rotina às vezes esconde o amor que nos uniu. Hoje quero agradecer pela pessoa que caminha ao meu lado.\n\nAbri os meus olhos para enxergar de novo as suas qualidades. Dai-me gestos novos de carinho, palavras de reconhecimento e tempo de qualidade. Que eu saiba escutar, servir e surpreender.\n\nQue o nosso amor amadureça como o bom vinho e nunca envelheça. E que juntos caminhemos para vós até o fim da vida. Amém.",
+   "fonte": "Original"
+  },
+  {
+   "id": "trabalho-inicio",
+   "titulo": "Antes de começar o trabalho",
+   "tipo": "tema",
+   "temas": [
+    "trabalho",
+    "manha-noite"
+   ],
+   "texto": "Senhor, eu vos ofereço o trabalho deste dia. Que cada tarefa, grande ou pequena, seja feita com honestidade e dedicação.\n\nDai-me disposição para começar, atenção para não errar e paciência com os imprevistos. Abençoai os meus colegas, chefes, clientes e todos com quem vou conviver hoje. Que eu seja justo nas palavras e correto nas decisões.\n\nSão José operário, ensinai-me a santificar o trabalho como vós fizestes na oficina de Nazaré. E que ao fim do dia eu possa vos apresentar o fruto do meu esforço com o coração tranquilo. Amém.",
+   "fonte": "Original"
+  },
+  {
+   "id": "trabalho-emprego",
+   "titulo": "Por um emprego",
+   "tipo": "tema",
+   "temas": [
+    "trabalho"
+   ],
+   "texto": "Pai do céu, estou procurando trabalho e às vezes o desânimo bate à minha porta. Cada não que recebo pesa no meu coração e no sustento da minha casa.\n\nVós conheceis os meus talentos e as minhas necessidades. Abri as portas certas, colocai no meu caminho as pessoas certas e dai-me coragem nas entrevistas. Que eu não perca a dignidade nem a esperança enquanto espero.\n\nDai-me um trabalho honesto, onde eu possa servir e ganhar o pão com justiça. São José, padroeiro dos trabalhadores, intercedei por mim. Amém.",
+   "fonte": "Original"
+  },
+  {
+   "id": "trabalho-negocio",
+   "titulo": "Pelo meu negócio",
+   "tipo": "tema",
+   "temas": [
+    "trabalho"
+   ],
+   "texto": "Senhor, eu vos entrego o meu negócio e todos os que dependem dele. Vós me destes a coragem de empreender; dai-me agora sabedoria para conduzir bem.\n\nAbençoai as vendas, os clientes, os fornecedores e os meus colaboradores. Livrai-me da ganância, da desonestidade e de qualquer lucro injusto. Que eu trate cada pessoa com respeito e pague a cada um o que é justo.\n\nNos tempos de crise, dai-me criatividade e serenidade. Nos tempos de prosperidade, dai-me humildade e generosidade. Que este trabalho sirva à vossa glória e ao bem de muitos. Amém.",
+   "fonte": "Original"
+  },
+  {
+   "id": "trabalho-ambiente",
+   "titulo": "Pelo ambiente de trabalho",
+   "tipo": "tema",
+   "temas": [
+    "trabalho"
+   ],
+   "texto": "Senhor, abençoai o lugar onde trabalho. Que ali reinem o respeito, a colaboração e a justiça.\n\nAfastai as fofocas, as intrigas e as rivalidades que adoecem a convivência. Dai-me paciência com quem é difícil e humildade para reconhecer quando eu sou difícil. Que eu seja instrumento de paz e não de discórdia.\n\nFazei de mim um bom colega, que ajuda sem esperar recompensa. E que, mesmo sem falar de fé, a minha atitude revele que vós estais comigo. Amém.",
+   "fonte": "Original"
+  },
+  {
+   "id": "protecao-casa",
+   "titulo": "Proteção para a casa",
+   "tipo": "tema",
+   "temas": [
+    "protecao"
+   ],
+   "texto": "Senhor, abençoai esta casa e todos os que nela moram. Colocai os vossos anjos em cada porta, em cada janela e em cada canto.\n\nProtegei-nos de assaltos, acidentes, incêndios e de todo perigo. Mas protegei-nos sobretudo daquilo que destrói por dentro: o ódio, a mentira e o afastamento de vós. Que esta casa seja abrigo seguro para quem chega cansado.\n\nQue a vossa paz esteja sobre o nosso lar dia e noite. E que, ao entrar e sair, sempre nos lembremos de que é a vós que pertencemos. Amém.",
+   "fonte": "Original"
+  },
+  {
+   "id": "protecao-viagem",
+   "titulo": "Antes de viajar",
+   "tipo": "tema",
+   "temas": [
+    "protecao"
+   ],
+   "texto": "Senhor, vou partir em viagem e coloco o meu caminho em vossas mãos. Vós que acompanhastes Tobias por meio do anjo Rafael, acompanhai-me também.\n\nGuardai-me de acidentes, de assaltos e de qualquer perigo na estrada, no ar ou no mar. Dai prudência a quem conduz e paciência a quem espera. Protegei também os que ficam em casa.\n\nQue eu chegue com segurança ao meu destino e volte em paz para os meus. Nossa Senhora, companheira dos peregrinos, segui comigo. Amém.",
+   "fonte": "Original"
+  },
+  {
+   "id": "protecao-contra-mal",
+   "titulo": "Proteção contra todo mal",
+   "tipo": "tema",
+   "temas": [
+    "protecao"
+   ],
+   "texto": "Senhor Jesus, vós vencestes o mal com a vossa cruz e ressurreição. Em vosso nome, eu me coloco sob a vossa proteção.\n\nCobri-me com o vosso sangue precioso e afastai de mim toda influência do maligno. Guardai a minha mente de pensamentos de desespero, o meu coração do ódio e o meu corpo de todo perigo. Livrai a minha família de toda inveja e de todo mal.\n\nSão Miguel Arcanjo, defendei-nos no combate. Maria, que esmagais a cabeça da serpente, envolvei-nos com o vosso manto. Em vós, Senhor, eu confio e nada temerei. Amém.",
+   "fonte": "Original"
+  },
+  {
+   "id": "protecao-sair-de-casa",
+   "titulo": "Ao sair de casa",
+   "tipo": "tema",
+   "temas": [
+    "protecao",
+    "manha-noite"
+   ],
+   "texto": "Senhor, ao sair de casa, eu vos peço a vossa bênção. Ide à minha frente e preparai o meu caminho.\n\nProtegei-me no trânsito, nas ruas e em todos os lugares por onde eu passar. Livrai-me dos perigos que vejo e dos que não vejo. Que eu seja gentil com as pessoas que encontrar.\n\nGuardai também a minha casa e os que ficam nela. E trazei-me de volta são e salvo, com o coração agradecido. Meu anjo da guarda, acompanhai-me. Amém.",
+   "fonte": "Original"
+  },
+  {
+   "id": "paz-ansiedade",
+   "titulo": "Na ansiedade",
+   "tipo": "tema",
+   "temas": [
+    "paz-interior"
+   ],
+   "texto": "Senhor, a minha mente não para. Os pensamentos correm à frente, imaginando problemas que talvez nem aconteçam.\n\nVós dissestes para não nos preocuparmos com o amanhã, pois cada dia tem o seu próprio peso. Ajudai-me a voltar para o momento presente, onde vós estais. Respiro fundo e entrego a vós cada preocupação, uma por uma.\n\nAcalmai o meu coração como acalmastes o mar da Galileia. Dai-me a paz que o mundo não pode dar. E se eu precisar de ajuda profissional, dai-me humildade para procurá-la. Amém.",
+   "fonte": "Original"
+  },
+  {
+   "id": "paz-tristeza-desanimo",
+   "titulo": "Na tristeza e no desânimo",
+   "tipo": "tema",
+   "temas": [
+    "paz-interior",
+    "aflicao"
+   ],
+   "texto": "Senhor, uma tristeza pesada se instalou em mim. Perdi o gosto pelas coisas e às vezes nem sei explicar o porquê.\n\nVós que chorastes diante do túmulo do vosso amigo Lázaro, compreendeis as minhas lágrimas. Não me julgueis por não ter forças; carregai-me no colo. Colocai ao meu lado pessoas que me escutem e me ajudem, e dai-me coragem de buscar o cuidado de que preciso.\n\nAcendei de novo em mim a esperança, ainda que pequena como um grão de mostarda. Que eu volte a sorrir e a sentir a vida como presente vosso. Maria, consoladora dos aflitos, rogai por mim. Amém.",
+   "fonte": "Original"
+  },
+  {
+   "id": "noite-dormir-em-paz",
+   "titulo": "Para dormir em paz",
+   "tipo": "tema",
+   "temas": [
+    "manha-noite",
+    "paz-interior"
+   ],
+   "texto": "Senhor, o dia terminou e eu me deito diante de vós. Entrego em vossas mãos tudo o que fiz, o que deixei de fazer e o que ficou pendente.\n\nAs preocupações, eu as deixo aos pés da vossa cruz. Amanhã cuidarei delas, com a vossa graça. Agora quero apenas descansar, como uma criança que dorme confiante no colo do pai.\n\nGuardai o meu sono e o de toda a minha família. Afastai os pesadelos, a insônia e todo medo da noite. Que meu anjo da guarda vele por mim, e que eu desperte com alegria para um novo dia. Amém.",
+   "fonte": "Original"
+  },
+  {
+   "id": "luto-alma",
+   "titulo": "Pela alma de quem partiu",
+   "tipo": "tema",
+   "temas": [
+    "luto"
+   ],
+   "texto": "Senhor da vida, eu vos entrego a alma do meu ente querido, que partiu deste mundo. Vós o criastes por amor e por amor o chamastes de volta.\n\nPerdoai-lhe as faltas que cometeu por fraqueza humana. Lembrai-vos do bem que fez, das lágrimas que enxugou e do amor que deu. Purificai-o com a vossa misericórdia e acolhei-o na vossa luz.\n\nQue ele contemple o vosso rosto junto de Maria e de todos os santos. E que um dia possamos nos reencontrar na alegria do vosso Reino. Dai-lhe, Senhor, o eterno descanso. Amém.",
+   "fonte": "Original"
+  },
+  {
+   "id": "luto-consolo",
+   "titulo": "Consolo para quem está de luto",
+   "tipo": "tema",
+   "temas": [
+    "luto"
+   ],
+   "texto": "Senhor, a saudade dói e a casa parece vazia. Há uma cadeira que ninguém ocupa e uma voz que não se ouve mais.\n\nVós prometestes: felizes os que choram, porque serão consolados. Vinde consolar o meu coração ferido. Não vos peço que eu esqueça, mas que a dor se transforme, aos poucos, em saudade serena e gratidão.\n\nFortalecei a minha fé na ressurreição. Que eu viva cada dia com a esperança do reencontro. E colocai ao meu lado pessoas que me acompanhem neste tempo de luto. Amém.",
+   "fonte": "Original"
+  },
+  {
+   "id": "luto-pais",
+   "titulo": "Pelos pais falecidos",
+   "tipo": "tema",
+   "temas": [
+    "luto"
+   ],
+   "texto": "Pai eterno, eu vos recomendo a alma dos meus pais. Por meio deles recebi a vida, e muito do que sou devo ao seu amor e ao seu sacrifício.\n\nRecompensai-os por cada noite sem dormir, por cada trabalho cansativo e por cada oração feita por mim. Perdoai-lhes o que houve de fraqueza e acolhei-os em vossa casa. Perdoai também o que eu deixei de fazer ou de dizer enquanto estavam aqui.\n\nQue eles intercedam por nós junto de vós. E que eu honre a sua memória vivendo com fé e bondade. Dai-lhes, Senhor, a luz eterna. Amém.",
+   "fonte": "Original"
+  },
+  {
+   "id": "luto-filho",
+   "titulo": "Pela perda de um filho",
+   "tipo": "tema",
+   "temas": [
+    "luto",
+    "filhos"
+   ],
+   "texto": "Senhor, não existe dor maior do que a de perder um filho. Não tenho respostas, só lágrimas e perguntas.\n\nMaria, vós que vistes vosso Filho morrer na cruz, ficai ao meu lado. Vós sabeis o que é ter o coração atravessado por uma espada. Segurai a minha mão quando eu não tiver forças para rezar.\n\nSenhor, eu vos entrego o meu filho, seja qual for a idade em que ele partiu, mesmo antes de nascer. Guardai-o no vosso amor até o dia em que nos encontraremos de novo. E não permitais que a dor apague a minha fé. Amém.",
+   "fonte": "Original"
+  },
+  {
+   "id": "luto-partida-repentina",
+   "titulo": "Por quem partiu de repente",
+   "tipo": "tema",
+   "temas": [
+    "luto"
+   ],
+   "texto": "Senhor, a partida foi tão inesperada que não houve tempo para despedidas. Ficaram palavras não ditas e abraços não dados.\n\nVós conheceis o coração de quem partiu e a sua história inteira. Confio que a vossa misericórdia alcançou essa alma no último instante, de maneiras que nós não conhecemos. Acolhei-a em paz e perdoai as suas faltas.\n\nConsolai a família em choque e dai-lhe forças para os próximos dias. Ensinai-nos a não adiar o amor e o perdão. Dai-lhe o eterno descanso, Senhor. Amém.",
+   "fonte": "Original"
+  },
+  {
+   "id": "decisoes-discernimento",
+   "titulo": "Pedindo discernimento",
+   "tipo": "tema",
+   "temas": [
+    "decisoes"
+   ],
+   "texto": "Espírito Santo, luz dos corações, preciso de vós. Estou diante de uma decisão e não sei que caminho escolher.\n\nIluminai a minha mente para ver com clareza as consequências de cada opção. Purificai as minhas intenções, para que eu não escolha por medo, orgulho ou comodidade. Dai-me conselho por meio da oração, da Palavra e de pessoas sábias.\n\nQue eu escolha o que mais vos agrada e o que mais serve ao amor. E, depois de decidir, dai-me paz e coragem para seguir em frente. Amém.",
+   "fonte": "Original"
+  },
+  {
+   "id": "decisoes-escolha-importante",
+   "titulo": "Antes de uma escolha importante",
+   "tipo": "tema",
+   "temas": [
+    "decisoes"
+   ],
+   "texto": "Senhor, amanhã preciso dar uma resposta importante. O meu coração está dividido e eu tenho medo de errar.\n\nAntes de olhar para as vantagens e desvantagens, eu olho para vós. Lembrai-me de que nenhuma escolha feita com sinceridade escapa das vossas mãos. Mesmo que eu erre, vós sabeis escrever certo por linhas tortas.\n\nDai-me o dom do conselho e a serenidade dos que confiam. Que a minha decisão seja fruto de oração e não de pressa. Nossa Senhora do Bom Conselho, rogai por mim. Amém.",
+   "fonte": "Original"
+  },
+  {
+   "id": "decisoes-vocacao",
+   "titulo": "Pelo discernimento vocacional",
+   "tipo": "tema",
+   "temas": [
+    "decisoes"
+   ],
+   "texto": "Senhor, vós me chamastes à vida com um propósito. Quero descobrir o que esperais de mim: no matrimônio, no sacerdócio, na vida consagrada ou em outro caminho de serviço.\n\nFalai ao meu coração e dai-me ouvidos para escutar. Tirai de mim o medo de dizer sim e a ilusão de que a felicidade está longe da vossa vontade. Colocai no meu caminho bons orientadores espirituais.\n\nQue eu seja generoso como Samuel, que disse: fala, Senhor, que o teu servo escuta. E como Maria, que respondeu: faça-se em mim segundo a vossa palavra. Amém.",
+   "fonte": "Original"
+  },
+  {
+   "id": "decisoes-mudanca",
+   "titulo": "Diante de uma mudança",
+   "tipo": "tema",
+   "temas": [
+    "decisoes"
+   ],
+   "texto": "Senhor, a minha vida vai mudar e eu sinto um misto de esperança e medo. Deixo para trás lugares, pessoas e costumes conhecidos.\n\nVós que chamastes Abraão a sair da sua terra, sabeis o que é caminhar para o desconhecido. Ide à minha frente e preparai o lugar para onde vou. Dai-me coragem para começar de novo e humildade para aprender.\n\nAbençoai o que fica e o que vem. Que eu encontre, no novo lugar, uma comunidade de fé e bons amigos. E que, onde quer que eu esteja, a minha casa seja sempre em vós. Amém.",
+   "fonte": "Original"
+  },
+  {
+   "id": "estudos-antes-de-estudar",
+   "titulo": "Antes de estudar",
+   "tipo": "tema",
+   "temas": [
+    "estudos"
+   ],
+   "texto": "Senhor, fonte de toda sabedoria, eu vos ofereço este tempo de estudo. Abri a minha inteligência para compreender e a minha memória para guardar o que aprender.\n\nAfastai as distrações e a preguiça. Dai-me concentração, disciplina e gosto pelo conhecimento. Que eu estude não apenas para tirar boas notas, mas para crescer e servir melhor aos outros.\n\nSão Tomás de Aquino, padroeiro dos estudantes, intercedei por mim. E que tudo o que eu aprender me aproxime mais de vós. Amém.",
+   "fonte": "Original"
+  },
+  {
+   "id": "estudos-antes-da-prova",
+   "titulo": "Antes de uma prova",
+   "tipo": "tema",
+   "temas": [
+    "estudos"
+   ],
+   "texto": "Espírito Santo, daqui a pouco começa a prova. Fiz a minha parte e agora entrego o resultado a vós.\n\nAcalmai o meu coração e afastai o nervosismo que embaralha os pensamentos. Trazei à minha memória tudo o que estudei. Dai-me clareza para ler com atenção e calma para responder.\n\nQue eu seja honesto do começo ao fim. E qualquer que seja a nota, que eu saiba que o meu valor não depende dela, mas do vosso amor por mim. Amém.",
+   "fonte": "Original"
+  },
+  {
+   "id": "estudos-vestibular-concurso",
+   "titulo": "Pelo vestibular, Enem ou concurso",
+   "tipo": "tema",
+   "temas": [
+    "estudos"
+   ],
+   "texto": "Senhor, estou me preparando para uma prova que pode mudar o rumo da minha vida. São meses de esforço, renúncias e cansaço.\n\nDai-me perseverança nos dias em que o desânimo aparecer. Sustentai a minha saúde, o meu sono e o meu equilíbrio. Abençoai os que me apoiam, minha família, meus professores e amigos.\n\nNo dia da prova, dai-me serenidade e lucidez. Se for da vossa vontade, abri esta porta. Se não for, mostrai-me outro caminho e dai-me paz para segui-lo. Amém.",
+   "fonte": "Original"
+  },
+  {
+   "id": "estudos-professores",
+   "titulo": "Pelos professores",
+   "tipo": "tema",
+   "temas": [
+    "estudos"
+   ],
+   "texto": "Senhor Jesus, Mestre por excelência, abençoai os professores e todos os que se dedicam a ensinar.\n\nDai-lhes paciência com os alunos, sabedoria para transmitir e alegria na missão. Renovai as suas forças quando o cansaço e a falta de reconhecimento pesarem. Que eles vejam em cada aluno uma pessoa amada por vós.\n\nRecompensai o bem que plantam e que muitas vezes só floresce anos depois. Que eu saiba honrar e agradecer a quem me ensinou. Amém.",
+   "fonte": "Original"
+  },
+  {
+   "id": "estudos-resultado",
+   "titulo": "Ao esperar ou receber um resultado",
+   "tipo": "tema",
+   "temas": [
+    "estudos"
+   ],
+   "texto": "Senhor, estou esperando o resultado e o coração não sossega. Eu vos entrego esta espera.\n\nSe a notícia for boa, que eu não me esqueça de vos agradecer e de partilhar a alegria. Se não for o que eu esperava, que eu não me desespere nem desista. Lembrai-me de que um resultado não define quem eu sou.\n\nVós tendes um plano para mim, maior do que uma aprovação ou uma reprovação. Ajudai-me a aprender com tudo e a continuar caminhando. Amém.",
+   "fonte": "Original"
+  },
+  {
+   "id": "dizimo-oracao-do-dizimista",
+   "titulo": "Oração do dizimista",
+   "tipo": "tema",
+   "temas": [
+    "dizimo"
+   ],
+   "texto": "Senhor, tudo o que tenho vem de vós. A vida, a saúde, o trabalho e o sustento são dons do vosso amor.\n\nPor isso eu vos devolvo, com alegria, uma parte do que recebi. Não o faço por obrigação nem em troca de favores, mas por gratidão e amor à vossa Igreja. Que a minha oferta ajude a manter a nossa comunidade, a socorrer os pobres e a anunciar o Evangelho.\n\nAbençoai a minha família e o meu trabalho. Livrai-me do apego ao dinheiro e fazei-me generoso como vós sois generoso comigo. Nossa Senhora do Amparo, abençoai os dizimistas da nossa paróquia. Amém.",
+   "fonte": "Original"
+  },
+  {
+   "id": "dizimo-ao-entregar",
+   "titulo": "Ao entregar o dízimo",
+   "tipo": "tema",
+   "temas": [
+    "dizimo"
+   ],
+   "texto": "Senhor, aqui está a minha oferta. É pequena diante de tudo o que me destes, mas é dada com o coração.\n\nRecebei-a como recebestes as moedas da viúva pobre no templo. Que ela se transforme em pão para quem tem fome, em luz para a nossa igreja e em missão para a nossa comunidade.\n\nEu vos agradeço pela graça de poder partilhar. Que este gesto me lembre sempre de que eu sou administrador, e não dono, dos bens que tenho. Amém.",
+   "fonte": "Original"
+  },
+  {
+   "id": "dizimo-generosidade",
+   "titulo": "Para ser generoso",
+   "tipo": "tema",
+   "temas": [
+    "dizimo"
+   ],
+   "texto": "Senhor, vós amais quem dá com alegria. Libertai o meu coração do medo de perder e da vontade de acumular.\n\nEnsinai-me a olhar para as necessidades dos outros com os vossos olhos. Que eu saiba partilhar o meu tempo, os meus talentos e os meus bens. Que eu não espere sobrar para depois dar, mas aprenda a dar primeiro e a confiar.\n\nQue a generosidade seja um estilo de vida e não um gesto ocasional. E que, ao dar, eu descubra a alegria de quem se parece convosco, que destes até o vosso próprio Filho. Amém.",
+   "fonte": "Original"
+  },
+  {
+   "id": "dizimo-comunidade",
+   "titulo": "Pela nossa comunidade paroquial",
+   "tipo": "tema",
+   "temas": [
+    "dizimo"
+   ],
+   "texto": "Senhor, abençoai a nossa Paróquia Nossa Senhora do Amparo. Abençoai o nosso pároco, os padres, diáconos, religiosos e todos os agentes de pastoral.\n\nQue a nossa comunidade seja uma casa de portas abertas, onde todos se sintam acolhidos. Fortalecei os grupos, as pastorais e os movimentos. Dai-nos espírito de unidade, serviço e missão.\n\nAbençoai os dizimistas e todos os que colaboram com o seu tempo e os seus dons. Que nada falte à nossa igreja para anunciar o vosso amor. Nossa Senhora do Amparo, cuidai da vossa paróquia. Amém.",
+   "fonte": "Original"
+  },
+  {
+   "id": "dizimo-providencia",
+   "titulo": "Confiança na Providência",
+   "tipo": "tema",
+   "temas": [
+    "dizimo"
+   ],
+   "texto": "Pai, vós sabeis do que eu preciso antes mesmo que eu peça. Ensinai-me a confiar na vossa Providência.\n\nQuando eu tiver pouco, que eu não perca a fé nem a generosidade. Quando eu tiver muito, que eu não me esqueça de que tudo vem de vós. Livrai-me da avareza e da ansiedade pelo amanhã.\n\nQue eu busque em primeiro lugar o vosso Reino e a vossa justiça, certo de que o resto me será dado por acréscimo. Em vós eu ponho a minha segurança. Amém.",
+   "fonte": "Original"
+  },
+  {
+   "id": "manha-oferecimento",
+   "titulo": "Oferecimento do dia",
+   "tipo": "tema",
+   "temas": [
+    "manha-noite"
+   ],
+   "texto": "Bom dia, Senhor! Obrigado por me acordardes para mais um dia de vida.\n\nEu vos ofereço tudo o que este dia trouxer: os trabalhos, as alegrias, os cansaços e as surpresas. Que eu viva cada hora na vossa presença e faça tudo por amor. Abençoai os meus pensamentos, as minhas palavras e as minhas ações.\n\nProtegei a minha família e todos os que eu amo. Maria, Mãe querida, segurai a minha mão ao longo do dia. Em nome do Pai, do Filho e do Espírito Santo. Amém.",
+   "fonte": "Original"
+  },
+  {
+   "id": "noite-exame-consciencia",
+   "titulo": "Exame de consciência à noite",
+   "tipo": "tema",
+   "temas": [
+    "manha-noite",
+    "perdao"
+   ],
+   "texto": "Senhor, antes de dormir, quero olhar o meu dia junto convosco. Agradeço pelos momentos bons e pelas pessoas que encontrei.\n\nMostrai-me onde eu fui generoso e onde fui egoísta. Onde fui paciente e onde perdi a calma. Onde vos encontrei e onde me esqueci de vós. Peço perdão pelas minhas faltas e confio na vossa misericórdia.\n\nAmanhã quero recomeçar melhor, com a vossa graça. Agora eu descanso em vossas mãos. Amém.",
+   "fonte": "Original"
+  },
+  {
+   "id": "nossa-senhora-do-amparo-1",
+   "titulo": "Oração a Nossa Senhora do Amparo",
+   "tipo": "santo",
+   "santo": "Nossa Senhora do Amparo",
+   "grupo": "Nossa Senhora",
+   "temas": [
+    "aflicao",
+    "protecao",
+    "familia"
+   ],
+   "texto": "Ó Nossa Senhora do Amparo, Mãe de Jesus e nossa Mãe, padroeira da nossa paróquia, a vós recorremos com confiança de filhos. Vós que amparastes o Menino Jesus em vossos braços, amparai também a nós em nossas fraquezas.\n\nSede o apoio dos que estão cansados, o abrigo dos que estão sozinhos e o consolo dos que choram. Olhai para as nossas famílias, para os doentes, para os desempregados e para os que perderam a esperança. Não deixeis nenhum dos vossos filhos desamparado.\n\nApresentai ao vosso Filho as necessidades da nossa comunidade e alcançai-nos de Deus as graças de que precisamos. Ensinai-nos a amparar os irmãos como vós nos amparais. Nossa Senhora do Amparo, rogai por nós. Amém.",
+   "fonte": "Original"
+  },
+  {
+   "id": "nossa-senhora-do-amparo-2",
+   "titulo": "Consagração a Nossa Senhora do Amparo",
+   "tipo": "santo",
+   "santo": "Nossa Senhora do Amparo",
+   "grupo": "Nossa Senhora",
+   "temas": [
+    "familia",
+    "dizimo",
+    "protecao"
+   ],
+   "texto": "Mãe do Amparo, hoje eu me coloco sob o vosso manto. Consagro a vós a minha vida, a minha casa, o meu trabalho e todos os que eu amo.\n\nVós sois a Mãe que nunca abandona. Quando eu cair, levantai-me; quando eu me perder, conduzi-me de volta a Jesus. Guardai a nossa paróquia, os nossos sacerdotes, as nossas pastorais e cada família da nossa comunidade.\n\nQue, sob a vossa proteção, sejamos uma igreja unida, generosa e missionária. Fazei de mim um filho fiel, atento aos que precisam de amparo. Tudo por Jesus, por meio de vós, para a glória do Pai. Amém.",
+   "fonte": "Original"
+  },
+  {
+   "id": "nossa-senhora-aparecida-1",
+   "titulo": "Oração a Nossa Senhora Aparecida",
+   "tipo": "santo",
+   "santo": "Nossa Senhora Aparecida",
+   "grupo": "Nossa Senhora",
+   "temas": [
+    "aflicao",
+    "familia",
+    "protecao"
+   ],
+   "texto": "Ó Nossa Senhora da Conceição Aparecida, Mãe e Rainha do Brasil, vós aparecestes nas águas do rio Paraíba nas redes de pobres pescadores. Desde então não deixastes de acolher o vosso povo.\n\nOlhai com carinho para a nossa pátria, para as nossas famílias e para os que mais sofrem. Assim como as redes se encheram de peixes depois do vosso encontro, enchei a nossa vida da graça de Deus. Intercedei pelos pobres, pelos doentes e pelos que perderam o rumo.\n\nMãe Aparecida, levai-nos sempre a Jesus, vosso Filho. Que o Brasil seja uma terra de justiça, fraternidade e paz. Rogai por nós. Amém.",
+   "fonte": "Original"
+  },
+  {
+   "id": "nossa-senhora-aparecida-2",
+   "titulo": "Prece da família a Nossa Senhora Aparecida",
+   "tipo": "santo",
+   "santo": "Nossa Senhora Aparecida",
+   "grupo": "Nossa Senhora",
+   "temas": [
+    "familia",
+    "agradecimento"
+   ],
+   "texto": "Mãe Aparecida, pequena imagem de barro e grande Mãe do povo brasileiro, nós vos agradecemos por tantas graças derramadas sobre o nosso país.\n\nHoje vos confiamos a nossa família. Uni o que está dividido, curai o que está ferido e fortalecei o que está fraco. Protegei os nossos filhos, os nossos idosos e os que estão longe de casa.\n\nComo os pescadores que vos levaram para casa e vos honraram com simplicidade, queremos vos acolher em nosso lar. Ensinai-nos a escutar Jesus e fazer tudo o que ele nos disser. Amém.",
+   "fonte": "Original"
+  },
+  {
+   "id": "nossa-senhora-das-gracas",
+   "titulo": "Oração a Nossa Senhora das Graças",
+   "tipo": "santo",
+   "santo": "Nossa Senhora das Graças (Medalha Milagrosa)",
+   "grupo": "Nossa Senhora",
+   "temas": [
+    "cura-saude",
+    "protecao"
+   ],
+   "texto": "Ó Nossa Senhora das Graças, que aparecestes a Santa Catarina Labouré com as mãos cheias de raios de luz, olhai para nós com bondade. Os raios que saíam das vossas mãos são as graças que Deus derrama por vossa intercessão sobre quem as pede.\n\nAlcançai-nos de Deus a graça de que tanto precisamos, se for para o nosso bem. Abençoai os que usam a vossa medalha com fé e protegei-os de todo mal. Intercedei pelos doentes, pelos pecadores e pelos que se sentem esquecidos.\n\nÓ Maria concebida sem pecado, rogai por nós que recorremos a vós. Amém.",
+   "fonte": "Original"
+  },
+  {
+   "id": "nossa-senhora-desatadora-dos-nos",
+   "titulo": "Oração a Nossa Senhora Desatadora dos Nós",
+   "tipo": "santo",
+   "santo": "Nossa Senhora Desatadora dos Nós",
+   "grupo": "Nossa Senhora",
+   "temas": [
+    "aflicao",
+    "familia",
+    "decisoes"
+   ],
+   "texto": "Santa Maria, Mãe de Deus, com a vossa obediência desfizestes o nó da desobediência de Eva. Vós sois a Mãe que, com paciência e ternura, desata os nós da vida dos vossos filhos.\n\nColoco em vossas mãos os nós que me prendem: os problemas na família, as feridas antigas, as situações que parecem não ter solução. Vós sabeis por onde começar quando eu não sei. Desatai, com a graça de Deus, aquilo que eu sozinho não consigo desatar.\n\nDai-me paciência para esperar e confiança para não desistir. E que, livre desses nós, eu possa caminhar mais leve para Jesus. Amém.",
+   "fonte": "Original"
+  },
+  {
+   "id": "nossa-senhora-de-fatima",
+   "titulo": "Oração a Nossa Senhora de Fátima",
+   "tipo": "santo",
+   "santo": "Nossa Senhora de Fátima",
+   "grupo": "Nossa Senhora",
+   "temas": [
+    "paz-interior",
+    "perdao",
+    "familia"
+   ],
+   "texto": "Ó Nossa Senhora de Fátima, que aparecestes aos três pastorinhos pedindo oração, penitência e conversão, nós acolhemos a vossa mensagem.\n\nEnsinai-nos a rezar o terço com amor e perseverança. Convertei os nossos corações e os de todos os que vivem longe de Deus. Intercedei pela paz no mundo, nas nações em guerra e nas nossas próprias casas.\n\nQue o vosso Imaculado Coração seja o nosso refúgio e o caminho que nos conduz a Deus. São Francisco e Santa Jacinta Marto, rogai por nós. Amém.",
+   "fonte": "Original"
+  },
+  {
+   "id": "nossa-senhora-de-lourdes",
+   "titulo": "Oração a Nossa Senhora de Lourdes",
+   "tipo": "santo",
+   "santo": "Nossa Senhora de Lourdes",
+   "grupo": "Nossa Senhora",
+   "temas": [
+    "cura-saude"
+   ],
+   "texto": "Ó Nossa Senhora de Lourdes, que aparecestes à humilde Bernadete na gruta de Massabielle, nós vos confiamos todos os enfermos.\n\nVós fizestes brotar uma fonte onde antes só havia lama; fazei brotar também esperança onde hoje há dor. Intercedei junto ao vosso Filho pela cura dos doentes, se for da vontade de Deus, e pelo consolo dos que sofrem. Sustentai os cuidadores, as famílias e os profissionais de saúde.\n\nEnsinai-nos a humildade de Bernadete e a confiança dos peregrinos. Nossa Senhora de Lourdes, saúde dos enfermos, rogai por nós. Amém.",
+   "fonte": "Original"
+  },
+  {
+   "id": "nossa-senhora-do-perpetuo-socorro",
+   "titulo": "Oração a Nossa Senhora do Perpétuo Socorro",
+   "tipo": "santo",
+   "santo": "Nossa Senhora do Perpétuo Socorro",
+   "grupo": "Nossa Senhora",
+   "temas": [
+    "aflicao",
+    "protecao"
+   ],
+   "texto": "Ó Mãe do Perpétuo Socorro, no vosso ícone o Menino Jesus corre para os vossos braços, assustado com os sinais da sua paixão, e quase perde a sandália. Assim também nós corremos para vós quando o medo nos alcança.\n\nSocorrei-nos em todas as necessidades, de dia e de noite. Nas tentações, sede a nossa força; nas doenças, o nosso alívio; na hora da morte, a nossa companhia. Vós que segurais com firmeza a mão do vosso Filho, segurai também a nossa.\n\nNunca nos falte o vosso socorro, ó Mãe. E levai-nos a confiar sempre no amor de Jesus. Amém.",
+   "fonte": "Original"
+  },
+  {
+   "id": "nossa-senhora-do-carmo",
+   "titulo": "Oração a Nossa Senhora do Carmo",
+   "tipo": "santo",
+   "santo": "Nossa Senhora do Carmo",
+   "grupo": "Nossa Senhora",
+   "temas": [
+    "protecao",
+    "contemplacao",
+    "luto"
+   ],
+   "texto": "Ó Nossa Senhora do Monte Carmelo, Mãe e Rainha dos que buscam a Deus no silêncio, nós vos honramos com amor.\n\nO vosso escapulário é sinal do vosso manto que nos cobre e da nossa consagração a vós. Que, ao usá-lo, eu me lembre de viver como vosso filho, imitando as vossas virtudes. Ensinai-me a subir o monte da oração e a encontrar Deus no silêncio do coração.\n\nAcompanhai-me em vida e, na hora da morte, conduzi-me ao vosso Filho. Intercedei também pelas almas do purgatório. Amém.",
+   "fonte": "Original"
+  },
+  {
+   "id": "imaculada-conceicao",
+   "titulo": "Oração à Imaculada Conceição",
+   "tipo": "santo",
+   "santo": "Imaculada Conceição",
+   "grupo": "Nossa Senhora",
+   "temas": [
+    "perdao",
+    "protecao"
+   ],
+   "texto": "Ó Virgem Imaculada, Deus vos preservou de toda mancha de pecado desde o primeiro instante da vossa existência, em previsão dos méritos de Cristo. Vós sois toda bela, cheia de graça.\n\nOlhai para nós, que lutamos todos os dias contra o pecado e as nossas fraquezas. Ajudai-nos a guardar a pureza do coração, do olhar e das intenções. Alcançai-nos a graça de rejeitar o mal e escolher sempre o bem.\n\nVós que esmagais a cabeça da serpente, protegei-nos das ciladas do inimigo. Ó Maria concebida sem pecado, rogai por nós. Amém.",
+   "fonte": "Original"
+  },
+  {
+   "id": "nossa-senhora-das-dores",
+   "titulo": "Oração a Nossa Senhora das Dores",
+   "tipo": "santo",
+   "santo": "Nossa Senhora das Dores",
+   "grupo": "Nossa Senhora",
+   "temas": [
+    "aflicao",
+    "luto"
+   ],
+   "texto": "Ó Mãe dolorosa, uma espada atravessou o vosso coração, como profetizou o velho Simeão. Vós sofrestes na fuga para o Egito, na perda do Menino no templo, no caminho do Calvário e aos pés da cruz.\n\nVós conheceis todas as dores humanas porque as vivestes por amor. Por isso eu vos confio as minhas lágrimas e as lágrimas de todos os que sofrem. Ficai junto de nós como ficastes junto de Jesus.\n\nEnsinai-nos a permanecer de pé na hora da dor, unidos à cruz do vosso Filho. E alcançai-nos a esperança da ressurreição. Amém.",
+   "fonte": "Original"
+  },
+  {
+   "id": "nossa-senhora-de-guadalupe",
+   "titulo": "Oração a Nossa Senhora de Guadalupe",
+   "tipo": "santo",
+   "santo": "Nossa Senhora de Guadalupe",
+   "grupo": "Nossa Senhora",
+   "temas": [
+    "filhos",
+    "protecao",
+    "aflicao"
+   ],
+   "texto": "Ó Nossa Senhora de Guadalupe, Mãe e Padroeira das Américas, vós aparecestes a São Juan Diego e deixastes a vossa imagem gravada no seu manto.\n\nComo dissestes ao humilde índio, lembrai-nos de que somos vossos filhos e estamos sob a vossa proteção. Não há o que temer quando a Mãe está presente. Protegei a vida desde a concepção, as gestantes, as crianças e os povos mais pobres do nosso continente.\n\nFazei de nós mensageiros humildes e fiéis, como Juan Diego. E levai-nos sempre ao vosso Filho Jesus. Amém.",
+   "fonte": "Original"
+  },
+  {
+   "id": "sagrado-coracao-de-jesus",
+   "titulo": "Oração ao Sagrado Coração de Jesus",
+   "tipo": "santo",
+   "santo": "Sagrado Coração de Jesus",
+   "grupo": "Jesus Cristo",
+   "temas": [
+    "familia",
+    "paz-interior",
+    "perdao"
+   ],
+   "texto": "Sagrado Coração de Jesus, fonte de amor e de misericórdia, eu vos adoro e vos agradeço. O vosso coração foi aberto pela lança na cruz e dele brotaram sangue e água para a nossa salvação.\n\nTomai o meu coração tantas vezes frio e endurecido e tornai-o semelhante ao vosso, manso e humilde. Reinai na minha família, no meu trabalho e em cada decisão da minha vida. Consolai os aflitos, convertei os pecadores e aquecei os que vos esqueceram.\n\nPerdoai as ofensas que recebeis de tantos, inclusive de mim. Quero amar-vos e fazer-vos amado. Sagrado Coração de Jesus, eu confio em vós. Amém.",
+   "fonte": "Original"
+  },
+  {
+   "id": "divina-misericordia",
+   "titulo": "Oração à Divina Misericórdia",
+   "tipo": "santo",
+   "santo": "Divina Misericórdia",
+   "grupo": "Jesus Cristo",
+   "temas": [
+    "perdao",
+    "aflicao",
+    "luto"
+   ],
+   "texto": "Jesus misericordioso, vós revelastes a Santa Faustina que o vosso coração é um oceano de misericórdia para todos os pecadores. Diante da vossa imagem, de onde saem raios de luz, eu me aproximo com confiança.\n\nTende piedade de mim e do mundo inteiro. Lavai os meus pecados, curai as minhas feridas e renovai a minha esperança. Derramai a vossa misericórdia sobre os moribundos, os desesperados e os que não conhecem o vosso amor.\n\nQue eu também seja misericordioso com os outros, como vós sois comigo. Jesus, eu confio em vós. Amém.",
+   "fonte": "Original"
+  },
+  {
+   "id": "divino-espirito-santo",
+   "titulo": "Oração ao Divino Espírito Santo",
+   "tipo": "santo",
+   "santo": "Divino Espírito Santo",
+   "grupo": "Espírito Santo",
+   "temas": [
+    "decisoes",
+    "estudos",
+    "paz-interior"
+   ],
+   "texto": "Divino Espírito Santo, amor do Pai e do Filho, vinde morar em mim. Sem vós eu não sei rezar como convém nem viver como cristão.\n\nDai-me os vossos sete dons: sabedoria para ver as coisas como Deus vê, entendimento para compreender a fé, conselho para decidir bem, fortaleza nas provações, ciência para usar bem as coisas do mundo, piedade para amar a Deus como Pai e temor de Deus para nunca o ofender.\n\nProduzi em mim os vossos frutos: amor, alegria, paz, paciência, bondade e mansidão. Renovai a minha vida, a nossa Igreja e a face da terra. Amém.",
+   "fonte": "Original"
+  },
+  {
+   "id": "menino-jesus-de-praga",
+   "titulo": "Oração ao Menino Jesus de Praga",
+   "tipo": "santo",
+   "santo": "Menino Jesus de Praga",
+   "grupo": "Jesus Cristo",
+   "temas": [
+    "filhos",
+    "aflicao",
+    "trabalho"
+   ],
+   "texto": "Ó Menino Jesus de Praga, Rei do céu e da terra que vos fizestes pequeno por amor de nós, eu me aproximo de vós com confiança de criança.\n\nVós que trazeis o mundo na vossa mão, segurai também a minha vida. Coloco diante de vós as minhas necessidades, as do meu trabalho e as da minha família. Abençoai as crianças, protegei os pequenos e socorrei os pobres.\n\nEnsinai-me a simplicidade e a humildade da infância espiritual. Que eu vos honre com uma vida pura e generosa. Divino Menino, reinai no meu coração. Amém.",
+   "fonte": "Original"
+  },
+  {
+   "id": "santissima-trindade",
+   "titulo": "Oração à Santíssima Trindade",
+   "tipo": "santo",
+   "santo": "Santíssima Trindade",
+   "grupo": "Espírito Santo",
+   "temas": [
+    "contemplacao",
+    "agradecimento"
+   ],
+   "texto": "Ó Santíssima Trindade, Pai, Filho e Espírito Santo, um só Deus em três Pessoas, eu vos adoro com toda a minha alma.\n\nPai, eu vos agradeço por me terdes criado com amor. Filho, eu vos agradeço por me terdes salvado pela vossa cruz e ressurreição. Espírito Santo, eu vos agradeço por me santificardes e habitardes em mim.\n\nFui batizado em vosso nome e quero viver para a vossa glória. Fazei da minha família e da nossa comunidade um reflexo da vossa comunhão de amor. Glória ao Pai, ao Filho e ao Espírito Santo. Amém.",
+   "fonte": "Original"
+  },
+  {
+   "id": "sao-jose-1",
+   "titulo": "Oração a São José",
+   "tipo": "santo",
+   "santo": "São José",
+   "grupo": "Santos",
+   "temas": [
+    "familia",
+    "trabalho",
+    "protecao"
+   ],
+   "texto": "Glorioso São José, esposo da Virgem Maria e pai adotivo de Jesus, Deus vos confiou os seus maiores tesouros. Vós os protegestes com coragem, silêncio e fidelidade.\n\nProtegei também a minha família. Guardai-nos dos perigos, sustentai-nos nas necessidades e ensinai-nos a confiar em Deus mesmo quando não entendemos os seus planos. Vós que fostes avisado em sonhos e obedecestes sem demora, ajudai-me a escutar a voz de Deus.\n\nIntercedei pelos pais de família, pelos trabalhadores e pelos que estão desempregados. São José, rogai por nós. Amém.",
+   "fonte": "Original"
+  },
+  {
+   "id": "sao-jose-2",
+   "titulo": "A São José, pela boa morte e pelo trabalho",
+   "tipo": "santo",
+   "santo": "São José",
+   "grupo": "Santos",
+   "temas": [
+    "trabalho",
+    "luto"
+   ],
+   "texto": "São José operário, que ganhastes o pão com o suor do vosso rosto na oficina de Nazaré, abençoai o meu trabalho. Que eu trabalhe com honestidade, sem ganância e sem preguiça.\n\nVós tivestes a graça de morrer nos braços de Jesus e de Maria. Por isso a Igreja vos invoca como padroeiro da boa morte. Assisti os agonizantes e alcançai-lhes a paz e a reconciliação com Deus.\n\nQue, quando chegar a minha hora, eu também esteja preparado e possa partir em paz, acompanhado por Jesus, Maria e por vós. Amém.",
+   "fonte": "Original"
+  },
+  {
+   "id": "santo-antonio",
+   "titulo": "Oração a Santo Antônio",
+   "tipo": "santo",
+   "santo": "Santo Antônio",
+   "grupo": "Santos",
+   "temas": [
+    "casamento",
+    "familia",
+    "dizimo"
+   ],
+   "texto": "Glorioso Santo Antônio, nascido em Lisboa e chamado de Pádua, pregador da Palavra e amigo dos pobres, a vós recorro com confiança.\n\nVós que tanto amastes o Menino Jesus, ajudai-me a amá-lo também. Intercedei por mim nas minhas necessidades: pela minha vida afetiva, pela minha família e pelo pão de cada dia. Ajudai-me a encontrar o que perdi, sobretudo a fé, a paz e a esperança, quando elas parecerem perdidas.\n\nQue, a vosso exemplo, eu partilhe o pão com quem tem fome. Santo Antônio, rogai por nós. Amém.",
+   "fonte": "Original"
+  },
+  {
+   "id": "sao-judas-tadeu",
+   "titulo": "Oração a São Judas Tadeu",
+   "tipo": "santo",
+   "santo": "São Judas Tadeu",
+   "grupo": "Santos",
+   "temas": [
+    "aflicao",
+    "trabalho"
+   ],
+   "texto": "Glorioso São Judas Tadeu, apóstolo e parente de Jesus, a Igreja vos invoca nas causas difíceis e desesperadas. Hoje venho a vós com uma necessidade que parece impossível.\n\nVós que caminhastes com o Senhor e anunciastes o Evangelho até dar a vida, intercedei por mim junto a Deus. Para Ele nada é impossível. Alcançai-me a graça que peço, se for para o meu bem, e a força para aceitar a vontade de Deus.\n\nPrometo lembrar-me sempre do bem recebido e tornar conhecida a bondade de Deus. São Judas Tadeu, rogai por nós. Amém.",
+   "fonte": "Original"
+  },
+  {
+   "id": "santa-rita-de-cassia",
+   "titulo": "Oração a Santa Rita de Cássia",
+   "tipo": "santo",
+   "santo": "Santa Rita de Cássia",
+   "grupo": "Santos",
+   "temas": [
+    "aflicao",
+    "casamento",
+    "perdao"
+   ],
+   "texto": "Santa Rita de Cássia, esposa paciente, mãe dedicada, viúva fiel e religiosa santa, vós conhecestes de perto o sofrimento e o perdão.\n\nVós transformastes um casamento difícil com oração e mansidão e perdoastes os que fizeram mal à vossa família. Intercedei por mim nesta causa que parece impossível. Alcançai-me de Deus a graça da paciência, da paz e do perdão.\n\nVós que trouxestes na fronte um espinho da coroa de Cristo, ajudai-me a carregar a minha cruz com amor. E que, como a rosa que floresceu no inverno, a esperança volte a florir em minha vida. Amém.",
+   "fonte": "Original"
+  },
+  {
+   "id": "sao-miguel-arcanjo",
+   "titulo": "Oração a São Miguel Arcanjo",
+   "tipo": "santo",
+   "santo": "São Miguel Arcanjo",
+   "grupo": "Anjos",
+   "temas": [
+    "protecao"
+   ],
+   "texto": "São Miguel Arcanjo, o vosso nome é uma pergunta e uma profissão de fé: quem como Deus? Ninguém é como Deus, e vós fostes fiel a Ele quando outros se rebelaram.\n\nDefendei-me no combate contra o mal, dentro e fora de mim. Protegei a minha família, a minha casa e a nossa Igreja. Afastai as tentações, os medos e toda influência do inimigo.\n\nAjudai-me a ser humilde e fiel, reconhecendo que só Deus é Deus. E na hora da minha morte, conduzi a minha alma à presença do Senhor. Amém.",
+   "fonte": "Original"
+  },
+  {
+   "id": "anjo-da-guarda",
+   "titulo": "Oração ao Anjo da Guarda",
+   "tipo": "santo",
+   "santo": "Anjo da Guarda",
+   "grupo": "Anjos",
+   "temas": [
+    "protecao",
+    "filhos",
+    "manha-noite"
+   ],
+   "texto": "Meu anjo da guarda, companheiro fiel que Deus colocou ao meu lado desde o meu nascimento, eu vos agradeço pela vossa proteção silenciosa.\n\nQuantas vezes me livrastes de perigos que eu nem percebi. Continuai a guardar os meus passos, a iluminar os meus pensamentos e a afastar-me do mal. Inspirai-me a fazer o bem e a viver na presença de Deus.\n\nProtegei também as crianças e todos os que eu amo, com os seus anjos da guarda. E levai-me, um dia, à casa do Pai. Amém.",
+   "fonte": "Original"
+  },
+  {
+   "id": "sao-bento",
+   "titulo": "Oração a São Bento",
+   "tipo": "santo",
+   "santo": "São Bento",
+   "grupo": "Santos",
+   "temas": [
+    "protecao",
+    "trabalho"
+   ],
+   "texto": "São Bento, pai dos monges e mestre de vida espiritual, vós ensinastes a rezar e trabalhar, unindo a vida a Deus em todas as horas.\n\nPela cruz que trazeis na vossa medalha, protegei-me contra as ciladas do mal, as tentações e os perigos. Que a cruz de Cristo seja a minha luz e que nunca o inimigo me conduza.\n\nEnsinai-me a ordem, a disciplina e a escuta da Palavra. Que a minha casa seja lugar de oração, de trabalho honesto e de acolhida. São Bento, rogai por nós. Amém.",
+   "fonte": "Original"
+  },
+  {
+   "id": "santa-teresinha",
+   "titulo": "Oração a Santa Teresinha do Menino Jesus",
+   "tipo": "santo",
+   "santo": "Santa Teresinha do Menino Jesus",
+   "grupo": "Santos",
+   "temas": [
+    "paz-interior",
+    "contemplacao",
+    "agradecimento"
+   ],
+   "texto": "Santa Teresinha, pequena flor do Carmelo, vós descobristes que a santidade está ao alcance de todos pelo caminho da pequenez e da confiança.\n\nEnsinai-me a vossa pequena via: fazer as pequenas coisas com grande amor, confiar em Deus como uma criança confia no pai e oferecer cada sacrifício escondido. Quando eu me sentir fraco e imperfeito, lembrai-me de que é justamente aos pequenos que Deus se revela.\n\nVós prometestes passar o vosso céu fazendo o bem na terra. Derramai sobre mim uma chuva de rosas, que são as graças de Deus. Rogai pelas missões e por todos nós. Amém.",
+   "fonte": "Original"
+  },
+  {
+   "id": "sao-francisco-de-assis",
+   "titulo": "Oração a São Francisco de Assis",
+   "tipo": "santo",
+   "santo": "São Francisco de Assis",
+   "grupo": "Santos",
+   "temas": [
+    "paz-interior",
+    "contemplacao",
+    "dizimo"
+   ],
+   "texto": "São Francisco de Assis, pobre e alegre seguidor de Jesus, vós deixastes tudo para abraçar o Evangelho com simplicidade.\n\nEnsinai-me a desapegar das coisas que me prendem e a encontrar a verdadeira riqueza em Deus. Ajudai-me a ver em cada criatura um irmão e em cada pobre o rosto de Cristo. Fazei-me instrumento de paz onde houver conflito.\n\nQue eu cuide da criação como vós cuidastes e louve a Deus com o sol, a lua, as estrelas e todas as criaturas. São Francisco, rogai por nós. Amém.",
+   "fonte": "Original"
+  },
+  {
+   "id": "santa-luzia",
+   "titulo": "Oração a Santa Luzia",
+   "tipo": "santo",
+   "santo": "Santa Luzia",
+   "grupo": "Santos",
+   "temas": [
+    "cura-saude",
+    "protecao"
+   ],
+   "texto": "Santa Luzia, virgem e mártir de Siracusa, o vosso nome lembra a luz, e a Igreja vos invoca como protetora dos olhos.\n\nIntercedei junto a Deus pela saúde dos meus olhos e de todos os que sofrem da visão. Mas, sobretudo, pedi para mim a luz da fé, para que eu enxergue o caminho de Deus e as necessidades dos irmãos.\n\nVós que preferistes perder tudo a negar Jesus, dai-me coragem para ser fiel. Que os meus olhos vejam um dia a glória de Deus face a face. Santa Luzia, rogai por nós. Amém.",
+   "fonte": "Original"
+  },
+  {
+   "id": "sao-jorge",
+   "titulo": "Oração a São Jorge",
+   "tipo": "santo",
+   "santo": "São Jorge",
+   "grupo": "Santos",
+   "temas": [
+    "protecao",
+    "aflicao"
+   ],
+   "texto": "São Jorge, soldado de Cristo e mártir da fé, vós preferistes servir ao Rei dos reis a negar o nome de Jesus.\n\nA imagem do dragão vencido lembra que o mal não tem a última palavra. Intercedei por mim nas lutas de cada dia: contra o medo, a injustiça, os vícios e as tentações. Alcançai-me de Deus coragem, firmeza e fidelidade.\n\nProtegei os que trabalham em profissões de risco, os soldados, os policiais e os que defendem os mais fracos. Que eu vença o mal com o bem, armado com a fé. São Jorge, rogai por nós. Amém.",
+   "fonte": "Original"
+  },
+  {
+   "id": "santo-expedito",
+   "titulo": "Oração a Santo Expedito",
+   "tipo": "santo",
+   "santo": "Santo Expedito",
+   "grupo": "Santos",
+   "temas": [
+    "aflicao",
+    "trabalho",
+    "decisoes"
+   ],
+   "texto": "Santo Expedito, soldado convertido e mártir, a tradição conta que vencestes a tentação de adiar a vossa conversão, dizendo: hoje, e não amanhã.\n\nIntercedei por mim nesta causa urgente que apresento a Deus. Que a resposta venha no tempo certo, segundo a vontade do Pai. E ensinai-me a não adiar o bem, o perdão e a mudança de vida.\n\nDai-me a decisão de quem não deixa para depois o que Deus pede hoje. Santo Expedito, rogai por nós. Amém.",
+   "fonte": "Original"
+  },
+  {
+   "id": "santa-edwiges",
+   "titulo": "Oração a Santa Edwiges",
+   "tipo": "santo",
+   "santo": "Santa Edwiges",
+   "grupo": "Santos",
+   "temas": [
+    "aflicao",
+    "trabalho",
+    "dizimo"
+   ],
+   "texto": "Santa Edwiges, duquesa que viveu com o coração voltado para os pobres, vós usastes os vossos bens para socorrer os necessitados e os endividados.\n\nIntercedei por mim e por todos os que estão em dificuldades financeiras e afogados em dívidas. Alcançai-nos de Deus o sustento necessário, a organização para sair das dívidas e a serenidade para não perder a paz.\n\nEnsinai-nos a viver com simplicidade e a ser generosos mesmo no pouco. Santa Edwiges, protetora dos pobres e endividados, rogai por nós. Amém.",
+   "fonte": "Original"
+  },
+  {
+   "id": "sao-sebastiao",
+   "titulo": "Oração a São Sebastião",
+   "tipo": "santo",
+   "santo": "São Sebastião",
+   "grupo": "Santos",
+   "temas": [
+    "cura-saude",
+    "protecao"
+   ],
+   "texto": "São Sebastião, soldado romano e mártir de Cristo, as flechas não venceram a vossa fé. Vós destes testemunho de Jesus até o fim.\n\nA Igreja vos invoca contra as epidemias, a fome e a guerra. Intercedei por nós e pelo nosso povo, para que sejamos livres das doenças e de todo mal. Dai-nos firmeza na fé quando formos atacados por críticas ou perseguições.\n\nProtegei os doentes, os soldados e os que defendem a vida. São Sebastião, rogai por nós. Amém.",
+   "fonte": "Original"
+  },
+  {
+   "id": "santa-dulce-dos-pobres",
+   "titulo": "Oração a Santa Dulce dos Pobres",
+   "tipo": "santo",
+   "santo": "Santa Dulce dos Pobres",
+   "grupo": "Santos",
+   "temas": [
+    "cura-saude",
+    "dizimo",
+    "aflicao"
+   ],
+   "texto": "Santa Dulce dos Pobres, Anjo Bom da Bahia, vós dedicastes a vida aos doentes, aos abandonados e aos que ninguém queria acolher.\n\nCom o corpo frágil e o coração imenso, mostrastes que o amor faz milagres. Intercedei junto a Deus pelos doentes, pelos pobres e pelos que vivem nas ruas. Alcançai-me a graça que hoje vos peço, se for da vontade de Deus.\n\nEnsinai-me a servir sem medir esforços e a ver Jesus em cada pessoa que sofre. Que eu também seja um pouco de amparo para alguém. Santa Dulce, rogai por nós. Amém.",
+   "fonte": "Original"
+  },
+  {
+   "id": "padre-pio",
+   "titulo": "Oração a São Padre Pio",
+   "tipo": "santo",
+   "santo": "São Padre Pio de Pietrelcina",
+   "grupo": "Santos",
+   "temas": [
+    "cura-saude",
+    "perdao",
+    "aflicao"
+   ],
+   "texto": "São Padre Pio, frade capuchinho que trouxestes no corpo as marcas da paixão de Cristo, vós passastes horas no confessionário reconciliando as almas com Deus.\n\nIntercedei por mim, para que eu me arrependa sinceramente dos meus pecados e busque a misericórdia de Deus. Rogai pelos doentes e pelos que sofrem no corpo e na alma. Ensinai-me a rezar com perseverança e a confiar em Deus sem medo.\n\nVós que dizíeis para rezar, esperar e não se preocupar, acalmai o meu coração inquieto. São Padre Pio, rogai por nós. Amém.",
+   "fonte": "Original"
+  },
+  {
+   "id": "santa-clara",
+   "titulo": "Oração a Santa Clara de Assis",
+   "tipo": "santo",
+   "santo": "Santa Clara de Assis",
+   "grupo": "Santos",
+   "temas": [
+    "contemplacao",
+    "protecao",
+    "paz-interior"
+   ],
+   "texto": "Santa Clara de Assis, discípula de São Francisco e amante da pobreza, vós encontrastes em Cristo o vosso único tesouro.\n\nA tradição conta que, diante dos invasores, vos apresentastes com a Eucaristia e o convento foi protegido. Ensinai-me a confiar no poder de Jesus presente no Santíssimo Sacramento. Protegei a minha casa e a minha cidade de todo perigo.\n\nAjudai-me a contemplar o Senhor com um coração simples e luminoso. Que eu reflita a luz de Cristo como um espelho limpo. Santa Clara, rogai por nós. Amém.",
+   "fonte": "Original"
+  },
+  {
+   "id": "sao-pedro-e-sao-paulo",
+   "titulo": "Oração a São Pedro e São Paulo",
+   "tipo": "santo",
+   "santo": "São Pedro e São Paulo",
+   "grupo": "Santos",
+   "temas": [
+    "perdao",
+    "decisoes"
+   ],
+   "texto": "São Pedro e São Paulo, colunas da Igreja, vós destes a vida por Cristo em Roma e sois honrados juntos pela Igreja.\n\nSão Pedro, que negastes o Senhor e fostes perdoado, ensinai-me a voltar sempre para Jesus depois das minhas quedas. São Paulo, que de perseguidor vos tornastes apóstolo, ensinai-me a deixar Cristo transformar a minha vida por inteiro.\n\nIntercedei pelo Papa, pelos bispos e por toda a Igreja. Dai-me coragem para anunciar o Evangelho com palavras e com o exemplo. Amém.",
+   "fonte": "Original"
+  },
+  {
+   "id": "santa-ana-e-sao-joaquim",
+   "titulo": "Oração a Santa Ana e São Joaquim",
+   "tipo": "santo",
+   "santo": "Santa Ana e São Joaquim",
+   "grupo": "Santos",
+   "temas": [
+    "familia",
+    "filhos",
+    "casamento"
+   ],
+   "texto": "Santa Ana e São Joaquim, pais da Virgem Maria e avós de Jesus, vós educastes com amor aquela que seria a Mãe de Deus.\n\nAbençoai os casais, os pais e principalmente os avós. Que eles transmitam a fé às novas gerações com paciência e ternura. Intercedei pelos casais que desejam ter filhos e pelas famílias que passam por dificuldades.\n\nQue os nossos lares sejam lugares de oração e de amor, como foi a vossa casa. Santa Ana e São Joaquim, rogai por nós. Amém.",
+   "fonte": "Original"
+  },
+  {
+   "id": "sao-frei-galvao",
+   "titulo": "Oração a São Frei Galvão",
+   "tipo": "santo",
+   "santo": "São Frei Galvão",
+   "grupo": "Santos",
+   "temas": [
+    "cura-saude",
+    "filhos"
+   ],
+   "texto": "São Frei Galvão, primeiro santo nascido no Brasil, frade franciscano de Guaratinguetá, vós vivestes com humildade e grande amor a Nossa Senhora.\n\nMuitos recorrem a vós nas doenças e, de modo especial, as gestantes e as famílias que esperam um filho. Intercedei junto a Deus pela saúde dos doentes, por uma gestação tranquila e por um parto feliz.\n\nEnsinai-me a viver a minha fé com simplicidade e caridade. Que eu confie em Deus e em Maria como vós confiastes. São Frei Galvão, rogai por nós. Amém.",
+   "fonte": "Original"
+  },
+  {
+   "id": "sao-cosme-e-sao-damiao",
+   "titulo": "Oração a São Cosme e São Damião",
+   "tipo": "santo",
+   "santo": "São Cosme e São Damião",
+   "grupo": "Santos",
+   "temas": [
+    "cura-saude",
+    "filhos"
+   ],
+   "texto": "São Cosme e São Damião, irmãos gêmeos e médicos, vós cuidáveis dos doentes sem cobrar nada, por amor a Cristo.\n\nIntercedei pelos enfermos, pelos médicos e por todos os profissionais de saúde. Protegei as crianças, que tanto vos honram no Brasil, e guardai a sua saúde e inocência.\n\nEnsinai-me a servir de graça, como de graça recebi de Deus. Que eu saiba cuidar dos outros com competência e compaixão. São Cosme e São Damião, rogai por nós. Amém.",
+   "fonte": "Original"
+  },
+  {
+   "id": "santa-teresa-de-calcuta",
+   "titulo": "Oração a Santa Teresa de Calcutá",
+   "tipo": "santo",
+   "santo": "Santa Teresa de Calcutá",
+   "grupo": "Santos",
+   "temas": [
+    "dizimo",
+    "cura-saude",
+    "contemplacao"
+   ],
+   "texto": "Santa Teresa de Calcutá, vós escutastes o grito de Jesus na cruz, tenho sede, e o reconhecestes nos mais pobres dos pobres.\n\nEnsinai-me a ver o rosto de Cristo nos doentes, nos abandonados e nos que ninguém quer olhar. Ajudai-me a fazer pequenas coisas com grande amor. Que eu não meça o bem pela grandeza, mas pela entrega.\n\nVós que perseverastes na fé mesmo em tempos de escuridão interior, ajudai-me a confiar quando não sinto a presença de Deus. Santa Teresa de Calcutá, rogai por nós. Amém.",
+   "fonte": "Original"
+  },
+  {
+   "id": "sao-joao-paulo-ii",
+   "titulo": "Oração a São João Paulo II",
+   "tipo": "santo",
+   "santo": "São João Paulo II",
+   "grupo": "Santos",
+   "temas": [
+    "familia",
+    "decisoes",
+    "paz-interior"
+   ],
+   "texto": "São João Paulo II, Papa peregrino e pastor do mundo, vós nos dissestes para não ter medo e abrir as portas a Cristo.\n\nIntercedei pelas famílias, pelos jovens e por todos os que sofrem. Dai-me coragem para viver a fé sem medo e para defender a dignidade de toda vida humana. Ensinai-me a amar Maria como vós a amastes, entregando-me totalmente a ela.\n\nVós que carregastes a doença com fé e serenidade, ajudai-me a oferecer os meus sofrimentos. São João Paulo II, rogai por nós. Amém.",
+   "fonte": "Original"
+  },
+  {
+   "id": "sao-carlo-acutis",
+   "titulo": "Oração a São Carlo Acutis",
+   "tipo": "santo",
+   "santo": "São Carlo Acutis",
+   "grupo": "Santos",
+   "temas": [
+    "estudos",
+    "filhos",
+    "contemplacao"
+   ],
+   "texto": "São Carlo Acutis, jovem apaixonado por Jesus Eucarístico, vós usastes a internet e o vosso talento para anunciar o Evangelho.\n\nVós dizíeis que a Eucaristia é o caminho mais curto para o céu. Ajudai-me a amar a Missa, a adoração e a confissão. Intercedei pelos jovens, pelos estudantes e por todos os que vivem conectados, para que usem a tecnologia para o bem.\n\nEnsinai-me a ser original e não uma cópia, vivendo a santidade nas coisas simples do dia a dia. São Carlo Acutis, rogai por nós. Amém.",
+   "fonte": "Original"
+  },
+  {
+   "id": "sinal-da-cruz",
+   "titulo": "Sinal da Cruz",
+   "tipo": "tradicional",
+   "temas": [
+    "protecao",
+    "manha-noite"
+   ],
+   "texto": "Pelo sinal da Santa Cruz, livrai-nos, Deus, nosso Senhor, dos nossos inimigos.\n\nEm nome do Pai, e do Filho, e do Espírito Santo. Amém.",
+   "fonte": "Tradicional (domínio público)"
+  },
+  {
+   "id": "pai-nosso",
+   "titulo": "Pai-Nosso",
+   "tipo": "tradicional",
+   "temas": [
+    "contemplacao",
+    "manha-noite"
+   ],
+   "texto": "Pai nosso, que estais nos céus, santificado seja o vosso nome; venha a nós o vosso Reino; seja feita a vossa vontade, assim na terra como no céu.\n\nO pão nosso de cada dia nos dai hoje; perdoai-nos as nossas ofensas, assim como nós perdoamos a quem nos tem ofendido; e não nos deixeis cair em tentação, mas livrai-nos do mal. Amém.",
+   "fonte": "Tradicional (domínio público)"
+  },
+  {
+   "id": "ave-maria",
+   "titulo": "Ave-Maria",
+   "tipo": "tradicional",
+   "temas": [
+    "contemplacao"
+   ],
+   "texto": "Ave Maria, cheia de graça, o Senhor é convosco; bendita sois vós entre as mulheres, e bendito é o fruto do vosso ventre, Jesus.\n\nSanta Maria, Mãe de Deus, rogai por nós, pecadores, agora e na hora de nossa morte. Amém.",
+   "fonte": "Tradicional (domínio público)"
+  },
+  {
+   "id": "gloria-ao-pai",
+   "titulo": "Glória ao Pai",
+   "tipo": "tradicional",
+   "temas": [
+    "agradecimento",
+    "contemplacao"
+   ],
+   "texto": "Glória ao Pai, e ao Filho, e ao Espírito Santo.\n\nComo era no princípio, agora e sempre. Amém.",
+   "fonte": "Tradicional (domínio público)"
+  },
+  {
+   "id": "credo",
+   "titulo": "Credo (Símbolo dos Apóstolos)",
+   "tipo": "tradicional",
+   "temas": [
+    "contemplacao"
+   ],
+   "texto": "Creio em Deus Pai todo-poderoso, criador do céu e da terra; e em Jesus Cristo, seu único Filho, nosso Senhor, que foi concebido pelo poder do Espírito Santo; nasceu da Virgem Maria; padeceu sob Pôncio Pilatos, foi crucificado, morto e sepultado; desceu à mansão dos mortos; ressuscitou ao terceiro dia; subiu aos céus, está sentado à direita de Deus Pai todo-poderoso, donde há de vir a julgar os vivos e os mortos.\n\nCreio no Espírito Santo, na santa Igreja Católica, na comunhão dos santos, na remissão dos pecados, na ressurreição da carne, na vida eterna. Amém.",
+   "fonte": "Tradicional (domínio público)"
+  },
+  {
+   "id": "salve-rainha",
+   "titulo": "Salve Rainha",
+   "tipo": "tradicional",
+   "temas": [
+    "aflicao"
+   ],
+   "texto": "Salve, Rainha, Mãe de misericórdia, vida, doçura e esperança nossa, salve! A vós bradamos, os degredados filhos de Eva. A vós suspiramos, gemendo e chorando neste vale de lágrimas.\n\nEia, pois, advogada nossa, esses vossos olhos misericordiosos a nós volvei. E depois deste desterro, mostrai-nos Jesus, bendito fruto do vosso ventre. Ó clemente, ó piedosa, ó doce sempre Virgem Maria.\n\nRogai por nós, santa Mãe de Deus, para que sejamos dignos das promessas de Cristo. Amém.",
+   "fonte": "Tradicional (domínio público)"
+  },
+  {
+   "id": "lembrai-vos",
+   "titulo": "Lembrai-vos (Memorare)",
+   "tipo": "tradicional",
+   "temas": [
+    "aflicao",
+    "protecao"
+   ],
+   "texto": "Lembrai-vos, ó piíssima Virgem Maria, que nunca se ouviu dizer que algum daqueles que têm recorrido à vossa proteção, implorado a vossa assistência e reclamado o vosso socorro, fosse por vós desamparado.\n\nAnimado eu, pois, com igual confiança, a vós, ó Virgem entre todas singular, como a Mãe recorro, de vós me valho e, gemendo sob o peso dos meus pecados, me prostro a vossos pés.\n\nNão desprezeis as minhas súplicas, ó Mãe do Verbo de Deus humanado, mas dignai-vos de as ouvir propícia e de me alcançar o que vos rogo. Amém.",
+   "fonte": "Tradicional (domínio público)"
+  },
+  {
+   "id": "santo-anjo-do-senhor",
+   "titulo": "Santo Anjo do Senhor",
+   "tipo": "tradicional",
+   "temas": [
+    "protecao",
+    "manha-noite",
+    "filhos"
+   ],
+   "texto": "Santo Anjo do Senhor, meu zeloso guardador, se a ti me confiou a piedade divina, sempre me rege, me guarda, me governa e me ilumina. Amém.",
+   "fonte": "Tradicional (domínio público)"
+  },
+  {
+   "id": "sao-miguel-leao-xiii",
+   "titulo": "Oração a São Miguel Arcanjo (Leão XIII)",
+   "tipo": "tradicional",
+   "temas": [
+    "protecao"
+   ],
+   "texto": "São Miguel Arcanjo, defendei-nos no combate; sede o nosso refúgio contra a maldade e as ciladas do demônio.\n\nOrdene-lhe Deus, instantemente o pedimos; e vós, Príncipe da milícia celeste, pela virtude divina, precipitai no inferno a Satanás e aos outros espíritos malignos, que andam pelo mundo para perder as almas. Amém.",
+   "fonte": "Tradicional (domínio público)"
+  },
+  {
+   "id": "ato-de-contricao",
+   "titulo": "Ato de Contrição",
+   "tipo": "tradicional",
+   "temas": [
+    "perdao",
+    "manha-noite"
+   ],
+   "texto": "Senhor meu Jesus Cristo, Deus e homem verdadeiro, Criador e Redentor meu, por serdes vós quem sois, sumamente bom e digno de ser amado sobre todas as coisas, e porque vos amo e estimo, pesa-me, Senhor, de todo o meu coração, de vos ter ofendido; pesa-me também por ter perdido o céu e merecido o inferno.\n\nE proponho firmemente, ajudado com o auxílio da vossa divina graça, emendar-me e nunca mais vos tornar a ofender, e espero alcançar o perdão de minhas culpas pela vossa infinita misericórdia. Amém.",
+   "fonte": "Tradicional (domínio público)"
+  },
+  {
+   "id": "vinde-espirito-santo",
+   "titulo": "Vinde, Espírito Santo",
+   "tipo": "tradicional",
+   "temas": [
+    "decisoes",
+    "estudos",
+    "contemplacao"
+   ],
+   "texto": "Vinde, Espírito Santo, enchei os corações dos vossos fiéis e acendei neles o fogo do vosso amor.\n\nEnviai o vosso Espírito e tudo será criado.\nE renovareis a face da terra.\n\nOremos: Ó Deus, que instruístes os corações dos vossos fiéis com a luz do Espírito Santo, concedei-nos que, no mesmo Espírito, saibamos o que é reto e gozemos sempre da sua consolação. Por Cristo, Senhor nosso. Amém.",
+   "fonte": "Tradicional (domínio público)"
+  },
+  {
+   "id": "angelus",
+   "titulo": "Angelus",
+   "tipo": "tradicional",
+   "temas": [
+    "contemplacao",
+    "manha-noite"
+   ],
+   "texto": "O Anjo do Senhor anunciou a Maria.\nE ela concebeu do Espírito Santo.\nAve Maria...\n\nEis aqui a serva do Senhor.\nFaça-se em mim segundo a vossa palavra.\nAve Maria...\n\nE o Verbo se fez carne.\nE habitou entre nós.\nAve Maria...\n\nRogai por nós, santa Mãe de Deus.\nPara que sejamos dignos das promessas de Cristo.\n\nOremos: Infundi, Senhor, como vos pedimos, a vossa graça em nossas almas, para que nós, que pela anunciação do Anjo viemos ao conhecimento da encarnação de Jesus Cristo, vosso Filho, por sua paixão e morte na cruz sejamos conduzidos à glória da ressurreição. Pelo mesmo Cristo, Senhor nosso. Amém.",
+   "fonte": "Tradicional (domínio público)"
+  },
+  {
+   "id": "jaculatoria-sagrado-coracao",
+   "titulo": "Jaculatórias ao Sagrado Coração",
+   "tipo": "tradicional",
+   "temas": [
+    "paz-interior",
+    "aflicao"
+   ],
+   "texto": "Sagrado Coração de Jesus, eu confio em vós!\n\nJesus, manso e humilde de coração, fazei o nosso coração semelhante ao vosso.",
+   "fonte": "Tradicional (domínio público)"
+  },
+  {
+   "id": "oracao-da-paz",
+   "titulo": "Oração da Paz (atribuída a São Francisco)",
+   "tipo": "tradicional",
+   "temas": [
+    "paz-interior",
+    "perdao"
+   ],
+   "texto": "Senhor, fazei de mim um instrumento de vossa paz. Onde houver ódio, que eu leve o amor; onde houver ofensa, que eu leve o perdão; onde houver discórdia, que eu leve a união; onde houver dúvida, que eu leve a fé; onde houver erro, que eu leve a verdade; onde houver desespero, que eu leve a esperança; onde houver tristeza, que eu leve a alegria; onde houver trevas, que eu leve a luz.\n\nÓ Mestre, fazei que eu procure mais consolar que ser consolado; compreender que ser compreendido; amar que ser amado. Pois é dando que se recebe, é perdoando que se é perdoado, e é morrendo que se vive para a vida eterna.",
+   "fonte": "Tradicional (domínio público)"
+  },
+  {
+   "id": "antes-das-refeicoes",
+   "titulo": "Oração antes das refeições",
+   "tipo": "tradicional",
+   "temas": [
+    "agradecimento",
+    "familia"
+   ],
+   "texto": "Abençoai-nos, Senhor, e a estes dons que da vossa bondade recebemos. Por Cristo, nosso Senhor. Amém.",
+   "fonte": "Tradicional (domínio público)"
+  },
+  {
+   "id": "eterno-descanso",
+   "titulo": "Eterno descanso",
+   "tipo": "tradicional",
+   "temas": [
+    "luto"
+   ],
+   "texto": "Dai-lhes, Senhor, o eterno descanso, e a luz perpétua os ilumine.\n\nDescansem em paz. Amém.",
+   "fonte": "Tradicional (domínio público)"
+  }
+ ]
+}
