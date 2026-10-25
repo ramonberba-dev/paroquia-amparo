@@ -73,6 +73,17 @@ textarea.campo{resize:vertical;min-height:96px}
 .aviso.erro{background:var(--errobg);color:var(--erro)}
 .carregando{color:var(--mudo);padding:24px 0;text-align:center}
 
+body:has(.baixar-app:not([hidden])) .tela{padding-bottom:90px}
+.popup-avisos{max-width:520px;padding:16px;max-height:88vh;overflow:auto}
+.popup-avisos .rot{font-weight:800;color:var(--ouro);letter-spacing:.08em;text-transform:uppercase;font-size:13px}
+.popup-avisos .avisos-semana{margin:10px 0 12px}
+.notif{display:flex;align-items:center;gap:12px;background:var(--papel);border:1.5px solid var(--ouro2);border-radius:18px;padding:12px 12px 12px 14px;margin-top:16px;box-shadow:var(--sombra)}
+.notif > span{font-size:26px}
+.notif div{flex:1;min-width:0}
+.notif b{display:block;font-size:15.5px;line-height:1.2}
+.notif small{color:var(--mudo);font-size:13px}
+.notif .btn{padding:10px 16px}
+
 /* avisos da semana do 2º domingo */
 .avisos-semana{display:grid;gap:12px;margin-top:14px}
 .aviso-card{display:flex;gap:12px;background:var(--papel);border-radius:20px;padding:16px;box-shadow:var(--sombra);border-left:6px solid var(--azul2)}
@@ -84,7 +95,6 @@ textarea.campo{resize:vertical;min-height:96px}
 .aviso-txt p{margin:0 0 8px;font-size:15.5px;color:var(--tinta)}
 .aviso-txt blockquote{margin:0 0 10px;padding:8px 12px;background:#EEF6F0;border-radius:12px;font-family:var(--disp);font-style:italic;font-size:17px;color:#24533A}
 .aviso-txt cite{display:block;font-family:var(--corpo);font-style:normal;font-size:13px;font-weight:700;margin-top:2px}
-.btn-aviso{width:100%;padding:11px;font-size:15px}
 
 /* botão fixo "Baixar app" (some depois de instalado) */
 .baixar-app{position:fixed;right:14px;bottom:calc(86px + env(safe-area-inset-bottom,0px));z-index:35;border:0;border-radius:999px;padding:12px 18px;
@@ -451,6 +461,7 @@ async function telaInicio(){
       <button class="grande" data-ir="biblia"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h11a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3z"/><path d="M5 17a3 3 0 0 1 3-3h11"/><path d="M12 7v5M9.5 9h5"/></svg></div><div><b>Bíblia</b><span>Ave-Maria</span></div></button>
       ${sessao.papel ? `<button class="grande largo pastoral" data-ir="pastoral"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.5-7 10-7 10z"/></svg></div><div><b>Pastoral do Dízimo</b><span>Mural e cartaz dos aniversariantes</span></div></button>` : ''}
     </div>
+    <div id="cartaoAvisos"></div>
     <section class="aniv" id="aniv" hidden></section>
     <div class="acesso">
       ${sessao.papel ? `<p class="mudo pequeno">Conectado como <b>${sessao.papel === 'padre' ? 'Padre' : 'Pastoral do Dízimo'}</b>. <button class="btn claro" id="sair" style="padding:8px 14px;margin-left:6px">Sair</button></p>`
@@ -460,7 +471,8 @@ async function telaInicio(){
     </div>
   </section>`;
   app.querySelectorAll('[data-ir]').forEach(b => b.onclick = () => ir(b.dataset.ir));
-  app.querySelectorAll('.btn-aviso').forEach(b => b.onclick = () => window.open('https://wa.me/?text=' + encodeURIComponent(b.dataset.zap), '_blank', 'noopener'));
+  popupAvisos();
+  cartaoNotificacoes();
 
   const olho = $('#olho');
   if (olho) olho.onclick = () => { const ver = $('#pin').type === 'password'; $('#pin').type = ver ? 'text' : 'password';
@@ -595,21 +607,53 @@ function avisosDaSemana(){
   const ehHojeDom = h.toDateString() === dom.toDateString();
   const quando = ehHojeDom ? 'hoje' : `domingo, ${dataLonga(dom)}`;
   const [frase, santo] = FRASES_CARIDADE[dom.getMonth()];
-  const zapAdoracao = `🙏 *Adoração do Dizimista*\n\n${ehHojeDom ? 'Hoje' : 'No próximo domingo, ' + dataLonga(dom) + ','} às 7h da manhã, teremos a Adoração do Dizimista na Paróquia Nossa Senhora do Amparo.\n\nVenha agradecer a Deus pelas bênçãos recebidas e rezar pela nossa comunidade diante de Jesus Eucarístico. Traga sua família! 💛\n\n📲 App da paróquia: ${LINK_APP}`;
-  const zapQuilo = `🧺 *Domingo do Quilo*\n\n${ehHojeDom ? 'Hoje' : 'No domingo, ' + dataLonga(dom) + ','} é o Domingo do Quilo! Traga 1 kg de alimento não perecível para ajudar as famílias atendidas pela nossa paróquia.\n\n"${frase}" — ${santo}\n\nObrigado pela sua generosidade! Deus abençoe!\n📲 ${LINK_APP}`;
   return `<div class="avisos-semana">
     <div class="aviso-card adoracao"><div class="aviso-ic">🕯️</div><div class="aviso-txt">
       <small>${ehHojeDom ? 'Hoje' : 'Neste domingo'} · ${dom.getDate()}/${String(dom.getMonth() + 1).padStart(2, '0')} · 7h</small>
       <b>Adoração do Dizimista</b>
-      <p>${ehHojeDom ? 'Hoje' : 'No ' + quando} às 7h da manhã. Venha agradecer a Deus pelas bênçãos recebidas e rezar diante de Jesus Eucarístico. Traga sua família!</p>
-      <button class="btn zap btn-aviso" data-zap="${esc(zapAdoracao)}">${ICONE_ZAP} Avisar no grupo</button></div></div>
+      <p>${ehHojeDom ? 'Hoje' : 'No ' + quando} às 7h da manhã. Venha agradecer a Deus pelas bênçãos recebidas e rezar diante de Jesus Eucarístico. Traga sua família!</p></div></div>
     <div class="aviso-card quilo"><div class="aviso-ic">🧺</div><div class="aviso-txt">
       <small>${ehHojeDom ? 'Hoje' : 'Neste domingo'} · ${dom.getDate()}/${String(dom.getMonth() + 1).padStart(2, '0')}</small>
       <b>Domingo do Quilo</b>
       <p>Traga 1 kg de alimento não perecível para as famílias atendidas pela paróquia. A caridade é a fé que vira gesto.</p>
-      <blockquote>“${esc(frase)}”<cite>— ${esc(santo)}</cite></blockquote>
-      <button class="btn zap btn-aviso" data-zap="${esc(zapQuilo)}">${ICONE_ZAP} Avisar no grupo</button></div></div>
+      <blockquote>“${esc(frase)}”<cite>— ${esc(santo)}</cite></blockquote></div></div>
   </div>`;
+}
+
+// pop-up dos avisos (uma vez por dia na semana do 2º domingo)
+function popupAvisos(){
+  const html = avisosDaSemana(); if (!html) return;
+  const chave = hoje().toDateString(); if (ler('popupVisto', '') === chave) return;
+  guardar('popupVisto', chave);
+  const fundo = document.createElement('div'); fundo.className = 'arte-fundo';
+  fundo.innerHTML = `<div class="arte-caixa popup-avisos" role="dialog" aria-label="Avisos da paróquia"><div class="rot">🔔 Avisos da paróquia</div>${html}
+    <button class="btn grande-btn" id="popupOk">Amém, estarei lá!</button></div>`;
+  document.body.appendChild(fundo);
+  const fechar = () => fundo.remove();
+  fundo.onclick = e => { if (e.target === fundo) fechar(); };
+  $('#popupOk').onclick = fechar;
+}
+
+// notificações no celular (Web Push): a pessoa ativa uma vez; os avisos chegam com o app fechado
+const VAPID = 'BIwIJKfaDCn2iCa9KvltB0iarqg0nHsFyrjq7aBUoiiKFkgZpqvLof3P1g3mvYsrAGdcri8n7-rrqca3ykiyjlY';
+const podeNotificar = () => 'serviceWorker' in navigator && 'PushManager' in window && 'Notification' in window;
+function chaveVapid(b64){ const p = '='.repeat((4 - b64.length % 4) % 4); const r = atob((b64 + p).replace(/-/g, '+').replace(/_/g, '/')); return Uint8Array.from(r, c => c.charCodeAt(0)); }
+function cartaoNotificacoes(){
+  const lugar = $('#cartaoAvisos'); if (!lugar) return;
+  const iphoneSemApp = ehIphone() && !jaInstalado();
+  if (ler('avisosAtivos', false) || (!podeNotificar() && !iphoneSemApp) || (podeNotificar() && Notification.permission === 'denied')) { lugar.innerHTML = ''; return; }
+  lugar.innerHTML = `<div class="notif"><span>🔔</span><div><b>Receba os avisos da paróquia</b><small>Adoração do Dizimista, Domingo do Quilo e outros lembretes no seu celular</small></div><button class="btn ouro" id="ativarAvisos">Ativar</button></div>`;
+  $('#ativarAvisos').onclick = async () => {
+    if (iphoneSemApp) return alert('No iPhone, os avisos funcionam com o app instalado.\n\nToque em "Baixar app", instale e depois toque em "Ativar" de novo, dentro do app.');
+    const b = $('#ativarAvisos'); b.disabled = true;
+    try {
+      if (await Notification.requestPermission() !== 'granted') { toast('Tudo bem! Você pode ativar depois nas configurações do celular.'); lugar.innerHTML = ''; return; }
+      const reg = await navigator.serviceWorker.ready;
+      const sub = (await reg.pushManager.getSubscription()) || await reg.pushManager.subscribe({userVisibleOnly: true, applicationServerKey: chaveVapid(VAPID)});
+      await servidor('inscrever', {sub: sub.toJSON()});
+      guardar('avisosAtivos', true); lugar.innerHTML = ''; toast('Pronto! Você vai receber os avisos da paróquia. 🙏');
+    } catch(e){ b.disabled = false; toast('Não consegui ativar: ' + e.message); }
+  };
 }
 
 // ================= EVANGELHO =================
