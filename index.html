@@ -418,7 +418,7 @@ async function telaInicio(){
     <div class="inspira">
       <div class="rot"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.6 6.4L21 9l-5 4.4L17.5 20 12 16.6 6.5 20 8 13.4 3 9l6.4-.6z"/></svg>Inspiração do Padre</div>
       <blockquote id="inspTexto">${esc(insp || 'Vinde a mim, todos vós que estais cansados e sobrecarregados, e eu vos aliviarei.')}</blockquote>
-      <div class="assin">— ${insp ? esc(ASSINATURA) : 'Mt 11,28'}</div>
+      <div class="assin" id="inspAssin" ${insp ? '' : 'hidden'}>— ${esc(ASSINATURA)}</div>
     </div>
     ${sessao.papel === 'padre' ? `<div class="cartao editor" style="margin-top:12px">
       <label for="inspNova"><b>Nova inspiração</b> <span class="mudo pequeno">(aparece para todos no topo do app)</span></label>
@@ -461,7 +461,7 @@ async function telaInicio(){
   const salvar = $('#inspSalvar');
   if (salvar) salvar.onclick = async () => {
     const texto = $('#inspNova').value.trim(); salvar.disabled = true; $('#inspMsg').textContent = 'Publicando…';
-    try { const j = await servidor('inspiracao', {texto}); guardar('inspiracao', j.inspiracao); $('#inspTexto').textContent = j.inspiracao; $('#inspMsg').textContent = 'Publicada!'; toast('Inspiração publicada'); }
+    try { const j = await servidor('inspiracao', {texto}); guardar('inspiracao', j.inspiracao); $('#inspTexto').textContent = j.inspiracao || 'Vinde a mim, todos vós que estais cansados e sobrecarregados, e eu vos aliviarei.'; $('#inspAssin').hidden = !j.inspiracao; $('#inspMsg').textContent = 'Publicada!'; toast('Inspiração publicada'); }
     catch(e){ $('#inspMsg').textContent = e.message; }
     salvar.disabled = false;
   };
@@ -473,7 +473,7 @@ async function telaInicio(){
     if (!j.ok) return; guardar('inspiracao', j.inspiracao || '');
     if (j.aniversariantes) { guardar('aniversariantes', j.aniversariantes); desenhaAniv(j.aniversariantes); }
     if (location.hash && location.hash !== '#inicio') return;
-    const bq = $('#inspTexto'); if (bq && j.inspiracao) { bq.textContent = j.inspiracao; bq.nextElementSibling.textContent = '— '+ASSINATURA; }
+    const bq = $('#inspTexto'); if (bq && j.inspiracao) { bq.textContent = j.inspiracao; $('#inspAssin').hidden = false; }
   }).catch(()=>{});
   // santo de hoje
   carregar('santos').then(s => { const x = s[chaveData(hoje())]; if (!x) return; const n=$('#santoNome'); if(n) n.textContent = x.nome; const im=$('#santoFoto'); if(im && x.img) { im.onerror=()=>{im.src=SANTO_PADRAO}; im.src = x.img; } }).catch(()=>{ const n=$('#santoNome'); if(n) n.textContent=''; });
