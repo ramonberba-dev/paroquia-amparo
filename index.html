@@ -73,6 +73,10 @@ textarea.campo{resize:vertical;min-height:96px}
 .aviso.erro{background:var(--errobg);color:var(--erro)}
 .carregando{color:var(--mudo);padding:24px 0;text-align:center}
 
+/* botão fixo "Baixar app" (some depois de instalado) */
+.baixar-app{position:fixed;right:14px;bottom:calc(86px + env(safe-area-inset-bottom,0px));z-index:35;border:0;border-radius:999px;padding:12px 18px;
+  background:var(--ouro);color:#fff;font-weight:800;font-size:15.5px;box-shadow:0 6px 18px rgba(0,0,0,.25)}
+
 /* Inspiração do Padre */
 .inspira{position:relative;background:linear-gradient(160deg,var(--azul) 0%,#123E86 70%,#1A4C9C 100%);color:#fff;border-radius:24px;padding:26px 22px 22px;overflow:hidden;box-shadow:0 10px 30px rgba(11,47,107,.25)}
 .inspira::after{content:"";position:absolute;right:-60px;top:-60px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(227,194,122,.35),transparent 70%)}
@@ -319,6 +323,7 @@ textarea.campo{resize:vertical;min-height:96px}
 </header>
 
 <main class="wrap" id="app"></main>
+<button class="baixar-app" id="btnInstalar" hidden>📲 Baixar app</button>
 
 <nav class="nav" aria-label="Seções">
   <div class="wrap">
@@ -534,6 +539,23 @@ async function abrirParabens(li){
   caixa.querySelector('.link').onclick = () => { n = (n + 1) % textos.length; ta.value = textos[n]; };
   caixa.querySelector('.zap').onclick = () => window.open(`https://wa.me/${pessoa.telefone}?text=${encodeURIComponent(ta.value.trim())}`, '_blank', 'noopener');
 }
+
+// instalar o app (Android: janela do próprio Chrome; iPhone: passo a passo do Safari)
+let pedidoInstalacao = null;
+window.addEventListener('beforeinstallprompt', e => { e.preventDefault(); pedidoInstalacao = e; mostrarInstalar(); });
+window.addEventListener('appinstalled', () => { guardar('instalado', true); mostrarInstalar(); });
+const jaInstalado = () => matchMedia('(display-mode: standalone)').matches || navigator.standalone === true || ler('instalado', false);
+const ehIphone = () => /iphone|ipad|ipod/i.test(navigator.userAgent);
+function mostrarInstalar(){
+  const b = $('#btnInstalar');
+  b.hidden = jaInstalado();
+  b.onclick = async () => {
+    if (pedidoInstalacao) { pedidoInstalacao.prompt(); const r = await pedidoInstalacao.userChoice; pedidoInstalacao = null; if (r.outcome === 'accepted') guardar('instalado', true); mostrarInstalar(); }
+    else if (ehIphone()) alert('Para instalar no iPhone:\n\n1. Abra este link no Safari.\n2. Toque no botão Compartilhar (quadrado com seta, embaixo da tela).\n3. Escolha "Adicionar à Tela de Início" e toque em "Adicionar".');
+    else alert('Para instalar:\n\n1. Toque nos três pontinhos ⋮ do navegador (no alto, à direita).\n2. Escolha "Instalar app" ou "Adicionar à tela inicial".\n3. Confirme.');
+  };
+}
+mostrarInstalar();
 
 // ================= EVANGELHO =================
 const litCache = {};
@@ -882,7 +904,7 @@ function telaPagamento(tipo){
       </div></div>`;
     r.scrollIntoView({behavior: 'smooth', block: 'start'});
     carregarQR().then(() => new QRCode($('#qr'), {text: codigo, width: 200, height: 200, correctLevel: QRCode.CorrectLevel.M})).catch(() => $('#qr').remove());
-    const mostrarFeito = () => { $('#feito').hidden = false; };
+    const mostrarFeito = () => { const f = $('#feito'); if (f && $('#informar') && $('#informar').hidden) f.hidden = false; };
     $('#copiar').onclick = async () => {
       try { await navigator.clipboard.writeText(codigo); } catch(e){ const t = r.querySelector('.codigo'); t.select(); document.execCommand('copy'); }
       $('#copiar').textContent = 'Código copiado ✓'; toast('Código Pix copiado! Agora cole no app do banco.'); mostrarFeito();
