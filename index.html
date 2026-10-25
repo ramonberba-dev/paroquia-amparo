@@ -107,8 +107,14 @@ textarea.campo{resize:vertical;min-height:96px}
 .aniv li:last-child{border-bottom:0}
 .aniv li b{font-family:var(--disp);font-size:22px;color:var(--ouro);min-width:28px;text-align:right}
 .aniv li.hoje{background:#FFF6DC;border-radius:12px;border-bottom-color:transparent;padding-inline:10px}
-.aniv li.hoje span::after{content:" 🎉 hoje!";font-weight:800;color:var(--ouro);font-size:14px}
+.aniv li.hoje > span::after{content:" 🎉 hoje!";font-weight:800;color:var(--ouro);font-size:14px}
 .aniv li.passou{opacity:.55}
+.aniv li.clicavel{cursor:pointer;flex-wrap:wrap}
+.aniv li.clicavel span{text-decoration:underline;text-decoration-color:var(--ouro2);text-underline-offset:3px}
+.aniv .parabens{flex-basis:100%;padding:8px 0 4px;font-size:15px;color:var(--mudo)}
+.aniv .parabens .btn{width:100%;text-decoration:none;margin-top:8px}
+.aniv .parabens textarea{font-size:15px;line-height:1.45;color:var(--tinta)}
+.parabens-acoes{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-top:6px;flex-wrap:wrap}
 .aniv .mais{border:0;background:none;color:var(--azul2);font-weight:800;padding:10px 0 0}
 
 /* acesso restrito */
@@ -484,11 +490,49 @@ function desenhaAniv(a){
     el.innerHTML = `<div class="rot" style="font-size:13px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--ouro)">🎂 Dizimistas aniversariantes</div>
       <h2>Parabéns, aniversariantes de ${esc(MESES[a.mes-1].toLowerCase())}!</h2>
       <p class="parab">${aniversHoje.length ? `Hoje é dia de festa para ${esc(aniversHoje.map(x=>x.nome.split(' ')[0]).join(', ').replace(/, ([^,]*)$/,' e $1'))}! ` : ''}A Paróquia Nossa Senhora do Amparo agradece a Deus pela vida e pela fidelidade de cada um. Que Nossa Senhora os ampare sempre!</p>
-      <ul>${mostrar.map(x => `<li class="${x.dia===dHoje?'hoje':(x.dia<dHoje?'passou':'')}"><b>${x.dia}</b><span>${esc(x.nome)}</span></li>`).join('')}</ul>
+      <ul>${mostrar.map(x => { const podeZap = x.dia === dHoje && sessao.papel;
+        return `<li class="${x.dia===dHoje?'hoje':(x.dia<dHoje?'passou':'')}${podeZap?' clicavel':''}" ${podeZap?`data-nome="${esc(x.nome)}" role="button" tabindex="0" title="Enviar parabéns pelo WhatsApp"`:''}><b>${x.dia}</b><span>${esc(x.nome)}</span></li>`; }).join('')}</ul>
+      ${sessao.papel && aniversHoje.length ? '<p class="pequeno mudo" style="margin:8px 0 0">Toque no nome do aniversariante de hoje para enviar os parabéns pelo WhatsApp.</p>' : ''}
       ${mostrar.length < todos.length ? `<button class="mais" id="anivTodos">Ver todos os ${todos.length} aniversariantes ›</button>` : ''}`;
     const b = $('#anivTodos'); if (b) b.onclick = () => desenha(true);
+    el.querySelectorAll('li.clicavel').forEach(li => li.onclick = () => abrirParabens(li));
   };
   desenha(false);
+}
+
+// mensagens de parabéns: escritas como um bilhete, uma é sorteada (e dá para trocar ou editar)
+const PARABENS_PADRE = [
+  `{nome}, que alegria poder te desejar um feliz aniversário! 🎂\n\nAgradeço a Deus pelo dom da sua vida e por tudo o que você faz pela nossa comunidade. Peço a Nossa Senhora do Amparo que te cubra com o seu manto e que o Senhor derrame sobre você muita saúde, paz e alegria neste novo ano.\n\nConte sempre com as minhas orações.\nUm abraço fraterno,\nPe. Allan`,
+  `Feliz aniversário, {nome}! 🙏\n\nHoje a nossa paróquia se alegra com você. Que Deus abençoe cada passo do seu novo ano, renove a sua fé e encha a sua casa de paz. Obrigado por caminhar conosco e por ser sinal de generosidade no meio de nós.\n\nCom a minha bênção,\nPe. Allan`,
+  `{nome}, parabéns pelo seu dia!\n\n"O Senhor te abençoe e te guarde; o Senhor faça brilhar sobre ti a sua face e te conceda a paz." (Nm 6,24-26)\n\nÉ isso que peço a Deus por você hoje. Que este novo ano seja cheio da presença d'Ele e do carinho de Nossa Senhora do Amparo.\n\nUm grande abraço,\nPe. Allan`,
+  `Querido(a) {nome}, feliz aniversário! 🎉\n\nQue o Senhor, que te deu a vida, continue sendo a sua força e a sua alegria. Rezo para que Ele te conceda saúde, sabedoria e muita paz, e que Maria, nossa Mãe, esteja sempre ao seu lado.\n\nDeus te abençoe hoje e sempre!\nPe. Allan`,
+];
+const PARABENS_EQUIPE = [
+  `Oi, {nome}! Passando para te desejar um feliz aniversário! 🎉\n\nNós da Pastoral do Dízimo agradecemos a Deus pela sua vida e pela sua presença tão querida na nossa paróquia. Que Nossa Senhora do Amparo interceda por você e que este novo ano venha cheio de bênçãos, saúde e paz.\n\nUm abraço carinhoso de toda a equipe do Dízimo! 💛`,
+  `Feliz aniversário, {nome}! 🎂\n\nHoje é dia de agradecer a Deus por você! Que o Senhor renove as suas forças, abençoe a sua família e realize os bons desejos do seu coração. Obrigado por fazer parte da nossa comunidade com tanto carinho.\n\nCom amizade,\nPastoral do Dízimo – Paróquia Nossa Senhora do Amparo`,
+  `{nome}, parabéns pelo seu dia! 🙏\n\nQue Jesus seja sempre a sua alegria e que Maria, nossa Mãe do Amparo, te acompanhe em cada passo deste novo ano. Hoje estamos rezando por você de um jeito especial!\n\nAbraços da equipe do Dízimo 💛`,
+  `Olá, {nome}! Hoje o dia é seu! 🎈\n\nA equipe do Dízimo se une à sua família para agradecer a Deus por mais um ano da sua vida. Que não falte saúde, paz e fé no seu caminho, e que Nossa Senhora do Amparo te guarde sempre.\n\nFeliz aniversário! Deus te abençoe!`,
+];
+
+// parabéns pelo WhatsApp (só Padre e Pastoral: o telefone vem do cadastro, pelo servidor)
+let parabensCache = null;
+async function abrirParabens(li){
+  const aberto = li.querySelector('.parabens'); if (aberto) { aberto.remove(); return; }
+  const caixa = document.createElement('div'); caixa.className = 'parabens'; caixa.textContent = 'Buscando o telefone…'; li.appendChild(caixa);
+  caixa.onclick = e => e.stopPropagation();
+  try { parabensCache = parabensCache || (await servidor('parabens')).lista; }
+  catch(e){ caixa.textContent = e.message; parabensCache = null; return; }
+  const nome = li.dataset.nome, pessoa = parabensCache.find(p => norm(p.nome) === norm(nome));
+  if (!pessoa || !pessoa.telefone) { caixa.textContent = 'Telefone não encontrado no cadastro de dizimistas.'; return; }
+  const primeiro = nome.split(' ')[0];
+  const textos = (sessao.papel === 'padre' ? PARABENS_PADRE : PARABENS_EQUIPE).map(t => t.replace(/\{nome\}/g, primeiro));
+  let n = Math.floor(Math.random() * textos.length);
+  caixa.innerHTML = `<textarea class="campo" rows="8" aria-label="Mensagem de parabéns">${esc(textos[n])}</textarea>
+    <div class="parabens-acoes"><button class="link" type="button">Outra sugestão ↻</button><span class="pequeno">Você pode mudar o texto antes de enviar.</span></div>
+    <button class="btn zap" type="button">${ICONE_ZAP} Enviar parabéns para ${esc(primeiro)}</button>`;
+  const ta = caixa.querySelector('textarea');
+  caixa.querySelector('.link').onclick = () => { n = (n + 1) % textos.length; ta.value = textos[n]; };
+  caixa.querySelector('.zap').onclick = () => window.open(`https://wa.me/${pessoa.telefone}?text=${encodeURIComponent(ta.value.trim())}`, '_blank', 'noopener');
 }
 
 // ================= EVANGELHO =================
