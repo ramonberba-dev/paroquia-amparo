@@ -114,7 +114,7 @@ textarea.campo{resize:vertical;min-height:96px}
 /* acesso restrito */
 .acesso{margin-top:34px;border-top:1px dashed var(--linha2);padding-top:18px}
 .acesso form{display:flex;gap:10px}
-.acesso .campo{max-width:200px;letter-spacing:.3em;text-align:center}
+.acesso .campo{max-width:240px;letter-spacing:.12em;text-align:center}
 
 /* data */
 .datas{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:14px}
@@ -368,7 +368,7 @@ async function telaInicio(){
     <div class="acesso">
       ${sessao.papel ? `<p class="mudo pequeno">Conectado como <b>${sessao.papel === 'padre' ? 'Padre' : 'Pastoral do Dízimo'}</b>. <button class="btn claro" id="sair" style="padding:8px 14px;margin-left:6px">Sair</button></p>`
       : `<p class="mudo pequeno" style="margin:0 0 8px"><b>Acesso restrito</b> — Padre e Pastoral do Dízimo</p>
-         <form id="formPin"><input class="campo" id="pin" type="password" inputmode="numeric" autocomplete="off" maxlength="12" placeholder="PIN" aria-label="PIN"><button class="btn">Entrar</button></form>
+         <form id="formPin"><input class="campo" id="pin" type="password" autocomplete="off" autocapitalize="off" spellcheck="false" maxlength="40" placeholder="PIN" aria-label="PIN"><button class="btn">Entrar</button></form>
          <p class="pequeno" id="pinMsg" style="color:var(--erro);margin:8px 0 0"></p>`}
     </div>
   </section>`;
