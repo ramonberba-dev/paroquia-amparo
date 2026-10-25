@@ -199,6 +199,52 @@ textarea.campo{resize:vertical;min-height:96px}
 .passo summary{cursor:pointer;font-weight:800;padding:10px 0;color:var(--tinta)}
 .passo[open] summary{color:var(--azul)}
 
+/* pagar meu dízimo */
+.diz-topo{background:linear-gradient(150deg,#8C6420,var(--ouro) 60%,#CFA453);color:#fff;border-radius:22px;padding:20px;box-shadow:var(--sombra)}
+.diz-topo .rot{font-size:13px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;opacity:.9}
+.diz-topo p{font-family:var(--disp);font-style:italic;font-size:23px;line-height:1.25;margin:8px 0 4px}
+.diz-topo small{font-weight:800;opacity:.9}
+.diz-botoes{display:grid;gap:12px;margin-top:14px}
+.grande.diz-pix{background:var(--azul);color:#fff}
+.grande.diz-pix span{color:#C9D6EE}
+.grande.diz-pix .ic{background:rgba(255,255,255,.14);color:var(--ouro2)}
+.grande.dizimo-inicio{background:linear-gradient(135deg,#8C6420,var(--ouro));color:#fff;margin-top:14px;width:100%}
+.grande.dizimo-inicio span{color:#FFF3D6}
+.grande.dizimo-inicio .ic{background:rgba(255,255,255,.18);color:#fff}
+.form{display:grid;gap:14px}
+.form label{display:grid;gap:6px;font-weight:700;font-size:15.5px}
+.form-tit{font-family:var(--disp);font-size:28px;color:var(--azul);margin:0;line-height:1.1}
+.rotulo{display:block;font-weight:700;font-size:15.5px;margin-bottom:6px}
+.anos,.meses{display:flex;gap:6px;flex-wrap:wrap}
+.anos{margin-bottom:8px}
+.meses{display:grid;grid-template-columns:repeat(4,1fr)}
+.anos button,.meses button{border:1.5px solid var(--linha2);background:#fff;border-radius:12px;padding:9px 6px;font-weight:800;color:var(--mudo)}
+.anos button[aria-pressed="true"],.meses button[aria-pressed="true"]{background:var(--azul);border-color:var(--azul);color:#fff}
+.campo.valor{font-size:22px;font-weight:800}
+.grande-btn{width:100%;padding:16px;font-size:17px}
+.pix{margin-top:16px;display:grid;gap:10px}
+.pix-valor{font-family:var(--disp);font-size:44px;font-weight:700;color:var(--azul);text-align:center;line-height:1}
+.qr{display:flex;justify-content:center;padding:6px 0}
+.qr img,.qr canvas{border:8px solid #fff;border-radius:8px;box-shadow:var(--sombra)}
+.codigo{font-family:ui-monospace,Consolas,monospace;font-size:12.5px;word-break:break-all;background:var(--creme)}
+.passos-pix{margin:4px 0;padding-left:20px;color:var(--mudo);font-size:15px}
+.passos-pix li{margin:3px 0}
+.zap-linha{display:flex;gap:10px;align-items:stretch}
+.btn.zap{flex:1;background:#25D366;color:#fff;display:flex;align-items:center;justify-content:center;gap:8px;font-size:16px}
+.clip{width:56px;flex:none;border-radius:14px;background:var(--azulbg);color:var(--azul);display:grid;place-items:center;cursor:pointer}
+.aceite{display:flex!important;grid-template-columns:none;align-items:flex-start;gap:10px!important;font-weight:600!important;font-size:14px!important;color:var(--mudo)}
+.aceite input{width:20px;height:20px;margin-top:2px;flex:none}
+.aviso-novos{width:100%;border:0;border-radius:16px;background:#FFF1C7;color:#7A5410;font-weight:800;font-size:16px;padding:14px 16px;display:flex;justify-content:space-between;align-items:center;box-shadow:var(--sombra);margin-bottom:12px}
+.aviso-novos span{font-size:14px;flex:none;margin-left:10px}
+.cadastros{display:grid;gap:10px;margin-bottom:12px}
+.cad{background:var(--papel);border-radius:14px;padding:12px 14px;box-shadow:var(--sombra);display:grid;gap:2px;font-size:15px}
+.cad.novo{border-left:5px solid var(--ouro)}
+.cad b{font-size:17px}
+.cad small{color:var(--fraco)}
+.link{border:0;background:none;color:var(--azul2);font-weight:800;padding:0;text-decoration:underline}
+.nav button.tem-aviso{position:relative}
+.nav button.tem-aviso::after{content:"";position:absolute;top:6px;right:calc(50% - 16px);width:10px;height:10px;border-radius:50%;background:#D93025;border:2px solid #fff}
+
 /* bíblia */
 .livros{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
 .livros button{border:0;background:var(--papel);box-shadow:var(--sombra);border-radius:12px;padding:11px 12px;text-align:left;font-weight:700;font-size:15.5px;display:flex;gap:8px;align-items:baseline}
@@ -268,6 +314,7 @@ textarea.campo{resize:vertical;min-height:96px}
 <nav class="nav" aria-label="Seções">
   <div class="wrap">
     <button data-ir="inicio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11 12 4l9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-5h4v5"/></svg>Início</button>
+    <button data-ir="dizimo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6-3.8-6-8.5A3.5 3.5 0 0 1 12 10a3.5 3.5 0 0 1 6 2.5C18 17.2 12 21 12 21z"/><path d="M12 2v5M9.5 4.5h5"/></svg>Dízimo</button>
     <button data-ir="biblia"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h11a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3z"/><path d="M5 17a3 3 0 0 1 3-3h11"/><path d="M12 7v5M9.5 9h5"/></svg>Bíblia</button>
     <button data-ir="oracoes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v4M10 5h4"/><path d="M8 21v-6.5a4 4 0 0 1 1.2-2.8L12 9l2.8 2.7a4 4 0 0 1 1.2 2.8V21"/><path d="M6 21h12"/></svg>Orações</button>
     <button data-ir="novenas"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="1.6"/><circle cx="17.5" cy="7.5" r="1.6"/><circle cx="19" cy="13" r="1.6"/><circle cx="6.5" cy="7.5" r="1.6"/><circle cx="5" cy="13" r="1.6"/><path d="M12 15v6M9.5 17.5h5"/></svg>Novenas</button>
@@ -319,12 +366,12 @@ async function carregar(nome){
 }
 
 // ---------- rotas ----------
-const rotas = {inicio:telaInicio, devocionarios:telaDevocionarios, oracoes:telaOracoes, oracao:telaOracao, evangelho:telaEvangelho, santo:telaSanto, novenas:telaNovenas, novena:telaNovena, biblia:telaBiblia, pastoral:telaPastoral};
+const rotas = {inicio:telaInicio, dizimo:telaDizimo, devocionarios:telaDevocionarios, oracoes:telaOracoes, oracao:telaOracao, evangelho:telaEvangelho, santo:telaSanto, novenas:telaNovenas, novena:telaNovena, biblia:telaBiblia, pastoral:telaPastoral};
 function ir(h){ location.hash = h; }
 function rota(){
   const [nome, ...args] = (location.hash.slice(1) || 'inicio').split('/').map(decodeURIComponent);
   const fn = rotas[nome] || telaInicio;
-  const raiz = ['inicio','biblia','novenas','oracoes','devocionarios','pastoral'].includes(nome) && !args.length;
+  const raiz = ['inicio','dizimo','biblia','novenas','oracoes','devocionarios','pastoral'].includes(nome) && !args.length;
   $('#voltar').hidden = raiz; $('#selo').hidden = !raiz;
   document.querySelectorAll('.nav button').forEach(b => b.setAttribute('aria-current', b.dataset.ir === nome ? 'page' : 'false'));
   if (nome === 'pastoral' && !sessao.papel) { ir('inicio'); return; }
@@ -364,6 +411,7 @@ async function telaInicio(){
       <textarea id="inspNova" class="campo" maxlength="600" placeholder="Escreva a frase de hoje, Padre…">${esc(insp)}</textarea>
       <div class="linha"><button class="btn ouro" id="inspSalvar">Publicar inspiração</button><span class="mudo pequeno" id="inspMsg"></span></div>
     </div>` : ''}
+    <button class="grande largo dizimo-inicio" data-ir="dizimo"><div class="ic">${ICONE_PIX}</div><div><b>Pagar meu Dízimo</b><span>Pix do dízimo e da obra · cadastro de novo dizimista</span></div></button>
     <div class="grade">
       <button class="grande largo evang" data-ir="evangelho"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 5h7a3 3 0 0 1 3 3v12a2 2 0 0 0-2-2H2z"/><path d="M22 5h-7a3 3 0 0 0-3 3v12a2 2 0 0 1 2-2h8z"/></svg></div>
         <div><b>Evangelho do dia</b><span id="evPrev">${esc(dataLonga(hoje()))}</span></div></button>
@@ -673,6 +721,192 @@ function devocionario(d){
   $('#menos').onclick = () => ajusta(-2); $('#mais').onclick = () => ajusta(2);
 }
 
+const ICONE_PIX = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 21 12 12 21 3 12z"/><path d="M8.5 8.5 12 12l3.5-3.5M8.5 15.5 12 12l3.5 3.5"/></svg>';
+const ICONE_OBRA = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V10l7-5 7 5v11"/><path d="M12 5V2M10.5 3.5h3"/><path d="M10 21v-5h4v5"/></svg>';
+const ICONE_CAD = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="4"/><path d="M2 21a7 7 0 0 1 14 0"/><path d="M19 8v6M16 11h6"/></svg>';
+const ICONE_ZAP = '<svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3a2.6 2.6 0 0 0-.8 1.9c0 1.1.8 2.2.9 2.4.1.1 1.6 2.5 3.9 3.5 1.5.6 2 .7 2.7.6.4-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.4-.2z"/></svg>';
+const ICONE_CLIP = '<svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21 11-8.6 8.6a5.5 5.5 0 0 1-7.8-7.8l8.6-8.6a3.7 3.7 0 0 1 5.2 5.2l-8.6 8.6a1.8 1.8 0 0 1-2.6-2.6l7.9-7.9"/></svg>';
+// ================= PAGAR MEU DÍZIMO =================
+// Pix "copia e cola" (BR Code do Banco Central) gerado aqui mesmo; o comprovante vai pelo WhatsApp da secretaria.
+// PIX = {dizimo:{chave}, obra:{chave}, recebedor, cidade, whatsapp} vem de app/config.json (montado pelo build).
+const PIX = {"dizimo": {"chave": "+5521995032236"}, "obra": {"chave": "30147995006896"}, "recebedor": "PAROQUIA N S DO AMPARO", "cidade": "SAO GONCALO", "whatsapp": "5521995032236"};
+const TIPOS_PIX = {
+  dizimo: {titulo: 'Pagar dízimo', sub: 'Devolva seu dízimo pelo Pix', txid: 'DIZIMO', descr: 'Dizimo',
+    frase: 'efetuei o pagamento do meu dízimo pelo Pix', fecho: 'Que Deus abençoe a nossa paróquia e todos os dizimistas!'},
+  obra: {titulo: 'Contribuir com a obra', sub: 'Ajude nas obras da paróquia', txid: 'OBRA', descr: 'Obra',
+    frase: 'efetuei pelo Pix a minha contribuição para a obra da paróquia', fecho: 'Que Deus abençoe a obra e toda a nossa comunidade!'},
+};
+const semAcento = s => String(s || '').normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^\x20-\x7E]/g, '');
+const campoPix = (id, v) => id + String(v.length).padStart(2, '0') + v;
+function crc16(s){
+  let c = 0xFFFF;
+  for (let i = 0; i < s.length; i++) { c ^= s.charCodeAt(i) << 8; for (let j = 0; j < 8; j++) c = (c & 0x8000) ? ((c << 1) ^ 0x1021) & 0xFFFF : (c << 1) & 0xFFFF; }
+  return c.toString(16).toUpperCase().padStart(4, '0');
+}
+function codigoPix(chave, valor, txid, descricao){
+  const conta = campoPix('00', 'br.gov.bcb.pix') + campoPix('01', chave) + (descricao ? campoPix('02', semAcento(descricao).slice(0, 40)) : '');
+  const corpo = campoPix('00', '01') + campoPix('26', conta) + campoPix('52', '0000') + campoPix('53', '986') +
+    campoPix('54', valor.toFixed(2)) + campoPix('58', 'BR') +
+    campoPix('59', semAcento(PIX.recebedor).toUpperCase().slice(0, 25)) + campoPix('60', semAcento(PIX.cidade).toUpperCase().slice(0, 15)) +
+    campoPix('62', campoPix('05', (semAcento(txid).replace(/[^A-Za-z0-9]/g, '') || '***').slice(0, 25))) + '6304';
+  return corpo + crc16(corpo);
+}
+const reais = v => v.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'});
+const lerValor = t => { const n = Number(String(t).replace(/[^\d,.]/g, '').replace(/\.(?=\d{3}(\D|$))/g, '').replace(',', '.')); return isFinite(n) ? Math.round(n * 100) / 100 : 0; };
+function listaMeses(sel){ // [{m, a}] → "outubro e novembro de 2026"
+  const porAno = {}; sel.forEach(({m, a}) => (porAno[a] = porAno[a] || []).push(m));
+  const junta = l => l.length > 1 ? l.slice(0, -1).join(', ') + ' e ' + l[l.length - 1] : l[0];
+  return junta(Object.keys(porAno).sort().map(a => junta(porAno[a].sort((x, y) => x - y).map(m => MESES[m - 1].toLowerCase())) + ' de ' + a));
+}
+let qrLib = null;
+const carregarQR = () => qrLib || (qrLib = new Promise((ok, erro) => { const s = document.createElement('script');
+  s.src = 'https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js'; s.onload = ok; s.onerror = erro; document.head.appendChild(s); }));
+
+function telaDizimo(sub){
+  if (sub === 'cadastro') return telaCadastroDizimista();
+  if (sub === 'pagar' || sub === 'obra') return telaPagamento(sub === 'pagar' ? 'dizimo' : 'obra');
+  topo('Contribua com a paróquia', 'Pagar meu Dízimo');
+  app.innerHTML = `<section class="tela">
+    <div class="diz-topo"><div class="rot">Dízimo é gratidão</div>
+      <p>“Cada um dê conforme decidiu em seu coração, sem tristeza nem constrangimento, porque Deus ama quem dá com alegria.”</p><small>2Cor 9,7</small></div>
+    <div class="diz-botoes">
+      <button class="grande largo diz-pix" data-ir="dizimo/pagar"><div class="ic">${ICONE_PIX}</div><div><b>Pagar dízimo</b><span>Gere o código Pix e informe a secretaria</span></div></button>
+      <button class="grande largo" data-ir="dizimo/obra"><div class="ic">${ICONE_OBRA}</div><div><b>Contribuir com a obra</b><span>Pix exclusivo para as obras da paróquia</span></div></button>
+      <button class="grande largo" data-ir="dizimo/cadastro"><div class="ic">${ICONE_CAD}</div><div><b>Cadastrar novo dizimista</b><span>Quero ser dizimista da Paróquia do Amparo</span></div></button>
+    </div></section>`;
+  app.querySelectorAll('[data-ir]').forEach(b => b.onclick = () => ir(b.dataset.ir));
+}
+
+function telaPagamento(tipo){
+  const T = TIPOS_PIX[tipo], chave = (PIX[tipo] || {}).chave;
+  topo('Pagar meu Dízimo', T.titulo);
+  const eu = ler('pagador', {});
+  const hoje_ = hoje(), anos = [hoje_.getFullYear() - 1, hoje_.getFullYear(), hoje_.getFullYear() + 1];
+  let anoVisto = hoje_.getFullYear(); const marcados = new Set([`${hoje_.getFullYear()}-${hoje_.getMonth() + 1}`]);
+  app.innerHTML = `<section class="tela">
+    ${!chave ? '<div class="aviso">A chave Pix ainda está sendo configurada pela paróquia. Em breve o pagamento estará disponível aqui.</div>' : ''}
+    <form class="cartao form" id="fp">
+      <h2 class="form-tit">${esc(T.titulo)}</h2><p class="mudo" style="margin:-4px 0 8px">${esc(T.sub)}</p>
+      <label>Nome completo<input class="campo" id="pn" required autocomplete="name" value="${esc(eu.nome || '')}"></label>
+      <label>Telefone (WhatsApp)<input class="campo" id="pt" required inputmode="tel" autocomplete="tel" placeholder="(21) 99999-9999" value="${esc(eu.telefone || '')}"></label>
+      <label>Número do envelope<input class="campo" id="pe" inputmode="numeric" placeholder="Se tiver" value="${esc(eu.envelope || '')}"></label>
+      <div><span class="rotulo">Mês de referência <small class="mudo">(pode marcar mais de um)</small></span>
+        <div class="anos">${anos.map(a => `<button type="button" data-a="${a}" aria-pressed="${a === anoVisto}">${a}</button>`).join('')}</div>
+        <div class="meses" id="meses"></div></div>
+      <label>Valor<input class="campo valor" id="pv" required inputmode="decimal" placeholder="R$ 0,00"></label>
+      <button class="btn ouro grande-btn" ${chave ? '' : 'disabled'}>Gerar código Pix</button>
+    </form>
+    <div id="resultado"></div></section>`;
+  const desenhaMeses = () => {
+    $('#meses').innerHTML = MESES.map((n, i) => { const k = `${anoVisto}-${i + 1}`; return `<button type="button" data-k="${k}" aria-pressed="${marcados.has(k)}">${n.slice(0, 3)}</button>`; }).join('');
+    $('#meses').querySelectorAll('button').forEach(b => b.onclick = () => { marcados.has(b.dataset.k) ? marcados.delete(b.dataset.k) : marcados.add(b.dataset.k); b.setAttribute('aria-pressed', marcados.has(b.dataset.k)); });
+  };
+  app.querySelectorAll('.anos button').forEach(b => b.onclick = () => { anoVisto = +b.dataset.a; app.querySelectorAll('.anos button').forEach(x => x.setAttribute('aria-pressed', x === b)); desenhaMeses(); });
+  desenhaMeses();
+  $('#pv').onblur = () => { const v = lerValor($('#pv').value); if (v) $('#pv').value = reais(v); };
+  $('#pt').oninput = () => { const d = $('#pt').value.replace(/\D/g, '').slice(0, 11); $('#pt').value = d.length > 6 ? `(${d.slice(0, 2)}) ${d.slice(2, d.length - 4)}-${d.slice(-4)}` : d.length > 2 ? `(${d.slice(0, 2)}) ${d.slice(2)}` : d; };
+  $('#fp').onsubmit = async ev => {
+    ev.preventDefault();
+    const nome = $('#pn').value.trim(), telefone = $('#pt').value.trim(), envelope = $('#pe').value.trim(), valor = lerValor($('#pv').value);
+    const sel = [...marcados].map(k => { const [a, m] = k.split('-').map(Number); return {a, m}; }).sort((x, y) => x.a - y.a || x.m - y.m);
+    if (nome.split(/\s+/).length < 2) return toast('Escreva o nome completo');
+    if (!sel.length) return toast('Marque o mês de referência');
+    if (!(valor > 0)) return toast('Informe o valor');
+    guardar('pagador', {nome, telefone, envelope});
+    const meses = listaMeses(sel);
+    const mesCurto = sel.length === 1 ? `${MESES[sel[0].m - 1].slice(0, 3)}/${String(sel[0].a).slice(2)}` : `${sel.length} meses`;
+    const codigo = codigoPix(chave, valor, T.txid + (envelope.replace(/\D/g, '') ? 'ENV' + envelope.replace(/\D/g, '') : ''), `${T.descr} ${mesCurto}${envelope ? ' env ' + envelope : ''}`);
+    const r = $('#resultado');
+    r.innerHTML = `<div class="cartao pix">
+      <div class="pix-valor">${reais(valor)}</div><div class="mudo" style="text-align:center">${esc(T.descr === 'Obra' ? 'Contribuição para a obra' : 'Dízimo')} · ${esc(meses)}</div>
+      <div id="qr" class="qr" aria-label="QR Code do Pix"></div>
+      <span class="rotulo">Pix copia e cola</span><textarea class="campo codigo" readonly rows="4">${esc(codigo)}</textarea>
+      <button class="btn grande-btn" id="copiar">Copiar código Pix</button>
+      <ol class="passos-pix"><li>Toque em <b>Copiar código Pix</b>.</li><li>Abra o app do seu banco, escolha <b>Pix › Pix copia e cola</b> e cole o código.</li><li>Confira o nome da paróquia e o valor, e confirme.</li></ol>
+      <button class="btn claro grande-btn" id="feito" hidden>Já fiz o pagamento</button>
+      <div id="informar" hidden>
+        <p class="mudo" style="margin:14px 0 8px"><b>1.</b> Toque no clipe 📎 e anexe o comprovante do Pix.<br><b>2.</b> Toque no botão verde para avisar a secretaria pelo WhatsApp.</p>
+        <div class="zap-linha"><button class="btn zap" id="zap" disabled>${ICONE_ZAP} Informar pagamento à secretaria</button>
+          <label class="clip" title="Anexar comprovante" aria-label="Anexar comprovante">${ICONE_CLIP}<input type="file" id="comp" accept="image/*,application/pdf" hidden></label></div>
+        <p class="pequeno" id="anexo" style="margin:8px 0 0;color:var(--ok);font-weight:700"></p>
+      </div></div>`;
+    r.scrollIntoView({behavior: 'smooth', block: 'start'});
+    carregarQR().then(() => new QRCode($('#qr'), {text: codigo, width: 200, height: 200, correctLevel: QRCode.CorrectLevel.M})).catch(() => $('#qr').remove());
+    const mostrarFeito = () => { $('#feito').hidden = false; };
+    $('#copiar').onclick = async () => {
+      try { await navigator.clipboard.writeText(codigo); } catch(e){ const t = r.querySelector('.codigo'); t.select(); document.execCommand('copy'); }
+      $('#copiar').textContent = 'Código copiado ✓'; toast('Código Pix copiado! Agora cole no app do banco.'); mostrarFeito();
+    };
+    setTimeout(mostrarFeito, 15000);
+    $('#feito').onclick = () => { $('#informar').hidden = false; $('#feito').hidden = true; $('#informar').scrollIntoView({behavior: 'smooth', block: 'center'}); };
+    let arquivo = null;
+    $('#comp').onchange = () => { arquivo = $('#comp').files[0] || null; $('#anexo').textContent = arquivo ? '📎 Comprovante anexado: ' + arquivo.name : ''; $('#zap').disabled = !arquivo; };
+    $('#zap').onclick = async () => {
+      if (!arquivo) return toast('Primeiro anexe o comprovante no clipe 📎');
+      const msg = `Olá! A paz de Jesus e o amor de Maria! 🙏\n\nMeu nome é ${nome} e ${T.frase}.\n\n` +
+        `• Valor: ${reais(valor)}\n• Referente a: ${meses}\n` + (envelope ? `• Número do envelope: ${envelope}\n` : '') + `• Telefone: ${telefone}\n\n` +
+        `Segue o comprovante. ${T.fecho}`;
+      if (arquivo && navigator.canShare && navigator.canShare({files: [arquivo]})) {
+        try { await navigator.clipboard.writeText(msg); } catch(e){}
+        try { await navigator.share({files: [arquivo], text: msg}); return; } catch(e){ if (e.name === 'AbortError') return; }
+      }
+      const numero = String(PIX.whatsapp || '').replace(/\D/g, '');
+      window.open(`https://wa.me/${numero}?text=${encodeURIComponent(msg)}`, '_blank', 'noopener');
+      toast('Se o comprovante não aparecer na conversa, toque no 📎 do WhatsApp e anexe.');
+    };
+  };
+}
+
+function telaCadastroDizimista(){
+  topo('Pagar meu Dízimo', 'Novo dizimista');
+  app.innerHTML = `<section class="tela"><form class="cartao form" id="fc" autocomplete="on">
+    <h2 class="form-tit">Quero ser dizimista</h2>
+    <p class="mudo" style="margin:-4px 0 8px">Preencha seus dados. A Pastoral do Dízimo vai receber o seu cadastro e entrar em contato.</p>
+    <label>Nome completo<input class="campo" id="cn" required autocomplete="name"></label>
+    <label>Telefone (WhatsApp)<input class="campo" id="ct" required inputmode="tel" autocomplete="tel" placeholder="(21) 99999-9999"></label>
+    <label>CPF<input class="campo" id="cc" required inputmode="numeric" placeholder="000.000.000-00"></label>
+    <label>Endereço<textarea class="campo" id="ce" required rows="2" autocomplete="street-address" placeholder="Rua, número, bairro, cidade"></textarea></label>
+    <label>Data de aniversário<input class="campo" id="cd" required type="date"></label>
+    <input id="csite" name="site" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">
+    <label class="aceite"><input type="checkbox" id="cok" required> Autorizo a Paróquia Nossa Senhora do Amparo a guardar estes dados para o cadastro de dizimistas.</label>
+    <button class="btn ouro grande-btn">Enviar cadastro</button></form></section>`;
+  $('#ct').oninput = () => { const d = $('#ct').value.replace(/\D/g, '').slice(0, 11); $('#ct').value = d.length > 6 ? `(${d.slice(0, 2)}) ${d.slice(2, d.length - 4)}-${d.slice(-4)}` : d.length > 2 ? `(${d.slice(0, 2)}) ${d.slice(2)}` : d; };
+  $('#cc').oninput = () => { const d = $('#cc').value.replace(/\D/g, '').slice(0, 11); $('#cc').value = d.replace(/(\d{3})(\d)/, '$1.$2').replace(/(\d{3})\.(\d{3})(\d)/, '$1.$2.$3').replace(/(\d{3})\.(\d{3})\.(\d{3})(\d)/, '$1.$2.$3-$4'); };
+  $('#fc').onsubmit = async ev => {
+    ev.preventDefault(); const b = $('#fc button'); b.disabled = true; b.textContent = 'Enviando…';
+    try {
+      await servidor('cadastrar', {nome: $('#cn').value, telefone: $('#ct').value, cpf: $('#cc').value, endereco: $('#ce').value, nascimento: $('#cd').value, site: $('#csite').value});
+      app.innerHTML = `<section class="tela"><div class="cartao" style="text-align:center;padding:28px 20px">
+        <div style="font-size:44px">🙏</div><h2 class="form-tit">Cadastro enviado!</h2>
+        <p>Seja bem-vindo(a) à família dos dizimistas da Paróquia Nossa Senhora do Amparo. A Pastoral do Dízimo vai entrar em contato com você.</p>
+        <button class="btn ouro grande-btn" id="irPagar">Pagar meu dízimo agora</button></div></section>`;
+      $('#irPagar').onclick = () => ir('dizimo/pagar');
+    } catch(e){ toast(e.message); b.disabled = false; b.textContent = 'Enviar cadastro'; }
+  };
+}
+
+// aviso de novos dizimistas, na Pastoral do Dízimo
+async function avisoCadastros(caixa){
+  let lista; try { lista = (await servidor('cadastros')).cadastros; } catch(e){ return; }
+  const desenha = (abrir) => {
+    const novos = lista.filter(c => !c.visto);
+    $('#navPastoral').classList.toggle('tem-aviso', novos.length > 0);
+    if (!lista.length) { caixa.innerHTML = ''; return; }
+    const mostra = abrir === 'todos' ? lista : novos;
+    caixa.innerHTML = `${novos.length ? `<button class="aviso-novos" id="avAbrir">🔔 ${novos.length === 1 ? 'Novo dizimista cadastrado' : novos.length + ' novos dizimistas cadastrados'} <span>${abrir ? 'fechar' : 'ver'} ›</span></button>` : ''}
+      ${abrir && mostra.length ? `<div class="cadastros">${mostra.map(c => `<div class="cad ${c.visto ? '' : 'novo'}"><b>${esc(c.nome)}</b>
+        <span>📞 <a href="https://wa.me/55${esc(String(c.telefone).replace(/\D/g, ''))}" target="_blank" rel="noopener">${esc(c.telefone)}</a></span>
+        <span>CPF ${esc(c.cpf)} · 🎂 ${esc(String(c.nascimento).split('-').reverse().slice(0, 2).join('/'))}</span>
+        <span>${esc(c.endereco)}</span><small>cadastrado em ${new Date(c.data).toLocaleDateString('pt-BR')}</small></div>`).join('')}
+        ${novos.length ? '<button class="btn claro" id="avVisto" style="width:100%">Marcar como visto</button>' : ''}</div>` : ''}
+      <p class="pequeno" style="margin:6px 0 0"><button class="link" id="avTodos">${abrir === 'todos' ? 'Esconder cadastros' : 'Ver todos os cadastros pelo app (' + lista.length + ')'}</button></p>`;
+    const a = $('#avAbrir'); if (a) a.onclick = () => desenha(abrir ? false : 'novos');
+    $('#avTodos').onclick = () => desenha(abrir === 'todos' ? false : 'todos');
+    const v = $('#avVisto'); if (v) v.onclick = async () => { v.disabled = true; try { lista = (await servidor('cadastrosVistos')).cadastros; desenha(false); } catch(e){ toast(e.message); v.disabled = false; } };
+  };
+  desenha(false);
+}
+
 // ================= BÍBLIA =================
 // Índice dos 73 livros (dados/biblia.json). O texto é o da Bíblia Ave-Maria, que tem direitos autorais:
 // a leitura abre no site Bíblia Católica Online, direto no capítulo ou versículo.
@@ -765,6 +999,7 @@ async function telaPastoral(){
   topo('Acesso restrito','Pastoral do Dízimo');
   const agora = hoje(); const padrao = agora.getDate() >= 15 ? somaDias(new Date(agora.getFullYear(), agora.getMonth()+1, 1), 0) : agora;
   app.innerHTML = `<section class="tela">
+    <div id="avisos"></div>
     <div class="mural"><h2>📌 Mural</h2><div class="notas" id="notas"><div class="vazio">Carregando recados…</div></div>
       <form class="nota-nova" id="fn"><b>Deixar um recado</b>
         <textarea class="campo" id="nt" maxlength="500" placeholder="Escreva sua mensagem para a pastoral…" required style="min-height:80px"></textarea>
@@ -807,6 +1042,7 @@ async function telaPastoral(){
       catch(e){ toast(e.message); b.disabled = false; }
     });
   };
+  avisoCadastros($('#avisos'));
   servidor('mural').then(j => desenhaNotas(j.recados)).catch(e => $('#notas').innerHTML = `<div class="vazio">${esc(e.message)}</div>`);
   servidor('cartazes').then(j => desenhaPedidos(j.pedidos)).catch(e => $('#pedidos').textContent = e.message);
 
